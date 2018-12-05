@@ -18,7 +18,7 @@ public class MainWindowController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Rules");
         alert.setHeaderText("You can move any direction but only one space.\n" +
-                "If there's another checker u can jump over it with yours continously if the condition is still met.\n" +
+                "If there's another checker u can jump over it with yours continuously if the condition is still met.\n" +
                 "Your goal is to get all of your checkers to opposite triangle.");
         alert.setContentText("This simple game is made for college project.\n" +
                 "Hope you enjoy.\n" +
