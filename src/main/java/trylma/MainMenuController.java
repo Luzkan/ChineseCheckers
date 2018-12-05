@@ -6,6 +6,7 @@ import java.io.IOException;
 
 public class MainMenuController {
 
+    // Switch between Options and The Game
     private Main main;
 
     @FXML
@@ -17,4 +18,7 @@ public class MainMenuController {
     private void goOptions() throws IOException {
         main.showOptions();
     }
+
+
+
 }

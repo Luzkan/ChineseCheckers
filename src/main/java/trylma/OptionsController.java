@@ -52,11 +52,30 @@ public class OptionsController {
         typeOfBoard.setValue("Regular");
         typeOfBoard.setItems(typeOfBoardList);
 
-        ruleSet.setValue("1");
+        ruleSet.setValue("Blocked Switch");
         ruleSet.setItems(ruleSetList);
 
         numberOfCPU.setValue("0");
         numberOfCPU.setItems(numberOfCPUList);
+    }
+
+    // Confirmation Button
+    public final void confirmOptions (ActionEvent actionEvent) {
+
+        String NumberOfPlayersString = numberOfPlayers.getValue().toString();
+        int NumberOfPlayers = Integer.parseInt(NumberOfPlayersString);
+
+        String TypeOfBoard = typeOfBoard.getValue().toString();
+        String RuleSet = ruleSet.getValue().toString();
+
+        String NumberOfCPUString = numberOfCPU.getValue().toString();
+        int NumberOfCPU = Integer.parseInt(NumberOfCPUString);
+
+
+        if(!((NumberOfPlayers + NumberOfCPU > 6) && (NumberOfPlayers + NumberOfCPU == 5))){
+            //TODO: Return of the selected options
+            //also: a checks for selected CPU/Players amount
+        }
     }
 
 
@@ -68,10 +87,6 @@ public class OptionsController {
         main.showMainMenu();
     }
 
-    public final void confirmOptions (ActionEvent actionEvent) {
-        //TODO: Reading the selected options
-        //also: a checks for selected CPU/Players amount
-    }
 
 
 }
