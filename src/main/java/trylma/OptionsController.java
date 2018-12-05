@@ -23,7 +23,7 @@ public class OptionsController {
 
     @FXML
     private ComboBox typeOfBoard;
-    private ObservableList<String> typeOfBoardList = FXCollections.observableArrayList("Regular");
+    private ObservableList<String> typeOfBoardList = FXCollections.observableArrayList("6-Shaped Start");
 
     @FXML
     private ComboBox ruleSet;
@@ -49,7 +49,7 @@ public class OptionsController {
         numberOfPlayers.setValue("1");
         numberOfPlayers.setItems(numberOfPlayersList);
 
-        typeOfBoard.setValue("Regular");
+        typeOfBoard.setValue("6-Shaped Star");
         typeOfBoard.setItems(typeOfBoardList);
 
         ruleSet.setValue("Blocked Switch");
