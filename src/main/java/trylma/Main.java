@@ -3,9 +3,14 @@ package trylma;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.scene.canvas.GraphicsContext;
 
 import java.io.IOException;
 
@@ -47,10 +52,29 @@ public class Main extends Application {
 
     // The Game
     public static void showPlayGame() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
+       /*FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("/fxml/PlayGame.fxml"));
         BorderPane PlayGame = loader.load();
         MainWindow.setCenter(PlayGame);
+        ADDAED THE WAY BOARD IS DISPLAYED
+        */
+        Canvas canvas = new Canvas(600,600);
+        Group root = new Group(canvas);
+
+        Board board = new Board();
+        for (int x = 0; x < 13; x++) {
+            int posX=x*40+50;
+            for (int y = 0; y < 17; y++) {
+                int posY=y*40+50;
+                board.board[x][y].setCenterY(posY);
+                board.board[x][y].setCenterX(posX);
+                if(y%2==1)board.board[x][y].setCenterX(posX+20);
+                board.board[x][y].setRadius(15);
+                if(board.board[x][y].getFill()!= Color.AQUA) root.getChildren().addAll(board.board[x][y]);
+            }
+        }
+        primaryStage.setMaximized(true);
+        MainWindow.setCenter(root);
     }
 
     // Options Menu
