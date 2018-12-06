@@ -65,16 +65,18 @@ public class Main extends Application {
         for (int x = 0; x < 13; x++) {
             int posX=x*40+50;
             for (int y = 0; y < 17; y++) {
+                if(board.board[x][y] != null) {
 
-                // Adding extrasize value to resize the board
-                // Might be helpfull later
-                double extraSize = 1.33;
-                int posY=y*40+50;
-                board.board[x][y].setCenterY(posY*extraSize);
-                board.board[x][y].setCenterX(posX*extraSize);
-                if(y%2==1)board.board[x][y].setCenterX((posX+20)*extraSize);
-                board.board[x][y].setRadius(15*extraSize);
-                if(board.board[x][y].getFill()!= Color.AQUA) root.getChildren().addAll(board.board[x][y]);
+                    // Adding extrasize value to resize the board
+                    // Might be helpfull later
+                    double extraSize = 1.33;
+                    int posY = y * 40 + 50;
+                    board.board[x][y].setCenterY(posY * extraSize);
+                    board.board[x][y].setCenterX(posX * extraSize);
+                    if (y % 2 == 1) board.board[x][y].setCenterX((posX + 20) * extraSize);
+                    board.board[x][y].setRadius(15 * extraSize);
+                    root.getChildren().addAll(board.board[x][y]);
+                }
             }
         }
         primaryStage.setMaximized(true);
