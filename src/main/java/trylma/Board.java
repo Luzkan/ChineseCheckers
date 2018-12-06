@@ -15,10 +15,49 @@ public class Board{
             for (int y = 0; y < 17; y++) {
                 board[x][y] = new Marbles();
                 board[x][y].setFill(Color.AQUA);
-                //Check ID on Click - just for debugging
+
+                // For the lambda thing
                 int finalX = x;
                 int finalY = y;
-                board[x][y].setOnMouseClicked(event -> System.out.println("Clicked on marble (y:" + finalY + ", x:" + finalX + "). devValues: [" + finalX + ", " + finalY + "]"));
+
+
+
+                board[x][y].setOnMouseClicked(event -> {
+
+                    // Check if move was made this turn
+                    boolean madeChoice = false;
+                    boolean startedDeciding = false;
+
+                    //Check ID on Click - just for debugging
+                    System.out.println("Clicked on marble (y:" + finalY + ", x:" + finalX + "). devValues: [" + finalX + ", " + finalY + "]");
+
+                    //Double click to select maybe? Idk, maybe could be useful somehow.
+                    if (event.getClickCount() > 1) {
+                        System.out.println("Clickd Twice!");
+                    }
+
+                    /*
+                    if(board[x][y].getColor == //ActualPlayer.color){
+                        if(//= space from where we are moving marble is starting positions for a player) {
+                            board[finalX][finalY].setDefaultPlayerColor();
+                            int movingThisX = finalX;
+                            int movingThisY = finalY;
+                            startedDeciding = true;
+                        }else{
+                            board[finalX][finalY].setDefaultGrayColor();
+                            int movingThisX = finalX;
+                            int movingThisY = finalY;
+                            startedDeciding = true;
+                        }
+                    }
+
+                    if(startedDeciding == true //&& movePossible(finalX, finalY, movingThisX, movingThisY) == true) {
+                        board[finalX][finalY].setFill(//ActualPlayer.color);
+                        madeChoice = true;
+                    }
+                    */
+
+                });
             }
         }
         //sets player 1 as green
@@ -155,5 +194,15 @@ public class Board{
         board[6][12].setColor(Color.GRAY);
         board[7][12].setColor(Color.GRAY);
         board[8][12].setColor(Color.GRAY);
+    }
+
+
+    boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY){
+
+        if(goingFromX == hereGoX+1 || goingFromX == hereGoX-1)
+            if(goingFromY == hereGoY+1 || goingFromY == hereGoY-1)
+                return true;
+
+        return false;
     }
 }
