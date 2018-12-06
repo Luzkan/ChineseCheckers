@@ -3,4 +3,6 @@
 <?import javafx.scene.layout.BorderPane?>
 
 
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1860.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trylma.PlayGameController" />
+

@@ -3,8 +3,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 public class Board{
-    Marbles board[][] = new Marbles[13][17]; //This array holds more marbles than there are in the game, but this way 2 marbles that are close on the board are also close in array.
-    //Marbles that are not in game but in the array have thiere collors set to AQUA, that's why AQUA COLORED marbles are ignored when drawing
+    Marbles board[][] = new Marbles[13][17];
+    /* This array holds more marbles than there are in the game,
+        but this way 2 marbles that are close on the board are also close in array.
+        Marbles that are not in game but in the array have there colors set to AQUA,
+        that's why AQUA COLORED marbles are ignored when drawing */
 
     public Board() {
 
@@ -12,6 +15,10 @@ public class Board{
             for (int y = 0; y < 17; y++) {
                 board[x][y] = new Marbles();
                 board[x][y].setFill(Color.AQUA);
+                //Check ID on Click - just for debugging
+                int finalX = x;
+                int finalY = y;
+                board[x][y].setOnMouseClicked(event -> System.out.println("You clicked on marble #" + finalX + finalY));
             }
         }
         //sets player 1 as green
