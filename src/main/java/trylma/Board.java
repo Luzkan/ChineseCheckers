@@ -2,7 +2,12 @@ package trylma;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
+
 public class Board{
+    boolean marbleSelected=false;
+    int selectedMarbleX;
+    int selectedMarbleY;
+    Paint selectedMarbleColor;
     Marbles board[][] = new Marbles[13][17];
     /* This array holds more marbles than there are in the game,
         but this way 2 marbles that are close on the board are also close in array.
@@ -20,8 +25,6 @@ public class Board{
                 int finalX = x;
                 int finalY = y;
 
-
-
                 board[x][y].setOnMouseClicked(event -> {
 
                     // Check if move was made this turn
@@ -30,11 +33,26 @@ public class Board{
 
                     //Check ID on Click - just for debugging
                     System.out.println("Clicked on marble (y:" + finalY + ", x:" + finalX + "). devValues: [" + finalX + ", " + finalY + "]");
-
                     //Double click to select maybe? Idk, maybe could be useful somehow.
                     if (event.getClickCount() > 1) {
                         System.out.println("Clickd Twice!");
                     }
+                    //if one mable is already selected then we are selecting target now
+                    if(marbleSelected){
+                        move(finalX,finalY,selectedMarbleX,selectedMarbleY,selectedMarbleColor);
+                        board[selectedMarbleX][selectedMarbleY].setRadius(15 * 1.33);
+                        marbleSelected=false;
+
+                    }
+                    //if no marbles are selected we are selecting a marble to move, it must be non GRAY
+                    else if(!Color.GRAY.equals(board[finalX][finalY].getFill())){
+                        marbleSelected=true;
+                        selectedMarbleX=finalX;
+                        selectedMarbleY=finalY;
+                        selectedMarbleColor = board[finalX][finalY].getFill();
+                        board[finalX][finalY].setRadius(30);
+                    }
+
 
                     /*
                     if(board[x][y].getColor == //ActualPlayer.color){
@@ -60,6 +78,8 @@ public class Board{
                 });
             }
         }
+
+
         //sets player 1 as green
         board[6][0].setColor(Color.GREEN);
         board[5][1].setColor(Color.GREEN);
@@ -194,15 +214,46 @@ public class Board{
         board[6][12].setColor(Color.GRAY);
         board[7][12].setColor(Color.GRAY);
         board[8][12].setColor(Color.GRAY);
+        //setting all AQUA marbles to null, we dont care 'bout them
+        for(int i=0;i<13;i++){
+            for(int j=0;j<17;j++){
+                if( Color.AQUA.equals(board[i][j].getFill())){
+                    board[i][j]=null;
+                }
+            }
+        }
+    }
+    //self explanatory 
+     void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color){
+        try{
+            if(movePossible(hereGoX, hereGoY, goingFromX, goingFromY)){
+                board[hereGoX][hereGoY].setFill(player_color);
+                board[goingFromX][goingFromY].setColor(Color.GRAY);
+                System.out.println("MOVE");
+            }
+            else{
+                System.out.println("ILLEGAL"); //debażer
+
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
     }
 
 
     boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY){
+        /* TODO: add jumping over to the logic
 
-        if(goingFromX == hereGoX+1 || goingFromX == hereGoX-1)
-            if(goingFromY == hereGoY+1 || goingFromY == hereGoY-1)
+         */
+        if(goingFromX == hereGoX+1 || goingFromX == hereGoX-1 || goingFromX==hereGoX) //must be close
+            if(goingFromY == hereGoY+1 || goingFromY == hereGoY-1 || goingFromY == hereGoY)
+                if(Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
                 return true;
 
         return false;
     }
+
+
 }
