@@ -7,5 +7,7 @@ public class Marbles extends javafx.scene.shape.Circle {
         public void setColor(Color color) {
             this.setFill(color);
         }
-    }
+    //Check ID on Click - just for debugging
+
+}
 
