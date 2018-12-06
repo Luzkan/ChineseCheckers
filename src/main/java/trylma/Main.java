@@ -20,6 +20,9 @@ public class Main extends Application {
     private static BorderPane MainWindow;
 
     // Starting parameters
+    // !!! NOTICE FOR LATER !!!
+    // Change the height of main window back to 960 and erase the dev options
+    // After we are done
     @Override
     public final void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;

@@ -23,7 +23,7 @@ public class OptionsController {
 
     @FXML
     private ComboBox typeOfBoard;
-    private ObservableList<String> typeOfBoardList = FXCollections.observableArrayList("Regular");
+    private ObservableList<String> typeOfBoardList = FXCollections.observableArrayList("6-Shaped Start");
 
     @FXML
     private ComboBox ruleSet;
@@ -49,14 +49,33 @@ public class OptionsController {
         numberOfPlayers.setValue("1");
         numberOfPlayers.setItems(numberOfPlayersList);
 
-        typeOfBoard.setValue("Regular");
+        typeOfBoard.setValue("6-Shaped Star");
         typeOfBoard.setItems(typeOfBoardList);
 
-        ruleSet.setValue("1");
+        ruleSet.setValue("Blocked Switch");
         ruleSet.setItems(ruleSetList);
 
         numberOfCPU.setValue("0");
         numberOfCPU.setItems(numberOfCPUList);
+    }
+
+    // Confirmation Button
+    public final void confirmOptions (ActionEvent actionEvent) {
+
+        String NumberOfPlayersString = numberOfPlayers.getValue().toString();
+        int NumberOfPlayers = Integer.parseInt(NumberOfPlayersString);
+
+        String TypeOfBoard = typeOfBoard.getValue().toString();
+        String RuleSet = ruleSet.getValue().toString();
+
+        String NumberOfCPUString = numberOfCPU.getValue().toString();
+        int NumberOfCPU = Integer.parseInt(NumberOfCPUString);
+
+
+        if(!((NumberOfPlayers + NumberOfCPU > 6) && (NumberOfPlayers + NumberOfCPU == 5))){
+            //TODO: Return of the selected options
+            //also: a checks for selected CPU/Players amount
+        }
     }
 
 
@@ -68,10 +87,6 @@ public class OptionsController {
         main.showMainMenu();
     }
 
-    public final void confirmOptions (ActionEvent actionEvent) {
-        //TODO: Reading the selected options
-        //also: a checks for selected CPU/Players amount
-    }
 
 
 }
