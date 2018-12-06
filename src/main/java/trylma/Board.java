@@ -18,7 +18,7 @@ public class Board{
                 //Check ID on Click - just for debugging
                 int finalX = x;
                 int finalY = y;
-                board[x][y].setOnMouseClicked(event -> System.out.println("You clicked on marble #" + finalX + finalY));
+                board[x][y].setOnMouseClicked(event -> System.out.println("Clicked on marble (y:" + finalY + ", x:" + finalX + "). devValues: [" + finalX + ", " + finalY + "]"));
             }
         }
         //sets player 1 as green
