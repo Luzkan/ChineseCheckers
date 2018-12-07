@@ -15,8 +15,7 @@ public class Board{
         that's why AQUA COLORED marbles are ignored when drawing */
 
 
-    // FOUND BUG TO BE FIXED LATER IN MOVING:
-    // Example: we can move from [2, 10] to [3, 9] which should be illegal.
+
 
     public Board() {
 
@@ -345,12 +344,12 @@ public class Board{
         return false;
     }
 
-
     boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY){
         if(goingFromX == hereGoX+1 || goingFromX == hereGoX-1 || goingFromX==hereGoX) //must be close
             if(goingFromY == hereGoY+1 || goingFromY == hereGoY-1 || goingFromY == hereGoY)
                 if(Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
-                return true;
+                    if(!((goingFromX == hereGoX+1 && goingFromY == hereGoY-1)) && !(goingFromX == hereGoX-1 && goingFromY == hereGoY+1))
+                        return true;
 
         return false;
     }
