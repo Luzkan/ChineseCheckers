@@ -14,6 +14,10 @@ public class Board{
         Marbles that are not in game but in the array have there colors set to AQUA,
         that's why AQUA COLORED marbles are ignored when drawing */
 
+
+    // FOUND BUG TO BE FIXED LATER IN MOVING:
+    // Example: we can move from [2, 10] to [3, 9] which should be illegal.
+
     public Board() {
 
         for (int x = 0; x < 13; x++) {
@@ -30,16 +34,39 @@ public class Board{
                     // Check if move was made this turn
                     boolean madeChoice = false;
                     boolean startedDeciding = false;
+                    boolean jumpMade = false;
+                    boolean moveMade = false;
 
-                    //Check ID on Click - just for debugging
-                    System.out.println("Clicked on marble (y:" + finalY + ", x:" + finalX + "). devValues: [" + finalX + ", " + finalY + "]");
-                    //Double click to select maybe? Idk, maybe could be useful somehow.
+
+                    // Check ID on Click - just for debugging
+                    System.out.println("Marble: [" + finalX + ", " + finalY + "]");
+                    // Double click to select maybe? Idk, maybe could be useful somehow.
                     if (event.getClickCount() > 1) {
                         System.out.println("Clickd Twice!");
                     }
+
+
                     //if one mable is already selected then we are selecting target now
                     if(marbleSelected){
-                        move(finalX,finalY,selectedMarbleX,selectedMarbleY,selectedMarbleColor);
+
+                        if(!jumpMade || !moveMade) {
+                            move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+                        }
+
+                        // Adding jump logic. If a move is illegal, then instead of fail
+                        // we can check if it was supposed to jump move instead
+                        // if it was jump then we still allow to perform jumps
+                        // and end turn, but user cant make regular moves anymore
+
+                        if(!moveMade) {
+                            jump(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+                        }
+
+                        // This is missing some kind of if statement or anything that checks
+                        // If jump was performed - if yes, then boolean "jumpMade" should be true
+                        // and move function isn't possible anymore.
+                        // same logic to check if move was done
+
                         board[selectedMarbleX][selectedMarbleY].setRadius(15 * 1.33);
                         marbleSelected=false;
 
@@ -232,21 +259,94 @@ public class Board{
                 System.out.println("MOVE");
             }
             else{
-                System.out.println("ILLEGAL"); //debażer
+                System.out.println("Illegal Move, Trying Jump"); //debażer
 
             }
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());
         }
+    }
 
+    void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color){
+        try{
+            if(jumpPossible(hereGoX, hereGoY, goingFromX, goingFromY)){
+                board[hereGoX][hereGoY].setFill(player_color);
+                board[goingFromX][goingFromY].setColor(Color.GRAY);
+                System.out.println("JUMP");
+
+            }else{
+                System.out.println("Illegal Jump"); //debugger
+
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    boolean jumpPossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY){
+
+        /* There are 8 direction from which a marble can jump over a marble
+           Imagine that we have a clock and we jump from number to the other side
+           Over the middle in the clock: like from 3 to 9 or from 12 to 6 etc.
+
+           1 -> 7   [-1, +2]        3 -> 9  [-2, 0]         5 -> 11    [-1, -2]
+           7 -> 1   [+1, -2]        9 -> 3  [+2, 0]         11 -> 5    [+1, +2]
+
+           Problem arrises when we change the Board to a custom one cause we need to write logic
+           from the beginning again. Hopefully the alghoritm for board will fix this problem and
+           we can adjust accordingly.
+        */
+
+        if(goingFromX - hereGoX  == 2)
+            if(goingFromY - hereGoY == 0)
+                if(!(Color.GRAY.equals(board[hereGoX+1][hereGoY].getFill())))
+                    return true;
+
+        if(goingFromX - hereGoX == -2)
+            if(goingFromY - hereGoY == 0)
+                if(!(Color.GRAY.equals(board[hereGoX-1][hereGoY].getFill())))
+                    return true;
+
+        // curvature of the board forces to make two checks
+        // cause could be placed on even or odd spot
+
+        if(hereGoX - goingFromX == -1)
+            if(hereGoY - goingFromY == 2)
+                if(!(Color.GRAY.equals(board[hereGoX+1][hereGoY-1].getFill()))){
+                    return true;
+                }else if (!(Color.GRAY.equals(board[hereGoX][hereGoY-1].getFill())))
+                    return true;
+
+        if(hereGoX - goingFromX == -1)
+            if(hereGoY - goingFromY == -2)
+                if(!(Color.GRAY.equals(board[hereGoX+1][hereGoY+1].getFill()))){
+                    return true;
+                }else if (!(Color.GRAY.equals(board[hereGoX][hereGoY+1].getFill())))
+                    return true;
+
+        if(hereGoX - goingFromX  == 1)
+            if(hereGoY - goingFromY == 2)
+                if(!(Color.GRAY.equals(board[hereGoX][hereGoY-1].getFill()))) {
+                    return true;
+                }else if (!(Color.GRAY.equals(board[hereGoX-1][hereGoY-1].getFill())))
+                    return true;
+
+        if(hereGoX - goingFromX  == 1)
+            if(hereGoY - goingFromY == -2)
+                if(!(Color.GRAY.equals(board[hereGoX][hereGoY+1].getFill()))) {
+                    return true;
+                }else if (!(Color.GRAY.equals(board[hereGoX-1][hereGoY+1].getFill())))
+                    return true;
+
+
+
+        return false;
     }
 
 
     boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY){
-        /* TODO: add jumping over to the logic
-
-         */
         if(goingFromX == hereGoX+1 || goingFromX == hereGoX-1 || goingFromX==hereGoX) //must be close
             if(goingFromY == hereGoY+1 || goingFromY == hereGoY-1 || goingFromY == hereGoY)
                 if(Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
