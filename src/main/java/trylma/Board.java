@@ -5,22 +5,22 @@ import javafx.scene.paint.Paint;
 
 
 public class Board{
-    boolean marbleSelected=false;
-    int selectedMarbleX;
-    int selectedMarbleY;
-    Paint selectedMarbleColor;
+    private boolean marbleSelected=false;
+    private int selectedMarbleX;
+    private int selectedMarbleY;
+    private Paint selectedMarbleColor;
+
     Marbles board[][] = new Marbles[13][17];
     /* This array holds more marbles than there are in the game,
         but this way 2 marbles that are close on the board are also close in array.
         Marbles that are not in game but in the array have there colors set to AQUA,
         that's why AQUA COLORED marbles are ignored when drawing */
 
-
-
-
     public Board(int numberOfPlayers) {
         try {
             if(numberOfPlayers<2 || numberOfPlayers==5 || numberOfPlayers>6) throw new WrongNumberArgsException("Invalid Bumber of players");
+
+            // Create a 6-Star Board
             for (int x = 0; x < 13; x++) {
                 for (int y = 0; y < 17; y++) {
                     board[x][y] = new Marbles();
@@ -30,7 +30,9 @@ public class Board{
                     int finalX = x;
                     int finalY = y;
 
+                    // Mouse Controller
                     board[x][y].setOnMouseClicked(event -> {
+
 
                         // Check if move was made this turn
                         boolean madeChoice = false;
@@ -39,12 +41,18 @@ public class Board{
                         boolean moveMade = false;
 
 
+                        // ===    DEBUG OPTIONS    ===
+
                         // Check ID on Click - just for debugging
                         System.out.println("Marble: [" + finalX + ", " + finalY + "]");
-                        // Double click to select maybe? Idk, maybe could be useful somehow.
-                        if (event.getClickCount() > 1) {
-                            System.out.println("Clickd Twice!");
+
+                        // Quad click to change color to Red
+                        if (event.getClickCount() > 3) {
+                            System.out.println("[Dev Option] Changing Color to RED!");
+                            board[finalX][finalY].setColor(Color.RED);
                         }
+
+                        // ===  END OF DEBUG STUFF  ===
 
 
                         //if one mable is already selected then we are selecting target now
