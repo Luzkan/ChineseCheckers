@@ -41,7 +41,6 @@ public class Board{
                     boolean moveMade = false;
 
 
-
                     // ===    DEBUG OPTIONS    ===
                     // Check ID on Click - just for debugging
                     System.out.println("Marble: [" + finalX + ", " + finalY + "]");
@@ -89,7 +88,6 @@ public class Board{
                 });
             }
         }
-
 
         //sets player 1 as green
         board[6][0].setColor(Color.GREEN);

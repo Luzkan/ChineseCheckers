@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,7 +13,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.format.DateTimeFormatter;
-
 
 public class OptionsController {
 
@@ -43,6 +43,11 @@ public class OptionsController {
     private TextField Port;
 
 
+    // Graphic
+    @FXML
+    private Slider sliderSizeOfBoard;
+
+
     // Initialize
     @FXML
     private void initialize(){
@@ -59,6 +64,7 @@ public class OptionsController {
         numberOfCPU.setItems(numberOfCPUList);
     }
 
+
     // Confirmation Button
     public final void confirmOptions (ActionEvent actionEvent) {
 
@@ -73,6 +79,21 @@ public class OptionsController {
 
 
         if(!((NumberOfPlayers + NumberOfCPU > 6) && (NumberOfPlayers + NumberOfCPU == 5))){
+
+            // Game Options
+            System.out.println("Number of Players: " + numberOfPlayers.getValue());
+            System.out.println("Type of Board: " + typeOfBoard.getValue());
+            System.out.println("Ruleset: " + ruleSet.getValue());
+
+            // CPU
+            System.out.println("CPU Players: " + numberOfCPU.getValue());
+
+            // Connection
+            System.out.println("IP/port: " + IP.getText() + ":" + Port.getText());
+
+            // Graphic Size Change
+            System.out.println("Size of Board: " + sliderSizeOfBoard.getValue());
+
             //TODO: Return of the selected options
             //also: a checks for selected CPU/Players amount
         }
@@ -86,7 +107,4 @@ public class OptionsController {
     private void goMainMenu() throws IOException {
         main.showMainMenu();
     }
-
-
-
 }
