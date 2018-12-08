@@ -1,4 +1,5 @@
 0.1 Changelog created (J)
+
 	- Created changelog to keep us up with things we changed and what's working
 		- This way we know what's happening with what and when and who knows more about part of the code xD
 	- So far we did:
@@ -50,4 +51,5 @@
 0.13 Move bug was found (G)
     - Bugfixed move again again again again (J)
 
-0.14 Bugwas actually fixed (G) 
+0.14 Bug was actually fixed (G)
+0.15 Now it was fixed... (G)
