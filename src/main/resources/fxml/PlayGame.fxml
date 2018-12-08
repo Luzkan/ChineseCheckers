@@ -11,7 +11,15 @@
    <right>
       <VBox alignment="CENTER" prefHeight="960.0" prefWidth="261.0" BorderPane.alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your Turn">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Turn:">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="3.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="whoseTurnText" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1">
                <font>
                   <Font size="25.0" />
                </font>
@@ -19,7 +27,7 @@
                   <Insets bottom="25.0" />
                </VBox.margin>
             </Text>
-            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="167.0" text="End Turn" textAlignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#endTurn" prefHeight="44.0" prefWidth="167.0" text="End Turn" textAlignment="CENTER">
                <font>
                   <Font size="25.0" />
                </font>

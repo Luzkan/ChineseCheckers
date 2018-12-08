@@ -33,7 +33,7 @@
 			- Checks if selected options are possible (J)
 		- Change of the "map" depending on players amount (G)
 
-0.11 Cleaned Up the Code (J)
+0.2 Cleaned Up the Code (J)
 	- Grand clean up of the code
 	- Deleted unused imports and other misc
 	- Added End Turn button
@@ -43,4 +43,3 @@
 		- commended this out cause idk what is this doing but seems like it doesnt nothing lol
 		- probably this goes to deletion after ur confirmation xD
 	- created generalrules.txt and copied-pasted them from Main
-	- created UML Diagram for this version
