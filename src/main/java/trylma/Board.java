@@ -4,21 +4,23 @@ import javafx.scene.paint.Paint;
 
 
 public class Board{
-    boolean marbleSelected=false;
-    int selectedMarbleX;
-    int selectedMarbleY;
-    Paint selectedMarbleColor;
+
+    private boolean marbleSelected=false;
+    private int selectedMarbleX;
+    private int selectedMarbleY;
+    private Paint selectedMarbleColor;
+
     Marbles board[][] = new Marbles[13][17];
+
     /* This array holds more marbles than there are in the game,
         but this way 2 marbles that are close on the board are also close in array.
         Marbles that are not in game but in the array have there colors set to AQUA,
         that's why AQUA COLORED marbles are ignored when drawing */
 
 
-
-
     public Board() {
 
+        // Create a 6-Star Board
         for (int x = 0; x < 13; x++) {
             for (int y = 0; y < 17; y++) {
                 board[x][y] = new Marbles();
@@ -28,7 +30,9 @@ public class Board{
                 int finalX = x;
                 int finalY = y;
 
+                // Mouse Controller
                 board[x][y].setOnMouseClicked(event -> {
+
 
                     // Check if move was made this turn
                     boolean madeChoice = false;
@@ -37,17 +41,21 @@ public class Board{
                     boolean moveMade = false;
 
 
+
+                    // ===    DEBUG OPTIONS    ===
                     // Check ID on Click - just for debugging
                     System.out.println("Marble: [" + finalX + ", " + finalY + "]");
+
                     // Double click to select maybe? Idk, maybe could be useful somehow.
                     if (event.getClickCount() > 1) {
-                        System.out.println("Clickd Twice!");
+                        System.out.println("[Dev Option] Changing Color to RED!");
+                        board[finalX][finalY].setColor(Color.RED);
                     }
+                    // ===  END OF DEBUG STUFF  ===
 
 
                     //if one mable is already selected then we are selecting target now
                     if(marbleSelected){
-
                         if(!jumpMade || !moveMade) {
                             move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
                         }
@@ -68,8 +76,8 @@ public class Board{
 
                         board[selectedMarbleX][selectedMarbleY].setRadius(15 * 1.33);
                         marbleSelected=false;
-
                     }
+
                     //if no marbles are selected we are selecting a marble to move, it must be non GRAY
                     else if(!Color.GRAY.equals(board[finalX][finalY].getFill())){
                         marbleSelected=true;
@@ -78,29 +86,6 @@ public class Board{
                         selectedMarbleColor = board[finalX][finalY].getFill();
                         board[finalX][finalY].setRadius(30);
                     }
-
-
-                    /*
-                    if(board[x][y].getColor == //ActualPlayer.color){
-                        if(//= space from where we are moving marble is starting positions for a player) {
-                            board[finalX][finalY].setDefaultPlayerColor();
-                            int movingThisX = finalX;
-                            int movingThisY = finalY;
-                            startedDeciding = true;
-                        }else{
-                            board[finalX][finalY].setDefaultGrayColor();
-                            int movingThisX = finalX;
-                            int movingThisY = finalY;
-                            startedDeciding = true;
-                        }
-                    }
-
-                    if(startedDeciding == true //&& movePossible(finalX, finalY, movingThisX, movingThisY) == true) {
-                        board[finalX][finalY].setFill(//ActualPlayer.color);
-                        madeChoice = true;
-                    }
-                    */
-
                 });
             }
         }
@@ -249,6 +234,8 @@ public class Board{
             }
         }
     }
+
+
     //self explanatory 
      void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color){
         try{
@@ -267,6 +254,8 @@ public class Board{
         }
     }
 
+
+    // Copied function move and called it jump. Helpfull to distinct if a move or a jump was made
     void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color){
         try{
             if(jumpPossible(hereGoX, hereGoY, goingFromX, goingFromY)){
@@ -339,8 +328,6 @@ public class Board{
                 }else if (!(Color.GRAY.equals(board[hereGoX-1][hereGoY+1].getFill())))
                     return true;
 
-
-
         return false;
     }
 
@@ -350,7 +337,6 @@ public class Board{
                 if(Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
                     if(!(goingFromX+1 == hereGoX && goingFromY%2 == 0 && goingFromY-1 == hereGoY) && !(goingFromX-1 == hereGoX && goingFromX%2 == 1 && goingFromY+1 == hereGoY))
                         return true;
-
         return false;
     }
 
