@@ -38,9 +38,9 @@ public class OptionsController {
 
     // Connection
     @FXML
-    private TextField IP;
+    private TextField givenIP;
     @FXML
-    private TextField Port;
+    private TextField givenPort;
 
 
     // Graphic
@@ -66,7 +66,7 @@ public class OptionsController {
 
 
     // Confirmation Button
-    public final void confirmOptions (ActionEvent actionEvent) {
+    public final void confirmOptions (ActionEvent actionEvent) throws IOException {
 
         String NumberOfPlayersString = numberOfPlayers.getValue().toString();
         int NumberOfPlayers = Integer.parseInt(NumberOfPlayersString);
@@ -77,25 +77,29 @@ public class OptionsController {
         String NumberOfCPUString = numberOfCPU.getValue().toString();
         int NumberOfCPU = Integer.parseInt(NumberOfCPUString);
 
+        int TotalPlayers = NumberOfPlayers + NumberOfCPU;
 
-        if(!((NumberOfPlayers + NumberOfCPU > 6) && (NumberOfPlayers + NumberOfCPU == 5))){
+
+        if(TotalPlayers <= 4 || TotalPlayers == 6){
 
             // Game Options
-            System.out.println("Number of Players: " + numberOfPlayers.getValue());
+            System.out.println("Total Players: " + TotalPlayers );
+            System.out.println("Real/CPU: [" + numberOfPlayers.getValue() + "/" + numberOfCPU.getValue() + "]");
             System.out.println("Type of Board: " + typeOfBoard.getValue());
             System.out.println("Ruleset: " + ruleSet.getValue());
 
-            // CPU
-            System.out.println("CPU Players: " + numberOfCPU.getValue());
-
             // Connection
-            //System.out.println("IP/port: " + IP.get() + ":" + Port.getText());
+            System.out.println("IP/port: " + givenIP.getText() + ":" + givenPort.getText());
 
             // Graphic Size Change
+            // my god why this slider do not give a damn?
             //System.out.println("Size of Board: " + sliderSizeOfBoard.getValue());
+
 
             //TODO: Return of the selected options
             //also: a checks for selected CPU/Players amount
+
+            main.showMainMenu();
         }
     }
 
