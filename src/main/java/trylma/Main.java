@@ -23,6 +23,7 @@ public class Main extends Application {
     // !!! NOTICE FOR LATER !!!
     // Change the height of main window back to 960 and erase the dev options
     // After we are done
+
     @Override
     public final void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
@@ -69,6 +70,7 @@ public class Main extends Application {
 
                     // Adding extrasize value to resize the board
                     // Might be helpfull later
+
                     double extraSize = 1.33;
                     int posY = y * 40 + 50;
                     board.board[x][y].setCenterY(posY * extraSize);
