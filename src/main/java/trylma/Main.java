@@ -61,7 +61,7 @@ public class Main extends Application {
         Canvas canvas = new Canvas(600,600);
         Group root = new Group(canvas);
 
-        Board board = new Board();
+        Board board = new Board(6);
         for (int x = 0; x < 13; x++) {
             int posX=x*40+50;
             for (int y = 0; y < 17; y++) {

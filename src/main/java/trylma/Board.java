@@ -1,4 +1,5 @@
 package trylma;
+import com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
@@ -17,67 +18,68 @@ public class Board{
 
 
 
-    public Board() {
+    public Board(int numberOfPlayers) {
+        try {
+            if(numberOfPlayers<2 || numberOfPlayers==5 || numberOfPlayers>6) throw new WrongNumberArgsException("Invalid Bumber of players");
+            for (int x = 0; x < 13; x++) {
+                for (int y = 0; y < 17; y++) {
+                    board[x][y] = new Marbles();
+                    board[x][y].setFill(Color.AQUA);
 
-        for (int x = 0; x < 13; x++) {
-            for (int y = 0; y < 17; y++) {
-                board[x][y] = new Marbles();
-                board[x][y].setFill(Color.AQUA);
+                    // For the lambda thing
+                    int finalX = x;
+                    int finalY = y;
 
-                // For the lambda thing
-                int finalX = x;
-                int finalY = y;
+                    board[x][y].setOnMouseClicked(event -> {
 
-                board[x][y].setOnMouseClicked(event -> {
-
-                    // Check if move was made this turn
-                    boolean madeChoice = false;
-                    boolean startedDeciding = false;
-                    boolean jumpMade = false;
-                    boolean moveMade = false;
-
-
-                    // Check ID on Click - just for debugging
-                    System.out.println("Marble: [" + finalX + ", " + finalY + "]");
-                    // Double click to select maybe? Idk, maybe could be useful somehow.
-                    if (event.getClickCount() > 1) {
-                        System.out.println("Clickd Twice!");
-                    }
+                        // Check if move was made this turn
+                        boolean madeChoice = false;
+                        boolean startedDeciding = false;
+                        boolean jumpMade = false;
+                        boolean moveMade = false;
 
 
-                    //if one mable is already selected then we are selecting target now
-                    if(marbleSelected){
-
-                        if(!jumpMade || !moveMade) {
-                            move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+                        // Check ID on Click - just for debugging
+                        System.out.println("Marble: [" + finalX + ", " + finalY + "]");
+                        // Double click to select maybe? Idk, maybe could be useful somehow.
+                        if (event.getClickCount() > 1) {
+                            System.out.println("Clickd Twice!");
                         }
 
-                        // Adding jump logic. If a move is illegal, then instead of fail
-                        // we can check if it was supposed to jump move instead
-                        // if it was jump then we still allow to perform jumps
-                        // and end turn, but user cant make regular moves anymore
 
-                        if(!moveMade) {
-                            jump(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+                        //if one mable is already selected then we are selecting target now
+                        if (marbleSelected) {
+
+                            if (!jumpMade || !moveMade) {
+                                move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+                            }
+
+                            // Adding jump logic. If a move is illegal, then instead of fail
+                            // we can check if it was supposed to jump move instead
+                            // if it was jump then we still allow to perform jumps
+                            // and end turn, but user cant make regular moves anymore
+
+                            if (!moveMade) {
+                                jump(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+                            }
+
+                            // This is missing some kind of if statement or anything that checks
+                            // If jump was performed - if yes, then boolean "jumpMade" should be true
+                            // and move function isn't possible anymore.
+                            // same logic to check if move was done
+
+                            board[selectedMarbleX][selectedMarbleY].setRadius(15 * 1.33);
+                            marbleSelected = false;
+
                         }
-
-                        // This is missing some kind of if statement or anything that checks
-                        // If jump was performed - if yes, then boolean "jumpMade" should be true
-                        // and move function isn't possible anymore.
-                        // same logic to check if move was done
-
-                        board[selectedMarbleX][selectedMarbleY].setRadius(15 * 1.33);
-                        marbleSelected=false;
-
-                    }
-                    //if no marbles are selected we are selecting a marble to move, it must be non GRAY
-                    else if(!Color.GRAY.equals(board[finalX][finalY].getFill())){
-                        marbleSelected=true;
-                        selectedMarbleX=finalX;
-                        selectedMarbleY=finalY;
-                        selectedMarbleColor = board[finalX][finalY].getFill();
-                        board[finalX][finalY].setRadius(30);
-                    }
+                        //if no marbles are selected we are selecting a marble to move, it must be non GRAY
+                        else if (!Color.GRAY.equals(board[finalX][finalY].getFill())) {
+                            marbleSelected = true;
+                            selectedMarbleX = finalX;
+                            selectedMarbleY = finalY;
+                            selectedMarbleColor = board[finalX][finalY].getFill();
+                            board[finalX][finalY].setRadius(30);
+                        }
 
 
                     /*
@@ -101,83 +103,46 @@ public class Board{
                     }
                     */
 
-                });
+                    });
+                }
             }
+            if(numberOfPlayers==6){
+                setUpPlayer1(Color.GREEN);
+                setUpPlayer2(Color.RED);
+                setUpPlayer3(Color.YELLOW);
+                setUpPlayer4(Color.BLUE);
+                setUpPlayer5(Color.PINK);
+                setUpPlayer6(Color.DARKMAGENTA);
+
+            }
+            if(numberOfPlayers==2){
+                setUpPlayer1(Color.GREEN);
+                setUpPlayer2(Color.RED);
+            }
+            if(numberOfPlayers==3) {
+            setUpPlayer1(Color.GREEN);
+            setUpPlayer4(Color.BLUE);
+            setUpPlayer6(Color.DARKMAGENTA);
+
+            }
+            if(numberOfPlayers==4){
+                setUpPlayer1(Color.GREEN);
+                setUpPlayer2(Color.RED);
+                setUpPlayer3(Color.YELLOW);
+                setUpPlayer4(Color.BLUE);
+            }
+
+            setUpMiddle();
+            deleteExtraMarbles();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
         }
 
+    }
 
-        //sets player 1 as green
-        board[6][0].setColor(Color.GREEN);
-        board[5][1].setColor(Color.GREEN);
-        board[6][1].setColor(Color.GREEN);
-        board[5][2].setColor(Color.GREEN);
-        board[6][2].setColor(Color.GREEN);
-        board[7][2].setColor(Color.GREEN);
-        board[4][3].setColor(Color.GREEN);
-        board[5][3].setColor(Color.GREEN);
-        board[6][3].setColor(Color.GREEN);
-        board[7][3].setColor(Color.GREEN);
 
-        //sets player 3 as yellow
-        board[0][4].setColor(Color.YELLOW);
-        board[1][4].setColor(Color.YELLOW);
-        board[2][4].setColor(Color.YELLOW);
-        board[3][4].setColor(Color.YELLOW);
-        board[0][5].setColor(Color.YELLOW);
-        board[1][5].setColor(Color.YELLOW);
-        board[2][5].setColor(Color.YELLOW);
-        board[1][6].setColor(Color.YELLOW);
-        board[2][6].setColor(Color.YELLOW);
-        board[1][7].setColor(Color.YELLOW);
-
-        //sets player 5 as pink
-        board[10][7].setColor(Color.PINK);
-        board[10][6].setColor(Color.PINK);
-        board[11][6].setColor(Color.PINK);
-        board[9][5].setColor(Color.PINK);
-        board[10][5].setColor(Color.PINK);
-        board[11][5].setColor(Color.PINK);
-        board[9][4].setColor(Color.PINK);
-        board[10][4].setColor(Color.PINK);
-        board[11][4].setColor(Color.PINK);
-        board[12][4].setColor(Color.PINK);
-
-        //sets payer 6 as DARKMAGENTA
-        board[0][12].setColor(Color.DARKMAGENTA);
-        board[1][12].setColor(Color.DARKMAGENTA);
-        board[2][12].setColor(Color.DARKMAGENTA);
-        board[3][12].setColor(Color.DARKMAGENTA);
-        board[0][11].setColor(Color.DARKMAGENTA);
-        board[1][11].setColor(Color.DARKMAGENTA);
-        board[2][11].setColor(Color.DARKMAGENTA);
-        board[1][10].setColor(Color.DARKMAGENTA);
-        board[2][10].setColor(Color.DARKMAGENTA);
-        board[1][9].setColor(Color.DARKMAGENTA);
-
-        //sets player 4 as blue
-        board[10][9].setColor(Color.BLUE);
-        board[10][10].setColor(Color.BLUE);
-        board[11][10].setColor(Color.BLUE);
-        board[9][11].setColor(Color.BLUE);
-        board[10][11].setColor(Color.BLUE);
-        board[11][11].setColor(Color.BLUE);
-        board[9][12].setColor(Color.BLUE);
-        board[10][12].setColor(Color.BLUE);
-        board[11][12].setColor(Color.BLUE);
-        board[12][12].setColor(Color.BLUE);
-
-        //sets player 2 as red
-        board[4][13].setColor(Color.RED);
-        board[5][13].setColor(Color.RED);
-        board[6][13].setColor(Color.RED);
-        board[7][13].setColor(Color.RED);
-        board[7][14].setColor(Color.RED);
-        board[5][14].setColor(Color.RED);
-        board[6][14].setColor(Color.RED);
-        board[5][15].setColor(Color.RED);
-        board[6][15].setColor(Color.RED);
-        board[6][16].setColor(Color.RED);
-
+    void setUpMiddle(){
         //sets the playable area to gray
         board[4][4].setColor(Color.GRAY);
         board[5][4].setColor(Color.GRAY);
@@ -240,6 +205,98 @@ public class Board{
         board[6][12].setColor(Color.GRAY);
         board[7][12].setColor(Color.GRAY);
         board[8][12].setColor(Color.GRAY);
+        //now we check if players are set up, if not we change their color to gray and not AQUA so the areas are playable
+        if(Color.AQUA.equals(board[6][0].getFill())) setUpPlayer1(Color.GRAY);
+        if(Color.AQUA.equals(board[4][13].getFill())) setUpPlayer2(Color.GRAY);
+        if(Color.AQUA.equals(board[0][4].getFill())) setUpPlayer3(Color.GRAY);
+        if(Color.AQUA.equals(board[10][9].getFill())) setUpPlayer4(Color.GRAY);
+        if(Color.AQUA.equals(board[10][7].getFill())) setUpPlayer5(Color.GRAY);
+        if(Color.AQUA.equals(board[0][12].getFill())) setUpPlayer6(Color.GRAY);
+
+    }
+    void setUpPlayer1(Color color){
+        //sets player 1 as green
+        board[6][0].setColor(color);
+        board[5][1].setColor(color);
+        board[6][1].setColor(color);
+        board[5][2].setColor(color);
+        board[6][2].setColor(color);
+        board[7][2].setColor(color);
+        board[4][3].setColor(color);
+        board[5][3].setColor(color);
+        board[6][3].setColor(color);
+        board[7][3].setColor(color);
+
+    }
+    void setUpPlayer2(Color color){
+        //sets player 2 as red
+        board[4][13].setColor(color);
+        board[5][13].setColor(color);
+        board[6][13].setColor(color);
+        board[7][13].setColor(color);
+        board[7][14].setColor(color);
+        board[5][14].setColor(color);
+        board[6][14].setColor(color);
+        board[5][15].setColor(color);
+        board[6][15].setColor(color);
+        board[6][16].setColor(color);
+
+    }
+    void setUpPlayer3(Color color){
+        //sets player 3 as yellow
+        board[0][4].setColor(color);
+        board[1][4].setColor(color);
+        board[2][4].setColor(color);
+        board[3][4].setColor(color);
+        board[0][5].setColor(color);
+        board[1][5].setColor(color);
+        board[2][5].setColor(color);
+        board[1][6].setColor(color);
+        board[2][6].setColor(color);
+        board[1][7].setColor(color);
+    }
+    void setUpPlayer4(Color color){
+        //sets player 4 as blue
+        board[10][9].setColor(color);
+        board[10][10].setColor(color);
+        board[11][10].setColor(color);
+        board[9][11].setColor(color);
+        board[10][11].setColor(color);
+        board[11][11].setColor(color);
+        board[9][12].setColor(color);
+        board[10][12].setColor(color);
+        board[11][12].setColor(color);
+        board[12][12].setColor(color);
+
+    }
+    void setUpPlayer5(Color color){
+        //sets player 5 as color
+        board[10][7].setColor(color);
+        board[10][6].setColor(color);
+        board[11][6].setColor(color);
+        board[9][5].setColor(color);
+        board[10][5].setColor(color);
+        board[11][5].setColor(color);
+        board[9][4].setColor(color);
+        board[10][4].setColor(color);
+        board[11][4].setColor(color);
+        board[12][4].setColor(color);
+
+    }
+    void setUpPlayer6(Color color){
+        //sets payer 6 as DARKMAGENTA
+        board[0][12].setColor(color);
+        board[1][12].setColor(color);
+        board[2][12].setColor(color);
+        board[3][12].setColor(color);
+        board[0][11].setColor(color);
+        board[1][11].setColor(color);
+        board[2][11].setColor(color);
+        board[1][10].setColor(color);
+        board[2][10].setColor(color);
+        board[1][9].setColor(color);
+    }
+    void deleteExtraMarbles(){
         //setting all AQUA marbles to null, we dont care 'bout them
         for(int i=0;i<13;i++){
             for(int j=0;j<17;j++){
@@ -249,6 +306,7 @@ public class Board{
             }
         }
     }
+
     //self explanatory 
      void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color){
         try{
@@ -343,16 +401,15 @@ public class Board{
 
         return false;
     }
-
     boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY){
         if(goingFromX == hereGoX+1 || goingFromX == hereGoX-1 || goingFromX==hereGoX) //must be close
             if(goingFromY == hereGoY+1 || goingFromY == hereGoY-1 || goingFromY == hereGoY)
                 if(Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
-                    if(!((goingFromX == hereGoX+1 && goingFromY == hereGoY-1)) && !(goingFromX == hereGoX-1 && goingFromY == hereGoY+1))
+                    if(!(goingFromX+1 == hereGoX && goingFromY%2 == 0 && goingFromY-1 == hereGoY) && !(goingFromX-1 == hereGoX && goingFromX%2 == 1 && goingFromY+1 == hereGoY))
                         return true;
-
         return false;
     }
+
 
 
 }
