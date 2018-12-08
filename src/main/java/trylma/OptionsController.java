@@ -51,7 +51,7 @@ public class OptionsController {
     // Initialize
     @FXML
     private void initialize(){
-        numberOfPlayers.setValue("1");
+        numberOfPlayers.setValue("6");
         numberOfPlayers.setItems(numberOfPlayersList);
 
         typeOfBoard.setValue("6-Shaped Star");
@@ -65,43 +65,73 @@ public class OptionsController {
     }
 
 
+    // Return Variables from options with getters
+    private int TotalPlayers;
+    private int NumberOfPlayers;
+    private int NumberOfCPU;
+    private String TypeOfBoard;
+    private String RuleSet;
+    private String IPPort;
+
+    public int getTotalPlayers() {
+        return TotalPlayers;
+    }
+
+    public int getNumberOfPlayers() {
+        return this.NumberOfPlayers;
+    }
+
+    public int getNumberOfCPU() {
+        return this.NumberOfCPU;
+    }
+
+    public String getTypeOfBoard() {
+        return this.TypeOfBoard;
+    }
+
+    public String getRuleSet() {
+        return this.RuleSet;
+    }
+
+    public String getIPPort() {
+        return this.IPPort;
+    }
+
+
     // Confirmation Button
     public final void confirmOptions (ActionEvent actionEvent) throws IOException {
 
+        // Getting number from String
         String NumberOfPlayersString = numberOfPlayers.getValue().toString();
-        int NumberOfPlayers = Integer.parseInt(NumberOfPlayersString);
+        NumberOfPlayers = Integer.parseInt(NumberOfPlayersString);
 
-        String TypeOfBoard = typeOfBoard.getValue().toString();
-        String RuleSet = ruleSet.getValue().toString();
-
+        // Getting number from String
         String NumberOfCPUString = numberOfCPU.getValue().toString();
-        int NumberOfCPU = Integer.parseInt(NumberOfCPUString);
+        NumberOfCPU = Integer.parseInt(NumberOfCPUString);
 
-        int TotalPlayers = NumberOfPlayers + NumberOfCPU;
+        TotalPlayers = NumberOfPlayers + NumberOfCPU;
+        TypeOfBoard = typeOfBoard.getValue().toString();
+        RuleSet = ruleSet.getValue().toString();
+        IPPort = givenIP.getText() + ":" + givenPort.getText();
 
-
-        if(TotalPlayers <= 4 || TotalPlayers == 6){
+        if(TotalPlayers == 2 || TotalPlayers == 3 || TotalPlayers == 4 || TotalPlayers == 6){
 
             // Game Options
-            System.out.println("Total Players: " + TotalPlayers );
-            System.out.println("Real/CPU: [" + numberOfPlayers.getValue() + "/" + numberOfCPU.getValue() + "]");
-            System.out.println("Type of Board: " + typeOfBoard.getValue());
-            System.out.println("Ruleset: " + ruleSet.getValue());
+            System.out.println("Total Players: " + TotalPlayers);
+            System.out.println("Real/CPU: [" + NumberOfPlayers + "/" + NumberOfCPU + "]");
+            System.out.println("Type of Board: " + TypeOfBoard);
+            System.out.println("Ruleset: " + RuleSet);
 
             // Connection
-            System.out.println("IP/port: " + givenIP.getText() + ":" + givenPort.getText());
+            System.out.println("IP/port: " + IPPort);
 
-            // Graphic Size Change
-            // my god why this slider do not give a damn?
+            // Graphic Size Change - my god, it doesn't work, idk why.
             //System.out.println("Size of Board: " + sliderSizeOfBoard.getValue());
-
-
-            //TODO: Return of the selected options
-            //also: a checks for selected CPU/Players amount
 
             main.showMainMenu();
         }
     }
+
 
 
     // Stuff to accept / cancel the options

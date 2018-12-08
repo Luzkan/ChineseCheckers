@@ -16,9 +16,9 @@ public class Board{
         Marbles that are not in game but in the array have there colors set to AQUA,
         that's why AQUA COLORED marbles are ignored when drawing */
 
-    public Board(int numberOfPlayers) {
+    public Board(int totalNumberOfPlayers) {
         try {
-            if(numberOfPlayers<2 || numberOfPlayers==5 || numberOfPlayers>6) throw new WrongNumberArgsException("Invalid Bumber of players");
+            if(totalNumberOfPlayers<2 || totalNumberOfPlayers==5 || totalNumberOfPlayers>6) throw new WrongNumberArgsException("Invalid Bumber of players");
 
             // Create a 6-Star Board
             for (int x = 0; x < 13; x++) {
@@ -89,32 +89,10 @@ public class Board{
                             board[finalX][finalY].setRadius(30);
                         }
 
-
-                    /*
-                    if(board[x][y].getColor == //ActualPlayer.color){
-                        if(//= space from where we are moving marble is starting positions for a player) {
-                            board[finalX][finalY].setDefaultPlayerColor();
-                            int movingThisX = finalX;
-                            int movingThisY = finalY;
-                            startedDeciding = true;
-                        }else{
-                            board[finalX][finalY].setDefaultGrayColor();
-                            int movingThisX = finalX;
-                            int movingThisY = finalY;
-                            startedDeciding = true;
-                        }
-                    }
-
-                    if(startedDeciding == true //&& movePossible(finalX, finalY, movingThisX, movingThisY) == true) {
-                        board[finalX][finalY].setFill(//ActualPlayer.color);
-                        madeChoice = true;
-                    }
-                    */
-
                     });
                 }
             }
-            if(numberOfPlayers==6){
+            if(totalNumberOfPlayers==6){
                 setUpPlayer1(Color.GREEN);
                 setUpPlayer2(Color.RED);
                 setUpPlayer3(Color.YELLOW);
@@ -123,17 +101,17 @@ public class Board{
                 setUpPlayer6(Color.DARKMAGENTA);
 
             }
-            if(numberOfPlayers==2){
+            if(totalNumberOfPlayers==2){
                 setUpPlayer1(Color.GREEN);
                 setUpPlayer2(Color.RED);
             }
-            if(numberOfPlayers==3) {
+            if(totalNumberOfPlayers==3) {
             setUpPlayer1(Color.GREEN);
             setUpPlayer4(Color.BLUE);
             setUpPlayer6(Color.DARKMAGENTA);
 
             }
-            if(numberOfPlayers==4){
+            if(totalNumberOfPlayers==4){
                 setUpPlayer1(Color.GREEN);
                 setUpPlayer2(Color.RED);
                 setUpPlayer3(Color.YELLOW);

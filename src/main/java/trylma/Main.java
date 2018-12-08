@@ -19,11 +19,6 @@ public class Main extends Application {
     private static Stage primaryStage;
     private static BorderPane MainWindow;
 
-    // Starting parameters
-    // !!! NOTICE FOR LATER !!!
-    // Change the height of main window back to 960 and erase the dev options
-    // After we are done
-
     @Override
     public final void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
@@ -33,7 +28,7 @@ public class Main extends Application {
     }
 
     // Main Window in which everything will happen.
-    // Like all screens (mainmenu, the game and options are children of this dude right here
+    // Like all screens (mainmenu, the game and options are in this this dude right here)
     private void showWholeWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("/fxml/MainWindow.fxml"));
@@ -53,14 +48,39 @@ public class Main extends Application {
 
     // The Game
     public static void showPlayGame() throws IOException {
-       /*FXMLLoader loader = new FXMLLoader();
+
+
+        FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("/fxml/PlayGame.fxml"));
         BorderPane PlayGame = loader.load();
-        MainWindow.setCenter(PlayGame);
-        ADDAED THE WAY BOARD IS DISPLAYED
+
+        /*
+        ^ About this code
+        I think we should keep it as main display for PlayGame
+        That's why im changing the code to work like that:
+
+        Canvas from below could be just the Center of that BorderPane
+
+        This way we can easily add a menu to the right/left with additional stuff
+        Check this image: https://i.imgur.com/EwAIbYK.png
         */
+
         Canvas canvas = new Canvas(600,600);
         Group root = new Group(canvas);
+
+        // Getting the options from Options
+
+        OptionsController options = new OptionsController();
+        int totalPlayersNumber = options.getTotalPlayers();
+        int numberOfPlayers = options.getNumberOfPlayers();
+        int numberOfCPU = options.getNumberOfCPU();
+        String typeOfBoard = options.getTypeOfBoard();
+        String ruleSet = options.getRuleSet();
+        String IPPort = options.getIPPort();
+
+
+
+
 
         Board board = new Board(6);
         for (int x = 0; x < 13; x++) {
@@ -81,8 +101,9 @@ public class Main extends Application {
                 }
             }
         }
-        primaryStage.setMaximized(true);
-        MainWindow.setCenter(root);
+        //primaryStage.setMaximized(true);
+        MainWindow.setCenter(PlayGame);
+        PlayGame.setCenter(root);
     }
 
     // Options Menu

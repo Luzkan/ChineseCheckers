@@ -1,0 +1,38 @@
+0.1 Changelog created (J)
+	- Created changelog to keep us up with things we changed and what's working
+		- This way we know what's happening with what and when and who knows more about part of the code xD
+	- So far we did:
+		- Created GUI (J)
+			- Created Main Window / Main Menu / Options / Play Game (J)
+				- PlayGame was commented out and changed to Canvas (G)
+				- PlayGame was uncommented, now PlayGame have that canvas in the center (J)
+			- Created DevOptions (J)
+		- Created move logic (J)
+			- Develop logic further and finish (G)
+			- Bugfixed move logic (G)
+			- Bugfixed move logic again (J)
+			- Bugfixed move logic again again (J)
+			* New bug found (G)
+		- Created movement (G)
+		- Created jump logic (J)
+		- Created whole board (G)
+			- Created circles representing marbles (G)
+			- Created marbles class (G)
+				- Added two simple functions to marbles about colors (J)
+			- Created colors for circles (G)
+			- Calculated numbers to make board look like board (G)
+				- Added scaler (J)
+		- Suggested detection if player can do something or it's end of turn time (J)
+			* Awaits implementation
+		- Created Options (J)
+			- ComboBoxes & Values (J)
+			- Created return values and getters (J)
+				- Implemented them to Board.java (J)
+				* Currently doesn't work teh lulz (J)
+			- Checks if selected options are possible (J)
+		- Change of the "map" depending on players amount (G)
+
+0.2 Cleaned Up the Code (J)
+	- Added End Turn button (J)
+		* It's supposed to do nothing atm, dont worry (J)
+	

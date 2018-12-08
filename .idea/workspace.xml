@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03018755-99aa-4410-8658-1050e488d999" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/trylma/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trylma/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trylma/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trylma/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trylma/OptionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trylma/OptionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PlayGame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PlayGame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/PlayGame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/PlayGame.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/trylma/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trylma/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trylma/OptionsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trylma/OptionsController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,27 +68,35 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="1" />
-          <entry key="java" value="4388" />
-          <entry key="txt" value="318" />
+          <entry key="java" value="6409" />
+          <entry key="txt" value="417" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4388" />
-          <entry key="PLAIN_TEXT" value="318" />
+          <entry key="JAVA" value="6409" />
+          <entry key="PLAIN_TEXT" value="417" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="1" />
-          <entry key="java" value="7" />
+          <entry key="fxml" value="2" />
+          <entry key="java" value="13" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="7" />
-          <entry key="XML" value="1" />
+          <entry key="JAVA" value="13" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="XML" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.local" value="1" />
+          <entry key="git.branch.merge" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -91,17 +106,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="91" selection-start-line="91" selection-end-line="91" />
+            <state relative-caret-position="799">
+              <caret line="59" column="30" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/changelog.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="272">
+              <caret line="64" column="52" lean-forward="true" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,8 +136,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/trylma/OptionsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+            <state relative-caret-position="-387">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+              <folding>
+                <element signature="e#1926#1927#0" expanded="true" />
+                <element signature="e#1961#1962#0" expanded="true" />
+                <element signature="e#1926#1927#0" expanded="true" />
+                <element signature="e#1964#1965#0" expanded="true" />
+                <element signature="e#1999#2000#0" expanded="true" />
+                <element signature="e#2033#2034#0" expanded="true" />
+                <element signature="e#2071#2072#0" expanded="true" />
+                <element signature="e#2105#2106#0" expanded="true" />
+                <element signature="e#2139#2140#0" expanded="true" />
+                <element signature="e#2169#2170#0" expanded="true" />
+                <element signature="e#2288#2289#0" expanded="true" />
+                <element signature="e#2318#2319#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,8 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/Options.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="189" column="72" selection-start-line="189" selection-start-column="72" selection-end-line="189" selection-end-column="72" />
+            <state relative-caret-position="902">
+              <caret line="194" column="26" lean-forward="true" selection-start-line="194" selection-start-column="26" selection-end-line="194" selection-end-column="26" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -152,7 +193,14 @@
       <find>ILLEGAL</find>
       <find>setColor</find>
       <find>setFill</find>
+      <find>main</find>
+      <find>numberOfPlayer</find>
+      <find>Board</find>
+      <find>numberOfPlayers</find>
     </findStrings>
+    <replaceStrings>
+      <replace>totalNumberOfPlayers</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -161,6 +209,11 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Luzkan" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -169,9 +222,9 @@
         <option value="$PROJECT_DIR$/src/main/java/trylma/movePossible.java" />
         <option value="$PROJECT_DIR$/src/main/java/trylma/Marbles.java" />
         <option value="$PROJECT_DIR$/src/main/java/trylma/MainWindowController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/trylma/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/trylma/OptionsController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/Options.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/trylma/OptionsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/trylma/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/trylma/Board.java" />
       </list>
     </option>
@@ -243,14 +296,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ChineseCheckers" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChineseCheckers" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="fxml" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -260,7 +305,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544292300797" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544300229762" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -310,7 +355,7 @@
       <workItem from="1544099205636" duration="5337000" />
       <workItem from="1544198635065" duration="8929000" />
       <workItem from="1544288425111" duration="3731000" />
-      <workItem from="1544293286370" duration="256000" />
+      <workItem from="1544293286370" duration="6295000" />
     </task>
     <task id="LOCAL-00001" summary="Added working click tool for marbles, atm. as a debugger to checkout the ID&#10;ID = (x, y)&#10;Added option to scale board">
       <created>1544101674514</created>
@@ -361,11 +406,32 @@
       <option name="project" value="LOCAL" />
       <updated>1544292116046</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Adding smth that was deleted with last commit">
+      <created>1544293565269</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1544293565269</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Adding smth that was deleted with last commit">
+      <created>1544293657579</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1544293657579</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Working on confirm options">
+      <created>1544295311550</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1544295311550</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18253000" />
+    <option name="totallyTimeSpent" value="24292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -380,7 +446,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49609375" visible="true" weight="0.327454" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49570313" visible="true" weight="0.327454" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -389,8 +455,8 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Statistic" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50390625" side_tool="true" visible="true" weight="0.327454" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49648437" weight="0.32822084" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5042969" side_tool="true" visible="true" weight="0.327454" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49609375" weight="0.327454" />
       <window_info anchor="bottom" id="Analysis" order="13" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -419,7 +485,9 @@
     <MESSAGE value="Fixed bug caused by fixing a bug with moving" />
     <MESSAGE value="Code Cleanup" />
     <MESSAGE value="Options and Further Code Cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Options and Further Code Cleanup" />
+    <MESSAGE value="Adding smth that was deleted with last commit" />
+    <MESSAGE value="Working on confirm options" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on confirm options" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/trylma/movePossible.java" />
@@ -446,15 +514,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="799">
+          <caret line="59" column="30" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/trylma/OptionsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+        <state relative-caret-position="-387">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#1926#1927#0" expanded="true" />
+            <element signature="e#1961#1962#0" expanded="true" />
+            <element signature="e#1926#1927#0" expanded="true" />
+            <element signature="e#1964#1965#0" expanded="true" />
+            <element signature="e#1999#2000#0" expanded="true" />
+            <element signature="e#2033#2034#0" expanded="true" />
+            <element signature="e#2071#2072#0" expanded="true" />
+            <element signature="e#2105#2106#0" expanded="true" />
+            <element signature="e#2139#2140#0" expanded="true" />
+            <element signature="e#2169#2170#0" expanded="true" />
+            <element signature="e#2288#2289#0" expanded="true" />
+            <element signature="e#2318#2319#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -467,16 +549,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/Options.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="189" column="72" selection-start-line="189" selection-start-column="72" selection-end-line="189" selection-end-column="72" />
+        <state relative-caret-position="902">
+          <caret line="194" column="26" lean-forward="true" selection-start-line="194" selection-start-column="26" selection-end-line="194" selection-end-column="26" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="272">
+          <caret line="64" column="52" lean-forward="true" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/changelog.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
