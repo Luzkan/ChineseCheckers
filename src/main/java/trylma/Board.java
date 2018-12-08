@@ -392,6 +392,7 @@ public class Board{
             if(goingFromY == hereGoY+1 || goingFromY == hereGoY-1 || goingFromY == hereGoY)
                 if(Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
                     if(!(goingFromX+1 == hereGoX && goingFromY%2 == 0 && goingFromY-1 == hereGoY) && !(goingFromX-1 == hereGoX && goingFromX%2 == 1 && goingFromY+1 == hereGoY))
+                        if(!(goingFromX-1 == hereGoX && goingFromY%2 == 1 && goingFromY-1 == hereGoY) && !(goingFromX+1 == hereGoX && goingFromX%2 == 0 && goingFromY+1 == hereGoY))
                         return true;
         return false;
     }
