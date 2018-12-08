@@ -44,3 +44,5 @@
 		- probably this goes to deletion after ur confirmation xD
 	- created generalrules.txt and copied-pasted them from Main
 	- created UML Diagram for this version
+
+0.12 Bugfixed move again again again (J)
