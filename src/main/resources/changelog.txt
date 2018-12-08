@@ -49,3 +49,5 @@
 
 0.13 Move bug was found (G)
     - Bugfixed move again again again again (J)
+
+0.14 Bugwas actually fixed (G) 
