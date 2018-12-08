@@ -187,7 +187,7 @@
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <Slider fx:id="sizeOfBoardSlider" max="1.5" min="0.5" onMouseDragged="#sizeSliderDragged" showTickLabels="true" value="1.33" GridPane.columnIndex="1">
+                  <Slider fx:id="sizeOfBoardSlider" max="1.5" min="0.5" showTickLabels="true" value="1.33" GridPane.columnIndex="1">
                      <padding>
                         <Insets right="615.0" />
                      </padding>

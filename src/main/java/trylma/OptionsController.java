@@ -89,10 +89,10 @@ public class OptionsController {
             System.out.println("CPU Players: " + numberOfCPU.getValue());
 
             // Connection
-            System.out.println("IP/port: " + IP.getText() + ":" + Port.getText());
+            //System.out.println("IP/port: " + IP.get() + ":" + Port.getText());
 
             // Graphic Size Change
-            System.out.println("Size of Board: " + sliderSizeOfBoard.getValue());
+            //System.out.println("Size of Board: " + sliderSizeOfBoard.getValue());
 
             //TODO: Return of the selected options
             //also: a checks for selected CPU/Players amount
