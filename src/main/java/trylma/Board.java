@@ -348,7 +348,7 @@ public class Board{
         if(goingFromX == hereGoX+1 || goingFromX == hereGoX-1 || goingFromX==hereGoX) //must be close
             if(goingFromY == hereGoY+1 || goingFromY == hereGoY-1 || goingFromY == hereGoY)
                 if(Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
-                    if(!((goingFromX == hereGoX+1 && goingFromY == hereGoY-1)) && !(goingFromX == hereGoX-1 && goingFromY == hereGoY+1))
+                    if(!(goingFromX+1 == hereGoX && goingFromY%2 == 0 && goingFromY-1 == hereGoY) && !(goingFromX-1 == hereGoX && goingFromX%2 == 1 && goingFromY+1 == hereGoY))
                         return true;
 
         return false;
