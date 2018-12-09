@@ -52,4 +52,9 @@
     - Bugfixed move again again again again (J)
 
 0.14 Bug was actually fixed (G)
+
 0.15 Now it was fixed... (G)
+
+0.16 Added Host Game / Join Game buttons. (J)
+     Switched Board to PlayGameController (J)
+     Added some functionality to end turn button (J)

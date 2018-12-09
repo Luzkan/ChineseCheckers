@@ -14,6 +14,16 @@ public class MainMenuController {
     }
 
     @FXML
+    void goHostGame() {
+
+    }
+
+    @FXML
+    void goJoinGame() {
+
+    }
+
+    @FXML
     private void goOptions() throws IOException {
         main.showOptions();
     }
