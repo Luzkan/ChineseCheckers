@@ -58,3 +58,10 @@
 0.16 Added Host Game / Join Game buttons. (J)
      Switched Board to PlayGameController (J)
      Added some functionality to end turn button (J)
+
+0.17 Added Win Condition (J)
+
+    I again really insist on making the creation of the board iterational instead with manually typed-in manually numbers
+    As one of most important things right now
+
+0.17a Win Condition Fix (J)
