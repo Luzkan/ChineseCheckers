@@ -20,6 +20,7 @@ public class PlayGameController {
         // Send moves that were made to connected players and update their boards accordingly
 
         nextTurn();
+
     }
 
     public static class Board {
@@ -108,7 +109,6 @@ public class PlayGameController {
                         });
                     }
                 }
-
                 if (totalNumberOfPlayers == 6) {
                     setUpPlayer1(Color.GREEN);
                     setUpPlayer2(Color.RED);
@@ -116,7 +116,6 @@ public class PlayGameController {
                     setUpPlayer4(Color.BLUE);
                     setUpPlayer5(Color.PINK);
                     setUpPlayer6(Color.DARKMAGENTA);
-
                 }
                 if (totalNumberOfPlayers == 2) {
                     setUpPlayer1(Color.GREEN);
@@ -143,47 +142,47 @@ public class PlayGameController {
 
         void setUpMiddle() {
             //sets the playable area to gray
-            board[4][4].setColor(Color.GRAY);
-            board[5][4].setColor(Color.GRAY);
-            board[6][4].setColor(Color.GRAY);
-            board[7][4].setColor(Color.GRAY);
-            board[8][4].setColor(Color.GRAY);
-            board[3][5].setColor(Color.GRAY);
-            board[4][5].setColor(Color.GRAY);
-            board[5][5].setColor(Color.GRAY);
-            board[6][5].setColor(Color.GRAY);
-            board[7][5].setColor(Color.GRAY);
-            board[8][5].setColor(Color.GRAY);
-            board[3][6].setColor(Color.GRAY);
-            board[4][6].setColor(Color.GRAY);
-            board[5][6].setColor(Color.GRAY);
-            board[6][6].setColor(Color.GRAY);
-            board[7][6].setColor(Color.GRAY);
-            board[8][6].setColor(Color.GRAY);
-            board[9][6].setColor(Color.GRAY);
-            board[2][7].setColor(Color.GRAY);
-            board[3][7].setColor(Color.GRAY);
-            board[4][7].setColor(Color.GRAY);
-            board[5][7].setColor(Color.GRAY);
-            board[6][7].setColor(Color.GRAY);
-            board[7][7].setColor(Color.GRAY);
-            board[8][7].setColor(Color.GRAY);
-            board[9][7].setColor(Color.GRAY);
-            board[2][8].setColor(Color.GRAY);
-            board[3][8].setColor(Color.GRAY);
-            board[4][8].setColor(Color.GRAY);
-            board[5][8].setColor(Color.GRAY);
-            board[6][8].setColor(Color.GRAY);
-            board[7][8].setColor(Color.GRAY);
-            board[8][8].setColor(Color.GRAY);
-            board[9][8].setColor(Color.GRAY);
-            board[10][8].setColor(Color.GRAY);
-            board[2][9].setColor(Color.GRAY);
-            board[3][9].setColor(Color.GRAY);
-            board[4][9].setColor(Color.GRAY);
-            board[5][9].setColor(Color.GRAY);
-            board[6][9].setColor(Color.GRAY);
-            board[7][9].setColor(Color.GRAY);
+            board[4][4].setDefaultColor();
+            board[5][4].setDefaultColor();
+            board[6][4].setDefaultColor();
+            board[7][4].setDefaultColor();
+            board[8][4].setDefaultColor();
+            board[3][5].setDefaultColor();
+            board[4][5].setDefaultColor();
+            board[5][5].setDefaultColor();
+            board[6][5].setDefaultColor();
+            board[7][5].setDefaultColor();
+            board[8][5].setDefaultColor();
+            board[3][6].setDefaultColor();
+            board[4][6].setDefaultColor();
+            board[5][6].setDefaultColor();
+            board[6][6].setDefaultColor();
+            board[7][6].setDefaultColor();
+            board[8][6].setDefaultColor();
+            board[9][6].setDefaultColor();
+            board[2][7].setDefaultColor();
+            board[3][7].setDefaultColor();
+            board[4][7].setDefaultColor();
+            board[5][7].setDefaultColor();
+            board[6][7].setDefaultColor();
+            board[7][7].setDefaultColor();
+            board[8][7].setDefaultColor();
+            board[9][7].setDefaultColor();
+            board[2][8].setDefaultColor();
+            board[3][8].setDefaultColor();
+            board[4][8].setDefaultColor();
+            board[5][8].setDefaultColor();
+            board[6][8].setDefaultColor();
+            board[7][8].setDefaultColor();
+            board[8][8].setDefaultColor();
+            board[9][8].setDefaultColor();
+            board[10][8].setDefaultColor();
+            board[2][9].setDefaultColor();
+            board[3][9].setDefaultColor();
+            board[4][9].setDefaultColor();
+            board[5][9].setDefaultColor();
+            board[6][9].setDefaultColor();
+            board[7][9].setDefaultColor();
             board[8][9].setColor(Color.GRAY);
             board[9][9].setColor(Color.GRAY);
             board[3][10].setColor(Color.GRAY);
@@ -226,7 +225,6 @@ public class PlayGameController {
             board[5][3].setColor(color);
             board[6][3].setColor(color);
             board[7][3].setColor(color);
-
         }
 
         void setUpPlayer2(Color color) {
@@ -318,11 +316,10 @@ public class PlayGameController {
             try {
                 if (movePossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
                     board[hereGoX][hereGoY].setFill(player_color);
-                    board[goingFromX][goingFromY].setColor(Color.GRAY);
+                    board[goingFromX][goingFromY].setDefaultColor();
                     System.out.println("MOVE");
                 } else {
                     System.out.println("Illegal Move");
-
                 }
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
@@ -333,12 +330,10 @@ public class PlayGameController {
             try {
                 if (jumpPossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
                     board[hereGoX][hereGoY].setFill(player_color);
-                    board[goingFromX][goingFromY].setColor(Color.GRAY);
+                    board[goingFromX][goingFromY].setDefaultColor();
                     System.out.println("JUMP");
-
                 } else {
                     System.out.println("Illegal Jump");
-
                 }
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());

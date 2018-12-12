@@ -74,5 +74,12 @@
         - Board should be board creator
         - PlayGameController should handle mouse & turns
 
-    Fixed OptionsController Warnings (J)
+    Made overhaul of OptionsController (J)
+        * Now the code is simple to understand and as easy & short as possible
+        * Made new class to retrieve and send those options
+        * Fixed OptionsController Warnings (J)
     Made some steps to retrieve settings from options (J)
+
+0.21 (J)
+    Changing few values to be player dependent
+    Not arbitrally chosen

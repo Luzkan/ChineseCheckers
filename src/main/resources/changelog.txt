@@ -79,3 +79,8 @@
         * Made new class to retrieve and send those options
         * Fixed OptionsController Warnings (J)
     Made some steps to retrieve settings from options (J)
+
+0.21 (J)
+    Changing few values to be player dependent
+    Not arbitrally chosen
+    Trying to make alghoritm for board and players.....
