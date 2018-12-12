@@ -83,3 +83,10 @@
 0.21 (J)
     Changing few values to be player dependent
     Not arbitrally chosen
+    Trying to make alghoritm for board and players.....
+
+0.22a (J & G)
+    Board is in Board
+
+0.22b (J)
+    Creating preferences

@@ -71,7 +71,7 @@ public class Main extends Application {
         // This thing returns 0 >:[
         System.out.println("Total Number of Players: " + options.getTotalPlayers());
 
-        PlayGameController.Board board = new PlayGameController.Board(6);
+        Board board = new Board(4);
         for (int x = 0; x < 13; x++) {
             int posX=x*40+50;
             for (int y = 0; y < 17; y++) {

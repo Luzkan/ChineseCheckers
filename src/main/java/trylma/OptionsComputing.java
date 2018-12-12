@@ -1,5 +1,10 @@
 package trylma;
 
+import javafx.event.ActionEvent;
+
+import javax.swing.*;
+import java.util.prefs.*;
+
 public class OptionsComputing {
 
     private int TotalPlayers;
@@ -9,6 +14,20 @@ public class OptionsComputing {
     private String RuleSet;
     private String IPPort;
 
+    private static final String NUM_PLAYERS = "num_players";
+
+    void preferencesSave() {
+        Preferences prefs = Preferences.userNodeForPackage(this.getClass());
+
+        int numPlayers = prefs.getInt(NUM_PLAYERS, TotalPlayers);
+    }
+
+    static String ourNodeName = "/com/trylma";
+
+    static void foo() {
+        Preferences prefs = Preferences.userRoot().node(ourNodeName);
+    }
+
     public int getTotalPlayers() {
         return TotalPlayers;
     }
@@ -16,6 +35,7 @@ public class OptionsComputing {
     public void setTotalPlayers(int totalPlayers) {
         TotalPlayers = totalPlayers;
         System.out.println("Total Players set to: " + TotalPlayers);
+        preferencesSave();
     }
 
     public int getNumberOfPlayers() {
