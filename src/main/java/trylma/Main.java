@@ -22,6 +22,7 @@ public class Main extends Application {
         showMainMenu();
     }
 
+
     // Main Window in which everything will happen.
     // Like all screens (mainmenu, the game and options are in this this dude right here)
     private void showWholeWindow() throws IOException {
@@ -33,6 +34,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+
     // Main Menu
     public static void showMainMenu() throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -40,6 +42,7 @@ public class Main extends Application {
         BorderPane MainMenu = loader.load();
         MainWindow.setCenter(MainMenu);
     }
+
 
     // The Game
     public static void showPlayGame() throws IOException {
@@ -58,23 +61,17 @@ public class Main extends Application {
         Check this image: https://i.imgur.com/EwAIbYK.png
         */
 
+        // ??? Why this canvas is 600/600? xD
         Canvas theGame = new Canvas(600,600);
         Group root = new Group(theGame);
 
         // Getting the options from Options
-
-        OptionsController options = new OptionsController();
-        int totalPlayersNumber = options.getTotalPlayers();
-        int numberOfPlayers = options.getNumberOfPlayers();
-        int numberOfCPU = options.getNumberOfCPU();
-        String typeOfBoard = options.getTypeOfBoard();
-        String ruleSet = options.getRuleSet();
-        String IPPort = options.getIPPort();
+        OptionsComputing options = new OptionsComputing();
 
         // This thing returns 0 >:[
-        System.out.println("Total Number of Players: " + totalPlayersNumber);
+        System.out.println("Total Number of Players: " + options.getTotalPlayers());
 
-        PlayGameController.Board board = new PlayGameController.Board(6);
+        PlayGameController.Board board = new PlayGameController.Board(options.getTotalPlayers());
         for (int x = 0; x < 13; x++) {
             int posX=x*40+50;
             for (int y = 0; y < 17; y++) {
@@ -98,6 +95,7 @@ public class Main extends Application {
         MainWindow.setCenter(PlayGame);
         PlayGame.setCenter(root);
     }
+
 
     // Options Menu
     public static void showOptions() throws IOException {

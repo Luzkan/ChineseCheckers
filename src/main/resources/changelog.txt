@@ -65,3 +65,17 @@
     As one of most important things right now
 
 0.17a Win Condition Fix (J)
+
+
+0.2 (J)
+    The Code is utter complete garbage at this moment
+        - Main should stick to be just window manager and give-get guy for other classes
+        - Things should be done iteratively
+        - Board should be board creator
+        - PlayGameController should handle mouse & turns
+
+    Made overhaul of OptionsController (J)
+        * Now the code is simple to understand and as easy & short as possible
+        * Made new class to retrieve and send those options
+        * Fixed OptionsController Warnings (J)
+    Made some steps to retrieve settings from options (J)

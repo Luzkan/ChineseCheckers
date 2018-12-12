@@ -5,27 +5,28 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
 import java.io.IOException;
 
-public class OptionsController {
+public class OptionsController extends OptionsComputing {
 
     // Game Options
     @FXML
-    private ComboBox numberOfPlayers;
+    private ComboBox<String> numberOfPlayers;
     private ObservableList<String> numberOfPlayersList = FXCollections.observableArrayList("1", "2", "3", "4", "6");
 
     @FXML
-    private ComboBox typeOfBoard;
+    private ComboBox<String> typeOfBoard;
     private ObservableList<String> typeOfBoardList = FXCollections.observableArrayList("6-Shaped Start");
 
     @FXML
-    private ComboBox ruleSet;
+    private ComboBox<String> ruleSet;
     private ObservableList<String> ruleSetList = FXCollections.observableArrayList("Blocked Switch", "Blocked Loses");
 
 
     // CPU Options
     @FXML
-    private ComboBox numberOfCPU;
+    private ComboBox<String> numberOfCPU;
     private ObservableList<String> numberOfCPUList = FXCollections.observableArrayList("0", "1", "2", "3", "5");
 
 
@@ -34,11 +35,6 @@ public class OptionsController {
     private TextField givenIP;
     @FXML
     private TextField givenPort;
-
-
-    // Graphic
-    @FXML
-    private Slider sliderSizeOfBoard;
 
 
     // Initialize
@@ -58,80 +54,40 @@ public class OptionsController {
     }
 
 
-    // Return Variables from options with getters
-    private int TotalPlayers;
-    private int NumberOfPlayers;
-    private int NumberOfCPU;
-    private String TypeOfBoard;
-    private String RuleSet;
-    private String IPPort;
-
-    public int getTotalPlayers() {
-        return TotalPlayers;
-    }
-
-    public int getNumberOfPlayers() {
-        return this.NumberOfPlayers;
-    }
-
-    public int getNumberOfCPU() {
-        return this.NumberOfCPU;
-    }
-
-    public String getTypeOfBoard() {
-        return this.TypeOfBoard;
-    }
-
-    public String getRuleSet() {
-        return this.RuleSet;
-    }
-
-    public String getIPPort() {
-        return this.IPPort;
-    }
-
-
     // Confirmation Button
     public final void confirmOptions (ActionEvent actionEvent) throws IOException {
 
         // Getting number from String
-        String NumberOfPlayersString = numberOfPlayers.getValue().toString();
-        NumberOfPlayers = Integer.parseInt(NumberOfPlayersString);
+        String NumberOfPlayersString = numberOfPlayers.getValue();
+        int numberOfPlayers1 = Integer.parseInt(NumberOfPlayersString);
 
         // Getting number from String
-        String NumberOfCPUString = numberOfCPU.getValue().toString();
-        NumberOfCPU = Integer.parseInt(NumberOfCPUString);
+        String NumberOfCPUString = numberOfCPU.getValue();
+        int numberOfCPU1 = Integer.parseInt(NumberOfCPUString);
 
-        TotalPlayers = NumberOfPlayers + NumberOfCPU;
-        TypeOfBoard = typeOfBoard.getValue().toString();
-        RuleSet = ruleSet.getValue().toString();
-        IPPort = givenIP.getText() + ":" + givenPort.getText();
+        // Calculating Total Players and Creating Port/IP
+        int totalPlayers = numberOfPlayers1 + numberOfCPU1;
+        String IPPort = givenIP.getText() + ":" + givenPort.getText();
 
-        if(TotalPlayers == 2 || TotalPlayers == 3 || TotalPlayers == 4 || TotalPlayers == 6){
+        // Checks if amount of players is correct
+        if(totalPlayers == 2 || totalPlayers == 3 || totalPlayers == 4 || totalPlayers == 6){
 
             // Game Options
-            System.out.println("Total Players: " + TotalPlayers);
-            System.out.println("Real/CPU: [" + NumberOfPlayers + "/" + NumberOfCPU + "]");
-            System.out.println("Type of Board: " + TypeOfBoard);
-            System.out.println("Ruleset: " + RuleSet);
+            setTotalPlayers(totalPlayers);
+            setNumberOfPlayers(numberOfPlayers1);
+            setNumberOfCPU(numberOfCPU1);
+            setTypeOfBoard(typeOfBoard.getValue());
+            setRuleSet(ruleSet.getValue());
 
             // Connection
-            System.out.println("IP/port: " + IPPort);
+            setIPPort(IPPort);
 
-            // Graphic Size Change - my god, it doesn't work, idk why.
-            //System.out.println("Size of Board: " + sliderSizeOfBoard.getValue());
-
-            main.showMainMenu();
+            Main.showMainMenu();
         }
     }
 
-
-
-    // Stuff to accept / cancel the options
-    private Main main;
-
     @FXML
     private void goMainMenu() throws IOException {
-        main.showMainMenu();
+        Main.showMainMenu();
     }
 }
