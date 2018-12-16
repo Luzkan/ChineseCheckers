@@ -94,4 +94,3 @@
 0.23 (G) Major update
     Added Client.Java class that is working with server. ATM the game is not working only if You run server first
     (singleplayer is now server, but only becouse I needed somewhere to test it
-  
