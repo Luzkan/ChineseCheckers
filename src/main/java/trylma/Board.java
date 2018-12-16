@@ -10,8 +10,8 @@ public class Board {
     private int selectedMarbleX;
     private int selectedMarbleY;
     private Paint selectedMarbleColor;
-
-    Marbles board[][] = new Marbles[13][17];
+    public static Paint whoseTurn;
+    static Marbles board[][] = new Marbles[13][17];
     /* This array holds more marbles than there are in the game,
         but this way 2 marbles that are close on the board are also close in array.
         Marbles that are not in game but in the array have there colors set to AQUA,
@@ -59,7 +59,7 @@ public class Board {
                             if (marbleSelected) {
 
                                 if (!jumpMade || !moveMade) {
-                                    move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+                                    move(finalX, finalY, selectedMarbleX, selectedMarbleY);
                                 }
 
                                 // Adding jump logic. If a move is illegal, then instead of fail
@@ -295,10 +295,10 @@ public class Board {
     }
 
     //self explanatory
-    void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
+    static void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
         try {
             if (movePossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
-                board[hereGoX][hereGoY].setFill(player_color);
+                board[hereGoX][hereGoY].setFill(board[goingFromX][goingFromY].getFill());
                 board[goingFromX][goingFromY].setDefaultColor();
                 System.out.println("MOVE");
             } else {
@@ -309,9 +309,9 @@ public class Board {
         }
     }
 
-    void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
+     void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
         try {
-            if (jumpPossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
+           if (jumpPossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
                 board[hereGoX][hereGoY].setFill(player_color);
                 board[goingFromX][goingFromY].setDefaultColor();
                 System.out.println("JUMP");
@@ -323,7 +323,7 @@ public class Board {
         }
     }
 
-    boolean jumpPossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
+     boolean jumpPossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
 
         /* There are 8 direction from which a marble can jump over a marble
            Imagine that we have a clock and we jump from number to the other side
@@ -381,13 +381,14 @@ public class Board {
         return false;
     }
 
-    boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
+    static boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
         if (goingFromX == hereGoX + 1 || goingFromX == hereGoX - 1 || goingFromX == hereGoX) //must be close
             if (goingFromY == hereGoY + 1 || goingFromY == hereGoY - 1 || goingFromY == hereGoY)
                 if (Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
-                    if (!(goingFromX < hereGoX && goingFromY != hereGoY && goingFromY % 2 == 0))
-                        if (!(goingFromX > hereGoX && goingFromY != hereGoY && goingFromY % 2 == 1))
-                            return true;
+                    if (!Color.GRAY.equals(board[goingFromX][goingFromY].getFill())) // source must be non gray
+                        if (!(goingFromX < hereGoX && goingFromY != hereGoY && goingFromY % 2 == 0))
+                            if (!(goingFromX > hereGoX && goingFromY != hereGoY && goingFromY % 2 == 1))
+                                return true;
         return false;
     }
 

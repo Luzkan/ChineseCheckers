@@ -8,6 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.InetAddress;
 
 public class Main extends Application {
 
@@ -49,6 +50,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("/fxml/PlayGame.fxml"));
         BorderPane PlayGame = loader.load();
+        startClient(); // starts clientThread
 
         /*
         ^ About this code
@@ -61,17 +63,21 @@ public class Main extends Application {
         Check this image: https://i.imgur.com/EwAIbYK.png
         */
 
+
         // ??? Why this canvas is 600/600? xD
         Canvas theGame = new Canvas(600,600);
         Group root = new Group(theGame);
 
         // Getting the options from Options
-        OptionsComputing options = new OptionsComputing();
+        //OptionsComputing options = new OptionsComputing();
 
         // This thing returns 0 >:[
-        System.out.println("Total Number of Players: " + options.getTotalPlayers());
+        //System.out.println("Total Number of Players: " + options.getTotalPlayers());
+        while(Client.Number_of_players==0){
+            //just waiting for it to get inicialized
+        }
 
-        Board board = new Board(4);
+        Board board = new Board(Client.Number_of_players);
         for (int x = 0; x < 13; x++) {
             int posX=x*40+50;
             for (int y = 0; y < 17; y++) {
@@ -103,6 +109,22 @@ public class Main extends Application {
         loader.setLocation(Main.class.getResource("/fxml/Options.fxml"));
         BorderPane Options = loader.load();
         MainWindow.setCenter(Options);
+    }
+
+
+    private static void startClient() {
+        // create new thread to handle network communication
+        new Thread(() -> {
+            System.out.println("Client started.");
+
+            try {
+                String serverAddress = InetAddress.getLocalHost().getHostAddress();
+                Client client = new Client(serverAddress);
+                client.play();
+            } catch (Exception ex) {
+                System.out.println("Connection Error: " + ex);
+            }
+        }).start();
     }
 
     public static void main(String[] args) {
