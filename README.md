@@ -23,6 +23,7 @@ Uni Project. Chinese Checkers with online module. Program is flexible and open f
   * Changelog example
   * UML
   * Project structure
+  * Maven
 
 ### Made By:
 - [Marcel Jerzyk](https://github.com/Luzkan)
