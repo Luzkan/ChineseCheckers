@@ -19,13 +19,11 @@ public class ConnectionController extends OptionsComputing {
     @FXML
     void connectTo(ActionEvent event) throws IOException {
 
-        // Stick IP and port as one part
+        // (J) Stick IP and port as one part
         String IPPort = givenIP.getText() + ":" + givenPort.getText();
-
-        // Connection
         setIPPort(IPPort);
 
-        Main.showPlayGame();
+        Main.showJoinedGame();
     }
 
 

@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class MainWindowController {
 
-    // Top Menu
+    // (J) Top Menu
     @FXML
     final void aboutClick(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -1,6 +1,5 @@
 package trylma;
 
-
 import com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -37,7 +36,7 @@ public class Board {
 
 
                         if (true) {
-                            // Check if move was made this turn
+                            // (J) Check if move was made this turn
                             boolean madeChoice = false;
                             boolean startedDeciding = false;
                             boolean jumpMade = false;
@@ -45,10 +44,10 @@ public class Board {
                             boolean meMarbleJumped = false;
 
                             // ===    DEBUG OPTIONS    ===
-                            // Check ID on Click - just for debugging
+                            // (J) Check ID on Click - just for debugging
                             System.out.println("Marble: [" + finalX + ", " + finalY + "]");
 
-                            // Quad click to change color to Red
+                            // (J) Quad click to change color to Red
                             if (event.getClickCount() > 3) {
                                 System.out.println("[Dev Option] Changing Color to RED!");
                                 board[finalX][finalY].setColor(Color.RED);
@@ -62,7 +61,7 @@ public class Board {
                                     move(finalX, finalY, selectedMarbleX, selectedMarbleY);
                                 }
 
-                                // Adding jump logic. If a move is illegal, then instead of fail
+                                // (J) Adding jump logic. If a move is illegal, then instead of fail
                                 // we can check if it was supposed to jump move instead
                                 // if it was jump then we still allow to perform jumps
                                 // and end turn, but user cant make regular moves anymore
@@ -71,7 +70,7 @@ public class Board {
                                     jump(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
                                 }
 
-                                // This is missing some kind of if statement or anything that checks
+                                // (J) This is missing some kind of if statement or anything that checks
                                 // If jump was performed - if yes, then boolean "jumpMade" should be true
                                 // and move function isn't possible anymore.
                                 // same logic to check if move was done
@@ -325,7 +324,7 @@ public class Board {
 
      boolean jumpPossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
 
-        /* There are 8 direction from which a marble can jump over a marble
+        /* (J) There are 8 direction from which a marble can jump over a marble
            Imagine that we have a clock and we jump from number to the other side
            Over the middle in the clock: like from 3 to 9 or from 12 to 6 etc.
 
@@ -347,7 +346,7 @@ public class Board {
                 if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY].getFill())))
                     return true;
 
-        // curvature of the board forces to make two checks
+        // (J) curvature of the board forces to make two checks
         // cause could be placed on even or odd spot
 
         if (hereGoX - goingFromX == -1)
@@ -392,7 +391,7 @@ public class Board {
         return false;
     }
 
-    // Checkd with "End Turn" button.
+    // (J) Checkd with "End Turn" button.
     void winCondition(){
         if(
                 Color.GREEN.equals(board[4][13].getFill()) &&
@@ -475,7 +474,7 @@ public class Board {
                         Color.DARKMAGENTA.equals(board[11][4].getFill()) &&
                         Color.DARKMAGENTA.equals(board[12][4].getFill())
         )
-            System.out.println("Player 5 Won.");
+            System.out.println("Player 6 Won.");
     }
 }
 

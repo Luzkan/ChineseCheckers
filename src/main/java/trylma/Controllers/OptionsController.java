@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
 import trylma.Main;
 import trylma.OptionsComputing;
 
@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class OptionsController extends OptionsComputing {
 
-    // Game Options
+    // (J) Game Options
     @FXML
     private ComboBox<String> numberOfPlayers;
     private ObservableList<String> numberOfPlayersList = FXCollections.observableArrayList("1", "2", "3", "4", "6");
@@ -26,13 +26,13 @@ public class OptionsController extends OptionsComputing {
     private ObservableList<String> ruleSetList = FXCollections.observableArrayList("Blocked Switch", "Blocked Loses");
 
 
-    // CPU Options
+    // (J) CPU Options
     @FXML
     private ComboBox<String> numberOfCPU;
     private ObservableList<String> numberOfCPUList = FXCollections.observableArrayList("0", "1", "2", "3", "5");
 
 
-    // Initialize
+    // (J) Initialize
     @FXML
     private void initialize(){
         numberOfPlayers.setValue("6");
@@ -49,31 +49,30 @@ public class OptionsController extends OptionsComputing {
     }
 
 
-    // Confirmation Button
+    // (J) Confirmation Button
     public final void confirmOptions (ActionEvent actionEvent) throws IOException {
 
-        // Getting number from String
+        // (J) Getting number from String
         String NumberOfPlayersString = numberOfPlayers.getValue();
         int numberOfPlayers1 = Integer.parseInt(NumberOfPlayersString);
 
-        // Getting number from String
+        // (J) Getting number from String
         String NumberOfCPUString = numberOfCPU.getValue();
         int numberOfCPU1 = Integer.parseInt(NumberOfCPUString);
 
-        // Calculating Total Players and Creating Port/IP
+        // (J) Calculating Total Players and Creating Port/IP
         int totalPlayers = numberOfPlayers1 + numberOfCPU1;
 
 
-        // Checks if amount of players is correct
+        // (J) Checks if amount of players is correct
         if(totalPlayers == 2 || totalPlayers == 3 || totalPlayers == 4 || totalPlayers == 6){
 
-            // Game Options
+            // (J) Game Options
             setTotalPlayers(totalPlayers);
             setNumberOfPlayers(numberOfPlayers1);
             setNumberOfCPU(numberOfCPU1);
             setTypeOfBoard(typeOfBoard.getValue());
             setRuleSet(ruleSet.getValue());
-
 
             Main.showMainMenu();
         }

@@ -120,3 +120,14 @@ START - start of the game
         * File is placed in ChineseCheckers folder
     - Added buttons to move around everywhere
     - Folder restructure
+
+0.41 (J)
+    - Win condition fix
+    - Options fully functional with getters and setters from file
+
+0.42 (J)
+    - Moved your client code from Singleplayer to Joingame so Singleplayer works again and
+      Joingame is now linked to that (as it should be)
+    - Singleplayer game creation is now option dependent
+    - Board setuper is now a static void function (<--- NOTICE THIS CHANGE, THATS HUGE)
+    - All warnings fixed in code that I wrote which is in class that is good-to-go w/o any further change (probably)

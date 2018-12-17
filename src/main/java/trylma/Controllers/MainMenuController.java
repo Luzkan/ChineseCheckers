@@ -7,7 +7,8 @@ import java.io.IOException;
 
 public class MainMenuController {
 
-    // Switch between Options and The Game
+    // (J) Main Screen at which user will end up with after starting program
+    // Here are just the button controllers
 
     @FXML
     private void goPlayGame() throws IOException {
@@ -19,11 +20,7 @@ public class MainMenuController {
 
     }
 
-    @FXML
-    void goJoinGame() {
-
-    }
-
+    // (J) Join Game
     @FXML
     private void goConnection() throws IOException {
         Main.showConnection();

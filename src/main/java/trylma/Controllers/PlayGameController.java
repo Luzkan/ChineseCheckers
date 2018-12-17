@@ -1,11 +1,8 @@
 package trylma.Controllers;
 
-import com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import trylma.Main;
@@ -31,7 +28,7 @@ public class PlayGameController{
         nextTurn();
     }
 
-    void nextTurn(){
+    private void nextTurn(){
 
         /*
         if(totalAmountOfPlayers == 2) {
