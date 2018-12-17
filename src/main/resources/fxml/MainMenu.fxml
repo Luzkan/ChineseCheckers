@@ -28,7 +28,7 @@
                   <Font size="36.0" />
                </font>
             </Button>
-            <Button layoutX="555.0" layoutY="631.0" mnemonicParsing="false" onAction="#goJoinGame" prefHeight="80.0" prefWidth="270.0" text="Join">
+            <Button layoutX="555.0" layoutY="631.0" mnemonicParsing="false" onAction="#goPlayGame" prefHeight="80.0" prefWidth="270.0" text="Join">
                <font>
                   <Font size="36.0" />
                </font>

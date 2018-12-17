@@ -90,3 +90,15 @@
 
 0.22b (J)
     Creating preferences but it probably isn't what we need
+
+0.23 (G) Major update
+    Added Client.Java class that is working with server. ATM the game is not working only if You run server first
+    (singleplayer is now server, but only becouse I needed somewhere to test it
+CHINESE CHECKERS TRANSFER PROTOCOL:
+NUMBER_OF_PLAYERS int n -information from server
+QUIT - information from server
+MOVE int targetX targetY fromX fromY - infrmation from and to server
+COLOR value Color - information about what color is Yours for ex. "COLOR 0x000000FF "
+END_TURN - information to server that you ended Your turn
+YOUR_TURN - information to client that it is his turn
+START - start of the game
