@@ -1,15 +1,15 @@
-package trylma;
+package trylma.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import trylma.Main;
+
 import java.io.IOException;
 
 public class MainWindowController {
-
-    private Main main;
 
     // Top Menu
     @FXML
@@ -30,10 +30,14 @@ public class MainWindowController {
         Runtime.getRuntime().exit(0);
     }
 
-
-    // Developer Options which I added cause might be useful for now
+    // (J) Developer Options just to move around right now
     @FXML
     private Button quitBtn;
+
+    @FXML
+    private void goMainMenu() throws IOException {
+        Main.showMainMenu();
+    }
 
     @FXML
     private void goQuit(){
@@ -41,9 +45,5 @@ public class MainWindowController {
         stage.close();
     }
 
-    @FXML
-    private void goMainMenu() throws IOException {
-        main.showMainMenu();
-    }
 
 }

@@ -44,6 +44,13 @@ public class Main extends Application {
         MainWindow.setCenter(MainMenu);
     }
 
+    // Connection
+    public static void showConnection() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("/fxml/Connection.fxml"));
+        BorderPane Connection = loader.load();
+        MainWindow.setCenter(Connection);
+    }
 
     // The Game
     public static void showPlayGame() throws IOException {

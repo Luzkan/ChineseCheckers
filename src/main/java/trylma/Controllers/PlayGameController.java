@@ -1,16 +1,24 @@
-package trylma;
+package trylma.Controllers;
 
 import com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import trylma.Main;
+
+import java.io.IOException;
 
 public class PlayGameController{
 
     @FXML
     private Text whoseTurnText;
+
+    @FXML
+    private Button quitBtn;
 
     @FXML
     void endTurn(ActionEvent event) {
@@ -91,6 +99,17 @@ public class PlayGameController{
             if (whoseTurnText.getText().equals("Player 0"))
                 whoseTurnText.setText("Player 1");
        // }
+    }
+
+    @FXML
+    private void goMainMenu() throws IOException {
+        Main.showMainMenu();
+    }
+
+    @FXML
+    private void goQuit(){
+        Stage stage = (Stage) quitBtn.getScene().getWindow();
+        stage.close();
     }
 }
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd">
+<preferences EXTERNAL_XML_VERSION="1.0">
+  <root type="user">
+    <map/>
+    <node name="trylma.Controllers.OptionsController">
+      <map>
+        <entry key="totalPlayers" value="6"/>
+        <entry key="numberOfPlayers" value="6"/>
+        <entry key="numberOfCPU" value="0"/>
+        <entry key="typeOfBoard" value="6-Shaped Star"/>
+        <entry key="ruleSet" value="Blocked Switch"/>
+      </map>
+    </node>
+  </root>
+</preferences>

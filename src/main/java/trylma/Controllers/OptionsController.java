@@ -1,10 +1,12 @@
-package trylma;
+package trylma.Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import trylma.Main;
+import trylma.OptionsComputing;
 
 import java.io.IOException;
 
@@ -28,13 +30,6 @@ public class OptionsController extends OptionsComputing {
     @FXML
     private ComboBox<String> numberOfCPU;
     private ObservableList<String> numberOfCPUList = FXCollections.observableArrayList("0", "1", "2", "3", "5");
-
-
-    // Connection
-    @FXML
-    private TextField givenIP;
-    @FXML
-    private TextField givenPort;
 
 
     // Initialize
@@ -67,7 +62,7 @@ public class OptionsController extends OptionsComputing {
 
         // Calculating Total Players and Creating Port/IP
         int totalPlayers = numberOfPlayers1 + numberOfCPU1;
-        String IPPort = givenIP.getText() + ":" + givenPort.getText();
+
 
         // Checks if amount of players is correct
         if(totalPlayers == 2 || totalPlayers == 3 || totalPlayers == 4 || totalPlayers == 6){
@@ -79,8 +74,6 @@ public class OptionsController extends OptionsComputing {
             setTypeOfBoard(typeOfBoard.getValue());
             setRuleSet(ruleSet.getValue());
 
-            // Connection
-            setIPPort(IPPort);
 
             Main.showMainMenu();
         }

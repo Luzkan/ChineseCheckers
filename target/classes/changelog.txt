@@ -91,7 +91,7 @@
 0.22b (J)
     Creating preferences but it probably isn't what we need
 
-0.23 (G) Major update
+0.3 (G) Major update
     Added Client.Java class that is working with server. ATM the game is not working only if You run server first
     (singleplayer is now server, but only becouse I needed somewhere to test it
 CHINESE CHECKERS TRANSFER PROTOCOL:
@@ -102,3 +102,21 @@ COLOR value Color - information about what color is Yours for ex. "COLOR 0x00000
 END_TURN - information to server that you ended Your turn
 YOUR_TURN - information to client that it is his turn
 START - start of the game
+
+0.3a (J)
+    If it's major update then I switch your update number from 0.23 to BIG 0.3 PUSH
+
+0.31 (J)
+    Added PlayGame functionality to Join just like it was previously done to Singleplayer as requested
+
+0.4 (J)
+    - Reworked Options Layout
+    - Created Connection Layout
+    - Added all the system to make it work
+    - Options works now
+        * They are saved to file now
+        * File is formatted as XML
+        * File is automatically generated if it doesn't exist
+        * File is placed in ChineseCheckers folder
+    - Added buttons to move around everywhere
+    - Folder restructure

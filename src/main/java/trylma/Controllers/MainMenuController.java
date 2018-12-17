@@ -1,16 +1,17 @@
-package trylma;
+package trylma.Controllers;
 
 import javafx.fxml.FXML;
+import trylma.Main;
+
 import java.io.IOException;
 
 public class MainMenuController {
 
     // Switch between Options and The Game
-    private Main main;
 
     @FXML
     private void goPlayGame() throws IOException {
-        main.showPlayGame();
+        Main.showPlayGame();
     }
 
     @FXML
@@ -24,8 +25,13 @@ public class MainMenuController {
     }
 
     @FXML
+    private void goConnection() throws IOException {
+        Main.showConnection();
+    }
+
+    @FXML
     private void goOptions() throws IOException {
-        main.showOptions();
+        Main.showOptions();
     }
 
 

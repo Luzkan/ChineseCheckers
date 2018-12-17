@@ -1,9 +1,8 @@
 package trylma;
 
-import javafx.event.ActionEvent;
+import java.io.FileOutputStream;
+import java.util.prefs.Preferences;
 
-import javax.swing.*;
-import java.util.prefs.*;
 
 public class OptionsComputing {
 
@@ -14,28 +13,31 @@ public class OptionsComputing {
     private String RuleSet;
     private String IPPort;
 
-    private static final String NUM_PLAYERS = "num_players";
+    private Preferences chinesePrefs;
 
-    void preferencesSave() {
-        Preferences prefs = Preferences.userNodeForPackage(this.getClass());
+    // Saves settings to a file
+    public void setPreference(String type, String value) {
 
-        int numPlayers = prefs.getInt(NUM_PLAYERS, TotalPlayers);
+        chinesePrefs = Preferences.userRoot().node(this.getClass().getName());
+        chinesePrefs.put(type, value);
+
+        try {
+            chinesePrefs.exportNode(new FileOutputStream("checkersPrefs.xml"));
+            System.out.println("[Options] Saved '" + type + "' with value '" + chinesePrefs.get(type, value) + "'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    static String ourNodeName = "/com/trylma";
-
-    static void foo() {
-        Preferences prefs = Preferences.userRoot().node(ourNodeName);
-    }
-
+    // Getters & Setters
     public int getTotalPlayers() {
         return TotalPlayers;
     }
 
     public void setTotalPlayers(int totalPlayers) {
         TotalPlayers = totalPlayers;
-        System.out.println("Total Players set to: " + TotalPlayers);
-        preferencesSave();
+        String TotalPlayersString = Integer.toString(TotalPlayers);
+        setPreference("totalPlayers", TotalPlayersString);
     }
 
     public int getNumberOfPlayers() {
@@ -44,7 +46,8 @@ public class OptionsComputing {
 
     public void setNumberOfPlayers(int numberOfPlayers) {
         NumberOfPlayers = numberOfPlayers;
-        System.out.println("Number Of Players set to: " + NumberOfPlayers);
+        String NumberOfPlayersString = Integer.toString(NumberOfPlayers);
+        setPreference("numberOfPlayers", NumberOfPlayersString);
     }
 
     public int getNumberOfCPU() {
@@ -53,7 +56,8 @@ public class OptionsComputing {
 
     public void setNumberOfCPU(int numberOfCPU) {
         NumberOfCPU = numberOfCPU;
-        System.out.println("CPU set to: " + NumberOfCPU);
+        String NumberOfCPUString = Integer.toString(NumberOfCPU);
+        setPreference("numberOfCPU", NumberOfCPUString);
     }
 
     public String getTypeOfBoard() {
@@ -62,7 +66,7 @@ public class OptionsComputing {
 
     public void setTypeOfBoard(String typeOfBoard) {
         TypeOfBoard = typeOfBoard;
-        System.out.println("Type of Board set to: " + TypeOfBoard);
+        setPreference("typeOfBoard", TypeOfBoard);
     }
 
     public String getRuleSet() {
@@ -71,7 +75,7 @@ public class OptionsComputing {
 
     public void setRuleSet(String ruleSet) {
         RuleSet = ruleSet;
-        System.out.println("Ruleset set to: " + RuleSet);
+        setPreference("ruleSet", RuleSet);
     }
 
     public String getIPPort() {
@@ -80,7 +84,7 @@ public class OptionsComputing {
 
     public void setIPPort(String IPPort) {
         this.IPPort = IPPort;
-        System.out.println("IP and Port set to: " + IPPort);
+        setPreference("ipPort", IPPort);
     }
 
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1380.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trylma.Controllers.ConnectionController">
+   <center>
+      <Pane prefHeight="980.0" prefWidth="1860.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="409.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chinese Checkers">
+               <font>
+                  <Font size="73.0" />
+               </font>
+            </Text>
+            <Label layoutX="556.0" layoutY="467.0" text="Connection">
+               <font>
+                  <Font name="System Bold" size="50.0" />
+               </font>
+            </Label>
+            <Label layoutX="574.0" layoutY="556.0" text="IP">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <TextField fx:id="givenIP" layoutX="635.0" layoutY="553.0" prefHeight="48.0" prefWidth="176.0" promptText="127.0.0.1" text="127.0.0.1">
+               <font>
+                  <Font size="22.0" />
+               </font></TextField>
+            <Label layoutX="559.0" layoutY="613.0" text="Port">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <TextField fx:id="givenPort" layoutX="635.0" layoutY="610.0" prefHeight="48.0" prefWidth="177.0" promptText="3306" text="3306">
+               <font>
+                  <Font size="22.0" />
+               </font></TextField>
+            <Button layoutX="623.0" layoutY="678.0" mnemonicParsing="false" onAction="#connectTo" text="Connect">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="571.0" layoutY="880.0" mnemonicParsing="false" onAction="#goMainMenu" text="Back to Main Menu">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
