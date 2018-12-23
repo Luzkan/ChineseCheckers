@@ -13,11 +13,15 @@ public class Client {
         private static final int port = 9001;
         private Socket socket;
         private BufferedReader in;
-        private PrintWriter out;
+        public static PrintWriter out;
         Color myColor;
         public static int Number_of_players = 0;
+        public static boolean myTurn=false;
+        public static boolean inMulitipalyerMode=false;
+        int PlayerNumber;
 
-        Client(String serverAddress) throws Exception {
+
+    Client(String serverAddress) throws Exception {
             // Setup networking
             socket = new Socket(serverAddress, port);
             in = new BufferedReader(new InputStreamReader(
@@ -30,6 +34,7 @@ public class Client {
 
         public void play() throws Exception {
             String response;
+            inMulitipalyerMode=true;
             try {
 
                 while (true) {
@@ -48,10 +53,20 @@ public class Client {
                     }
                     if (response.startsWith("MOVE")) {
                         String[] responseParts=response.split(" ");
-                        Board.move(Integer.parseInt(responseParts[1]),Integer.parseInt(responseParts[2]),Integer.parseInt(responseParts[3]),Integer.parseInt(responseParts[4]));
+                        if(!myTurn)
+                        Board.ServerForceMove(Integer.parseInt(responseParts[1]),Integer.parseInt(responseParts[2]),Integer.parseInt(responseParts[3]),Integer.parseInt(responseParts[4]));
+                    }
+                    if (response.startsWith("PLAYER_NUMBER")) {
+                        String[] responseParts=response.split(" ");
+                        PlayerNumber=Integer.parseInt(responseParts[1]);
                     }
 
-
+                    if (response.startsWith("TURN")) {
+                        String[] responseParts=response.split(" ");
+                        if(Integer.parseInt(responseParts[1])==PlayerNumber)
+                        myTurn=true;
+                        else myTurn=false;
+                    }
 
                 }
 

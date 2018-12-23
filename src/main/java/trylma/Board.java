@@ -58,7 +58,7 @@ public class Board {
                             if (marbleSelected) {
 
                                 if (!jumpMade || !moveMade) {
-                                    move(finalX, finalY, selectedMarbleX, selectedMarbleY);
+                                    move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
                                 }
 
                                 // (J) Adding jump logic. If a move is illegal, then instead of fail
@@ -294,12 +294,15 @@ public class Board {
     }
 
     //self explanatory
-    static void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
+    static void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
         try {
             if (movePossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
                 board[hereGoX][hereGoY].setFill(board[goingFromX][goingFromY].getFill());
                 board[goingFromX][goingFromY].setDefaultColor();
                 System.out.println("MOVE");
+                if(Client.out!= null) {
+                    Client.out.println("MOVE "+ hereGoX + " " + hereGoY + " " + goingFromX+ " " + goingFromY + " " + player_color);
+                }
             } else {
                 System.out.println("Illegal Move");
             }
@@ -307,6 +310,14 @@ public class Board {
             System.out.println(ex.getMessage());
         }
     }
+    static void ServerForceMove(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
+        //this is a method we use when server tells us to move something
+        //it just moves and doesnt check anything
+                board[hereGoX][hereGoY].setFill(board[goingFromX][goingFromY].getFill());
+                board[goingFromX][goingFromY].setDefaultColor();
+        }
+
+
 
      void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
         try {
@@ -314,6 +325,9 @@ public class Board {
                 board[hereGoX][hereGoY].setFill(player_color);
                 board[goingFromX][goingFromY].setDefaultColor();
                 System.out.println("JUMP");
+               if(Client.out!= null) {
+                   Client.out.println("MOVE "+ hereGoX + " " + hereGoY + " " + goingFromX+ " " + goingFromY + " " + player_color);
+               }
             } else {
                 System.out.println("Illegal Jump");
             }
@@ -335,6 +349,8 @@ public class Board {
            from the beginning again. Hopefully the alghoritm for board will fix this problem and
            we can adjust accordingly.
         */
+        if(Client.inMulitipalyerMode&&!Client.myTurn)
+            return false;
 
         if (goingFromX - hereGoX == 2)
             if (goingFromY - hereGoY == 0)
@@ -387,7 +403,8 @@ public class Board {
                     if (!Color.GRAY.equals(board[goingFromX][goingFromY].getFill())) // source must be non gray
                         if (!(goingFromX < hereGoX && goingFromY != hereGoY && goingFromY % 2 == 0))
                             if (!(goingFromX > hereGoX && goingFromY != hereGoY && goingFromY % 2 == 1))
-                                return true;
+                                if(Client.myTurn || !Client.inMulitipalyerMode)
+                                    return true;
         return false;
     }
 

@@ -130,3 +130,4 @@ START - start of the game
       Joingame is now linked to that (as it should be)
     - Singleplayer game creation is now option dependent
     - Board setuper is now a static void function (<--- NOTICE THIS CHANGE, THATS HUGE)
+    - All warnings fixed in code that I wrote which is in class that is good-to-go w/o any further change (probably)
