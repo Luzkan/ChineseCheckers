@@ -31,7 +31,8 @@ public class MainWindowController {
     }
 
     // (J) Developer Options just to move around right now
-    @FXML
+    // 23.12.2018 (J) they are no longer needed cause now its possible to move around from everywhere
+    /*@FXML
     private Button quitBtn;
 
     @FXML
@@ -44,6 +45,6 @@ public class MainWindowController {
         Stage stage = (Stage) quitBtn.getScene().getWindow();
         stage.close();
     }
-
+    */
 
 }

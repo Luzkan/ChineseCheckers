@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import trylma.Main;
 import trylma.OptionsComputing;
@@ -75,6 +76,15 @@ public class OptionsController extends OptionsComputing {
             setRuleSet(ruleSet.getValue());
 
             Main.showMainMenu();
+        }else{
+            // (J) Shows alert about wrong number of players.
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Illegal option selected!");
+            alert.setHeaderText("Total number of players in the game must be equal to\n" +
+                    "Two, Four, Five or Six players!\n");
+            alert.setContentText("If you are deeply interested in playing the game with\n" +
+                    "any number of players then contact the developers.");
+            alert.show();
         }
     }
 

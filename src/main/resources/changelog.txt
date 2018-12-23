@@ -142,3 +142,8 @@ START - start of the game
     - Fixed the options problem
     - Fixed nodes for options, now its working
     - Options are now officially working with the save-to-file and read-from-file feature
+
+0.52 (J)
+    - Added warning alert about illegal option set (wrong amount of players).
+    - Deleted developer options to move around quickly.
+    - Thankfully everything adjusted as I intended at the beginning so no further change in size was needed
