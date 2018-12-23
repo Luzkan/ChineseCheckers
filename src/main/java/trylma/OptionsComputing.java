@@ -17,7 +17,7 @@ public class OptionsComputing {
     // (J) Saves settings to a file
     private void setPreference(String type, String value) {
 
-        chinesePrefs = Preferences.userRoot().node(this.getClass().getName());
+        chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         chinesePrefs.put(type, value);
 
         try {
@@ -31,7 +31,7 @@ public class OptionsComputing {
     // (J) Getters & Setters
     int getTotalPlayers() {
         int defaultValue = 6;
-        chinesePrefs = Preferences.userRoot().node(this.getClass().getName());
+        chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         TotalPlayers = chinesePrefs.getInt("totalPlayers", defaultValue);
         return TotalPlayers;
     }
@@ -44,7 +44,7 @@ public class OptionsComputing {
 
     public int getNumberOfPlayers() {
         int defaultValue = 6;
-        chinesePrefs = Preferences.userRoot().node(this.getClass().getName());
+        chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         NumberOfPlayers = chinesePrefs.getInt("numberOfPlayers", defaultValue);
         return NumberOfPlayers;
     }
@@ -57,7 +57,7 @@ public class OptionsComputing {
 
     public int getNumberOfCPU() {
         int defaultValue = 0;
-        chinesePrefs = Preferences.userRoot().node(this.getClass().getName());
+        chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         NumberOfCPU = chinesePrefs.getInt("numberOfCPU", defaultValue);
         return NumberOfCPU;
     }
@@ -70,7 +70,7 @@ public class OptionsComputing {
 
     public String getTypeOfBoard() {
         String defaultValue = "6-Shaped Start";
-        chinesePrefs = Preferences.userRoot().node(this.getClass().getName());
+        chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         TypeOfBoard = chinesePrefs.get("numberOfCPU", defaultValue);
         return TypeOfBoard;
     }
@@ -82,7 +82,7 @@ public class OptionsComputing {
 
     public String getRuleSet() {
         String defaultValue = "Blocked Switch";
-        chinesePrefs = Preferences.userRoot().node(this.getClass().getName());
+        chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         RuleSet = chinesePrefs.get("ruleSet", defaultValue);
         return RuleSet;
     }
@@ -94,7 +94,7 @@ public class OptionsComputing {
 
     public String getIPPort() {
         String defaultValue = "127.0.0.1:3306";
-        chinesePrefs = Preferences.userRoot().node(this.getClass().getName());
+        chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         IPPort = chinesePrefs.get("ipPort", defaultValue);
         return IPPort;
     }

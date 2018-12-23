@@ -3,10 +3,10 @@
 <preferences EXTERNAL_XML_VERSION="1.0">
   <root type="user">
     <map/>
-    <node name="trylma.Controllers.OptionsController">
+    <node name="trylma.Main">
       <map>
-        <entry key="totalPlayers" value="6"/>
-        <entry key="numberOfPlayers" value="6"/>
+        <entry key="totalPlayers" value="2"/>
+        <entry key="numberOfPlayers" value="2"/>
         <entry key="numberOfCPU" value="0"/>
         <entry key="typeOfBoard" value="6-Shaped Star"/>
         <entry key="ruleSet" value="Blocked Switch"/>

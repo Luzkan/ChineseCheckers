@@ -137,3 +137,8 @@ START - start of the game
     It should send info to the server that turn has ended. When this command will be send next all the players get info that it it next player's turn.
     Win condition is not yet implemented. Client should be also able to only move his pieces but I dodnt have time ( it's an easy fix, few minutes of work)
     Added Board.ServerForceMove - it is used for when server sends us a move to make, we dont have to check it for the 3rd time xd
+
+0.51 (J)
+    - Fixed the options problem
+    - Fixed nodes for options, now its working
+    - Options are now officially working with the save-to-file and read-from-file feature
