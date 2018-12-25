@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import trylma.Client;
 import trylma.Main;
 
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class PlayGameController{
         nextTurn();
     }
 
-    private void nextTurn(){
+     public void nextTurn(){
 
         /*
         if(totalAmountOfPlayers == 2) {
@@ -75,7 +76,7 @@ public class PlayGameController{
 
         */
         //if(totalAmountOfPlayers == 6) {
-            if (whoseTurnText.getText().equals("Player 6"))
+           /* if (whoseTurnText.getText().equals("Player 6"))
                 whoseTurnText.setText("Player 0");
 
             if (whoseTurnText.getText().equals("Player 5"))
@@ -95,7 +96,12 @@ public class PlayGameController{
 
             if (whoseTurnText.getText().equals("Player 0"))
                 whoseTurnText.setText("Player 1");
-       // }
+
+       }
+       */
+        Client.InformServerEndTurn();
+        whoseTurnText.setText("cos dziala");
+
     }
 
     @FXML

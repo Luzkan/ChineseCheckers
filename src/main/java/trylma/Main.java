@@ -146,10 +146,8 @@ public class Main extends Application {
             int posX=x*40+50;
             for (int y = 0; y < 17; y++) {
                 if(board.board[x][y] != null) {
-
                     // (J) Adding extrasize value to resize the board
                     // Might be helpfull later
-
                     double extraSize = 1.33;
                     int posY = y * 40 + 50;
                     board.board[x][y].setCenterY(posY * extraSize);

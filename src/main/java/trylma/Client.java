@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import javafx.scene.paint.Color;
+import trylma.Controllers.PlayGameController;
 
 import static trylma.Board.board;
 
@@ -14,11 +15,12 @@ public class Client {
         private Socket socket;
         private BufferedReader in;
         public static PrintWriter out;
-        Color myColor;
+        public static Color myColor;
         public static int Number_of_players = 0;
         public static boolean myTurn=false;
         public static boolean inMulitipalyerMode=false;
         int PlayerNumber;
+        public static int whoseTurnInt;
 
 
     Client(String serverAddress) throws Exception {
@@ -63,9 +65,13 @@ public class Client {
 
                     if (response.startsWith("TURN")) {
                         String[] responseParts=response.split(" ");
-                        if(Integer.parseInt(responseParts[1])==PlayerNumber)
-                        myTurn=true;
-                        else myTurn=false;
+                        if(Integer.parseInt(responseParts[1])==PlayerNumber) {
+                            myTurn = true;
+                        }
+                        else {
+                            myTurn = false;
+                        }
+                        whoseTurnInt=Integer.parseInt(responseParts[1]);
                     }
 
                 }
@@ -74,5 +80,22 @@ public class Client {
                 socket.close();
             }
         }
+    public static void InformServerEndTurn(){
+        try {
+            if (Client.out != null) {
+                if(myTurn) {
+                    Client.out.println("TURN");
+                    myTurn = false;
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
+    public Color getColor(){
+        return myColor;
+    }
+}
+
 

@@ -59,6 +59,7 @@ public class Board {
 
                                 if (!jumpMade || !moveMade) {
                                     move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+
                                 }
 
                                 // (J) Adding jump logic. If a move is illegal, then instead of fail
@@ -315,6 +316,7 @@ public class Board {
         //it just moves and doesnt check anything
                 board[hereGoX][hereGoY].setFill(board[goingFromX][goingFromY].getFill());
                 board[goingFromX][goingFromY].setDefaultColor();
+                System.out.println("SERVER FORCED MOVE MADE");
         }
 
 
@@ -349,8 +351,8 @@ public class Board {
            from the beginning again. Hopefully the alghoritm for board will fix this problem and
            we can adjust accordingly.
         */
-        if(Client.inMulitipalyerMode&&!Client.myTurn)
-            return false;
+        if((Client.inMulitipalyerMode&&!Client.myTurn)||(Client.inMulitipalyerMode&&!Client.myColor.equals(board[goingFromX][goingFromY].getFill())))
+             return false;
 
         if (goingFromX - hereGoX == 2)
             if (goingFromY - hereGoY == 0)
@@ -397,13 +399,14 @@ public class Board {
     }
 
     static boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
+        if((Client.inMulitipalyerMode&&!Client.myTurn)||(Client.inMulitipalyerMode&&!Client.myColor.equals(board[goingFromX][goingFromY].getFill())))
+            return false;
         if (goingFromX == hereGoX + 1 || goingFromX == hereGoX - 1 || goingFromX == hereGoX) //must be close
             if (goingFromY == hereGoY + 1 || goingFromY == hereGoY - 1 || goingFromY == hereGoY)
                 if (Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
                     if (!Color.GRAY.equals(board[goingFromX][goingFromY].getFill())) // source must be non gray
                         if (!(goingFromX < hereGoX && goingFromY != hereGoY && goingFromY % 2 == 0))
                             if (!(goingFromX > hereGoX && goingFromY != hereGoY && goingFromY % 2 == 1))
-                                if(Client.myTurn || !Client.inMulitipalyerMode)
                                     return true;
         return false;
     }

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1005.0" prefWidth="1860.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trylma.Controllers.MainWindowController">
    <top>
@@ -28,12 +26,4 @@
          </padding>
       </MenuBar>
    </top>
-   <bottom>
-      <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-             <Button mnemonicParsing="false" onAction="#goMainMenu" text="Main Menu (dev)" />
-             <Button fx:id="quitBtn" mnemonicParsing="false" onAction="#goQuit" text="Quit (dev)" />
-         </children>
-      </HBox>
-   </bottom>
 </BorderPane>

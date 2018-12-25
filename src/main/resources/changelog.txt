@@ -147,3 +147,8 @@ START - start of the game
     - Added warning alert about illegal option set (wrong amount of players).
     - Deleted developer options to move around quickly.
     - Thankfully everything adjusted as I intended at the beginning so no further change in size was needed
+
+0.53 G
+    -added turn logic while multiplayer
+    -added a few things both to serwer and client.
+    - Found a bug when some legall jumps are illegal on the server but legal in client and i have no idea why. 
