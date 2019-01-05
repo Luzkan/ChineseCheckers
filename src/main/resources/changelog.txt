@@ -165,3 +165,7 @@ START - start of the game
     - End Turn shows correct player
     - Win Condition check (works)
     * there is no reset for move/jump right now
+
+0.6a (J)
+    - And now there is that reset (after end turn btn).
+    * important comment read in @PlayGameController in @void endTurn

@@ -157,3 +157,11 @@ START - start of the game
 0.54 (J)
     - Bug appears because the first check on shifted map will be performed on null object since the change to null circles that wont be used (instead of having bgcolor)
     - Fixed
+
+0.6 (J)
+    - Move and Jump limit
+    - Harder than you think though
+    - Found and Fixed that marble can jump into a marble
+    - End Turn shows correct player
+    - Win Condition check (works)
+    * there is no reset for move/jump right now

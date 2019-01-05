@@ -7,13 +7,13 @@ import javafx.scene.paint.Paint;
 public class Board {
     private boolean marbleSelected = false;
 
-    // The checks for movement must be public
+    // The checks for movement must be public & static
     // Im reseting them after pressing end turn for next player
 
-    public boolean moveMade = false;
-    public boolean jumpMade = false;
-    public int jumpedMarbleX = 0;
-    public int jumpedMarbleY = 0;
+    public static boolean moveMade = false;
+    public static boolean jumpMade = false;
+    public static int jumpedMarbleX = 0;
+    public static int jumpedMarbleY = 0;
 
     private int selectedMarbleX;
     private int selectedMarbleY;
@@ -44,11 +44,6 @@ public class Board {
                     board[x][y].setOnMouseClicked(event -> {
 
                         if (true) {
-                            // (J) Check if move was made this turn
-                            boolean madeChoice = false;
-                            boolean startedDeciding = false;
-                            boolean meMarbleJumped = false;
-
                             // ===    DEBUG OPTIONS    ===
                             // (J) Check ID on Click - just for debugging
                             System.out.println("Marble: [" + finalX + ", " + finalY + "] color: " + selectedMarbleColor);
@@ -435,94 +430,91 @@ public class Board {
     }
 
     public static void resetChecks(){
-
+        moveMade = false;
+        jumpMade = false;
+        jumpedMarbleX = 0;
+        jumpedMarbleY = 0;
     }
 
-    // (J) Checkd with "End Turn" button.
+    // (J) Checked with "End Turn" button.
     // (J) 0.6 Switching to public static for controller handler
     public static void winCondition(){
         if(
-                Color.GREEN.equals(board[4][13].getFill()) &&
-                        Color.GREEN.equals(board[5][13].getFill()) &&
-                        Color.GREEN.equals(board[6][13].getFill()) &&
-                        Color.GREEN.equals(board[7][13].getFill()) &&
-                        Color.GREEN.equals(board[7][14].getFill()) &&
-                        Color.GREEN.equals(board[5][14].getFill()) &&
-                        Color.GREEN.equals(board[6][14].getFill()) &&
-                        Color.GREEN.equals(board[5][15].getFill()) &&
-                        Color.GREEN.equals(board[6][15].getFill()) &&
-                        Color.GREEN.equals(board[6][16].getFill())
-        )
-            System.out.println("Player 1 Won.");
+            Color.GREEN.equals(board[4][13].getFill()) &&
+            Color.GREEN.equals(board[5][13].getFill()) &&
+            Color.GREEN.equals(board[6][13].getFill()) &&
+            Color.GREEN.equals(board[7][13].getFill()) &&
+            Color.GREEN.equals(board[7][14].getFill()) &&
+            Color.GREEN.equals(board[5][14].getFill()) &&
+            Color.GREEN.equals(board[6][14].getFill()) &&
+            Color.GREEN.equals(board[5][15].getFill()) &&
+            Color.GREEN.equals(board[6][15].getFill()) &&
+            Color.GREEN.equals(board[6][16].getFill())
+            ) System.out.println("Player 1 Won.");
         if(
-                Color.RED.equals(board[6][0].getFill()) &&
-                        Color.RED.equals(board[5][1].getFill()) &&
-                        Color.RED.equals(board[6][1].getFill()) &&
-                        Color.RED.equals(board[5][2].getFill()) &&
-                        Color.RED.equals(board[6][2].getFill()) &&
-                        Color.RED.equals(board[7][2].getFill()) &&
-                        Color.RED.equals(board[4][3].getFill()) &&
-                        Color.RED.equals(board[5][3].getFill()) &&
-                        Color.RED.equals(board[6][3].getFill()) &&
-                        Color.RED.equals(board[7][3].getFill())
-        )
-            System.out.println("Player 2 Won.");
+            Color.RED.equals(board[6][0].getFill()) &&
+            Color.RED.equals(board[5][1].getFill()) &&
+            Color.RED.equals(board[6][1].getFill()) &&
+            Color.RED.equals(board[5][2].getFill()) &&
+            Color.RED.equals(board[6][2].getFill()) &&
+            Color.RED.equals(board[7][2].getFill()) &&
+            Color.RED.equals(board[4][3].getFill()) &&
+            Color.RED.equals(board[5][3].getFill()) &&
+            Color.RED.equals(board[6][3].getFill()) &&
+            Color.RED.equals(board[7][3].getFill())
+            ) System.out.println("Player 2 Won.");
 
         if(
-                Color.YELLOW.equals(board[10][9].getFill()) &&
-                        Color.YELLOW.equals(board[10][10].getFill()) &&
-                        Color.YELLOW.equals(board[11][10].getFill()) &&
-                        Color.YELLOW.equals(board[9][11].getFill()) &&
-                        Color.YELLOW.equals(board[10][11].getFill()) &&
-                        Color.YELLOW.equals(board[11][11].getFill()) &&
-                        Color.YELLOW.equals(board[9][12].getFill()) &&
-                        Color.YELLOW.equals(board[10][12].getFill()) &&
-                        Color.YELLOW.equals(board[11][12].getFill()) &&
-                        Color.YELLOW.equals(board[12][12].getFill())
-        )
-            System.out.println("Player 3 Won.");
+            Color.YELLOW.equals(board[10][9].getFill()) &&
+            Color.YELLOW.equals(board[10][10].getFill()) &&
+            Color.YELLOW.equals(board[11][10].getFill()) &&
+            Color.YELLOW.equals(board[9][11].getFill()) &&
+            Color.YELLOW.equals(board[10][11].getFill()) &&
+            Color.YELLOW.equals(board[11][11].getFill()) &&
+            Color.YELLOW.equals(board[9][12].getFill()) &&
+            Color.YELLOW.equals(board[10][12].getFill()) &&
+            Color.YELLOW.equals(board[11][12].getFill()) &&
+            Color.YELLOW.equals(board[12][12].getFill())
+            ) System.out.println("Player 3 Won.");
 
         if(
-                Color.BLUE.equals(board[0][4].getFill()) &&
-                        Color.BLUE.equals(board[1][4].getFill()) &&
-                        Color.BLUE.equals(board[2][4].getFill()) &&
-                        Color.BLUE.equals(board[3][4].getFill()) &&
-                        Color.BLUE.equals(board[0][5].getFill()) &&
-                        Color.BLUE.equals(board[1][5].getFill()) &&
-                        Color.BLUE.equals(board[2][5].getFill()) &&
-                        Color.BLUE.equals(board[1][6].getFill()) &&
-                        Color.BLUE.equals(board[2][6].getFill()) &&
-                        Color.BLUE.equals(board[1][7].getFill())
-        )
-            System.out.println("Player 4 Won.");
+            Color.BLUE.equals(board[0][4].getFill()) &&
+            Color.BLUE.equals(board[1][4].getFill()) &&
+            Color.BLUE.equals(board[2][4].getFill()) &&
+            Color.BLUE.equals(board[3][4].getFill()) &&
+            Color.BLUE.equals(board[0][5].getFill()) &&
+            Color.BLUE.equals(board[1][5].getFill()) &&
+            Color.BLUE.equals(board[2][5].getFill()) &&
+            Color.BLUE.equals(board[1][6].getFill()) &&
+            Color.BLUE.equals(board[2][6].getFill()) &&
+            Color.BLUE.equals(board[1][7].getFill())
+            ) System.out.println("Player 4 Won.");
 
         if(
-                Color.PINK.equals(board[0][12].getFill()) &&
-                        Color.PINK.equals(board[1][12].getFill()) &&
-                        Color.PINK.equals(board[2][12].getFill()) &&
-                        Color.PINK.equals(board[3][12].getFill()) &&
-                        Color.PINK.equals(board[0][11].getFill()) &&
-                        Color.PINK.equals(board[1][11].getFill()) &&
-                        Color.PINK.equals(board[2][11].getFill()) &&
-                        Color.PINK.equals(board[1][10].getFill()) &&
-                        Color.PINK.equals(board[2][10].getFill()) &&
-                        Color.PINK.equals(board[1][9].getFill())
-        )
-            System.out.println("Player 5 Won.");
+            Color.PINK.equals(board[0][12].getFill()) &&
+            Color.PINK.equals(board[1][12].getFill()) &&
+            Color.PINK.equals(board[2][12].getFill()) &&
+            Color.PINK.equals(board[3][12].getFill()) &&
+            Color.PINK.equals(board[0][11].getFill()) &&
+            Color.PINK.equals(board[1][11].getFill()) &&
+            Color.PINK.equals(board[2][11].getFill()) &&
+            Color.PINK.equals(board[1][10].getFill()) &&
+            Color.PINK.equals(board[2][10].getFill()) &&
+            Color.PINK.equals(board[1][9].getFill())
+            ) System.out.println("Player 5 Won.");
 
         if(
-                Color.DARKMAGENTA.equals(board[10][7].getFill()) &&
-                        Color.DARKMAGENTA.equals(board[10][6].getFill()) &&
-                        Color.DARKMAGENTA.equals(board[11][6].getFill()) &&
-                        Color.DARKMAGENTA.equals(board[9][5].getFill()) &&
-                        Color.DARKMAGENTA.equals(board[10][5].getFill()) &&
-                        Color.DARKMAGENTA.equals(board[11][5].getFill()) &&
-                        Color.DARKMAGENTA.equals(board[9][4].getFill()) &&
-                        Color.DARKMAGENTA.equals(board[10][4].getFill()) &&
-                        Color.DARKMAGENTA.equals(board[11][4].getFill()) &&
-                        Color.DARKMAGENTA.equals(board[12][4].getFill())
-        )
-            System.out.println("Player 6 Won.");
+            Color.DARKMAGENTA.equals(board[10][7].getFill()) &&
+            Color.DARKMAGENTA.equals(board[10][6].getFill()) &&
+            Color.DARKMAGENTA.equals(board[11][6].getFill()) &&
+            Color.DARKMAGENTA.equals(board[9][5].getFill()) &&
+            Color.DARKMAGENTA.equals(board[10][5].getFill()) &&
+            Color.DARKMAGENTA.equals(board[11][5].getFill()) &&
+            Color.DARKMAGENTA.equals(board[9][4].getFill()) &&
+            Color.DARKMAGENTA.equals(board[10][4].getFill()) &&
+            Color.DARKMAGENTA.equals(board[11][4].getFill()) &&
+            Color.DARKMAGENTA.equals(board[12][4].getFill())
+            ) System.out.println("Player 6 Won.");
     }
 }
 

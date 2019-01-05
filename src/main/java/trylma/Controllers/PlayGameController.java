@@ -23,10 +23,10 @@ public class PlayGameController{
     @FXML
     void endTurn(ActionEvent event) {
 
-        // Send state of the board to connected players and redraw whole board
-        //                                  Or
-        // Send moves that were made to connected players and update their boards accordingly
-
+        // (J) 0.6a After pressing the button these below will be performd
+        // Because I still can't connect to local server on my pc
+        // I can't test what will happen if a player whose turn it isn't
+        // will click the button. Be aware of that. Probably add ifs if game is in multiplayer.
 
         Board.resetChecks();
         Board.winCondition();
