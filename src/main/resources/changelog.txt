@@ -151,4 +151,9 @@ START - start of the game
 0.53 G
     -added turn logic while multiplayer
     -added a few things both to serwer and client.
-    - Found a bug when some legall jumps are illegal on the server but legal in client and i have no idea why. 
+    - Found a bug when some legall jumps are illegal on the server but legal in client and i have no idea why.
+
+
+0.54 (J)
+    - Bug appears because the first check on shifted map will be performed on null object since the change to null circles that wont be used (instead of having bgcolor)
+    - Fixed

@@ -283,16 +283,20 @@ public class Board {
         board[1][9].setColor(color);
     }
 
+
     void deleteExtraMarbles() {
         //setting all AQUA marbles to null, we dont care 'bout them
+        // (J) Fixing problem for 0.54 update.
         for (int i = 0; i < 13; i++) {
             for (int j = 0; j < 17; j++) {
                 if (Color.AQUA.equals(board[i][j].getFill())) {
-                    board[i][j] = null;
+                    //board[i][j] = null;
+                    board[i][j].setVisible(false);
                 }
             }
         }
     }
+
 
     //self explanatory
     static void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
@@ -382,11 +386,13 @@ public class Board {
                     return true;
 
         if (hereGoX - goingFromX == 1)
-            if (hereGoY - goingFromY == 2)
+            if (hereGoY - goingFromY == 2) {
                 if (!(Color.GRAY.equals(board[hereGoX][hereGoY - 1].getFill()))) {
                     return true;
-                } else if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY - 1].getFill())))
+                } else if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY - 1].getFill()))) {
                     return true;
+                }
+            }
 
         if (hereGoX - goingFromX == 1)
             if (hereGoY - goingFromY == -2)
