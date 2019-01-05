@@ -172,3 +172,6 @@ START - start of the game
 
 0.6b (J)
     - To end turn player must perform any movement.
+
+0.6c (J)
+    - Instead of Player #, Player Color

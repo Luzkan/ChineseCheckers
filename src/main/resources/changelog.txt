@@ -175,3 +175,8 @@ START - start of the game
 
 0.6c (J)
     - Instead of Player #, Player Color
+
+1.0 (J)
+    - Huge Update. Game works.
+    - (!) Singleplayer is now 100% functional for hot seat mode
+    - Added turnManager and verifier

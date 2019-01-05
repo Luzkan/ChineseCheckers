@@ -17,8 +17,16 @@ import static trylma.Board.moveMade;
 
 public class PlayGameController{
 
+
+
     @FXML
     public Text whoseTurnText;
+
+    public String getMyTurn() {
+        return myTurn;
+    }
+
+    String myTurn;
 
     @FXML
     private Button quitBtn;
@@ -36,9 +44,14 @@ public class PlayGameController{
             Board.winCondition();
             nextTurn();
 
-            whoseTurnText.getText();
+            Board.turnManager();
         }
     }
+
+
+
+
+
 
 
 

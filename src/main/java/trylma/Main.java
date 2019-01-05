@@ -74,11 +74,9 @@ public class Main extends Application {
 
         // (J) Getting Options from Options and check
         OptionsComputing options = new OptionsComputing();
-        System.out.println("[Game Started]\n===");
-        System.out.printf("%-15s %-15s %-15s %-17s %-17s\n", "Total Players", "Human Players", "CPU Players", "Type of Board", "Rule Set");
-        System.out.printf("%-15s %-15s %-15s %-17s %-17s\n", options.getTotalPlayers(), options.getNumberOfPlayers(), options.getNumberOfCPU(), options.getTypeOfBoard(), options.getRuleSet());
-        System.out.println("===");
-
+        System.out.println("[Game Started]");
+        System.out.printf("[GS] %-15s %-15s %-15s %-17s %-17s\n", "Total Players", "Human Players", "CPU Players", "Type of Board", "Rule Set");
+        System.out.printf("[GS] %-15s %-15s %-15s %-17s %-17s\n", options.getTotalPlayers(), options.getNumberOfPlayers(), options.getNumberOfCPU(), options.getTypeOfBoard(), options.getRuleSet());
 
         CreateBoard(options.getTotalPlayers(), root);
 

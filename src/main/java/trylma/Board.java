@@ -3,22 +3,31 @@ package trylma;
 import com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import org.omg.CORBA.Current;
+import trylma.Controllers.PlayGameController;
 
 public class Board {
     private boolean marbleSelected = false;
 
-    // The checks for movement must be public & static
+    // (J) The checks for movement must be public & static
     // Im reseting them after pressing end turn for next player
 
     public static boolean moveMade = false;
     public static boolean jumpMade = false;
-    public static int jumpedMarbleX = 0;
-    public static int jumpedMarbleY = 0;
+    private static int jumpedMarbleX = 0;
+    private static int jumpedMarbleY = 0;
+
+    // (J) Num of players is needed outside of "public Board" for turnManager
+
+    private static OptionsComputing options = new OptionsComputing();
+    private static int totalPlayers = options.getTotalPlayers();
+    private static int turnNumber = 0;
+    private static Paint currentPlayer = Color.GREEN;
 
     private int selectedMarbleX;
     private int selectedMarbleY;
     private Paint selectedMarbleColor;
-    public static Paint whoseTurn;
+
     static Marbles[][] board = new Marbles[13][17];
     /* This array holds more marbles than there are in the game,
         but this way 2 marbles that are close on the board are also close in array.
@@ -29,6 +38,11 @@ public class Board {
         try {
             if (totalNumberOfPlayers < 2 || totalNumberOfPlayers == 5 || totalNumberOfPlayers > 6)
                 throw new WrongNumberArgsException("Invalid Number of players");
+
+            // (J) Needed if someone restarted from mainmenu and consistency in stdout
+            currentPlayer = Color.GREEN;
+            System.out.println("[Turn] Turn #1");
+            System.out.println("[Turn] Green Player");
 
             // Create a 6-Star Board
             for (int x = 0; x < 13; x++) {
@@ -59,8 +73,9 @@ public class Board {
                             if (marbleSelected) {
 
                                 if(!jumpMade)
-                                    if (!moveMade)
+                                    if (!moveMade) {
                                         move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+                                    }
 
                                 // (J) Adding jump logic. If a move is illegal, then instead of fail
                                 // we can check if it was supposed to jump move instead
@@ -85,7 +100,6 @@ public class Board {
                             }
                             //if no marbles are selected we are selecting a marble to move, it must be non GRAY
                             else if (!Color.GRAY.equals(board[finalX][finalY].getFill())) {
-
                                 marbleSelected = true;
                                 selectedMarbleX = finalX;
                                 selectedMarbleY = finalY;
@@ -368,51 +382,54 @@ public class Board {
         if((Client.inMulitipalyerMode&&!Client.myTurn)||(Client.inMulitipalyerMode&&!Client.myColor.equals(board[goingFromX][goingFromY].getFill())))
              return false;
 
-        // (J) Marble can jump only on a place that's not occupied by other marble.
-        if(Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) {
+        if(confirmPlayerPlaying(goingFromX, goingFromY)) {
 
-            if (goingFromX - hereGoX == 2)
-                if (goingFromY - hereGoY == 0)
-                    if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY].getFill())))
-                        return true;
+            // (J) Marble can jump only on a place that's not occupied by other marble.
+            if (Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) {
 
-            if (goingFromX - hereGoX == -2)
-                if (goingFromY - hereGoY == 0)
-                    if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY].getFill())))
-                        return true;
+                if (goingFromX - hereGoX == 2)
+                    if (goingFromY - hereGoY == 0)
+                        if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY].getFill())))
+                            return true;
 
-            // (J) curvature of the board forces to make two checks
-            // cause could be placed on even or odd spot
+                if (goingFromX - hereGoX == -2)
+                    if (goingFromY - hereGoY == 0)
+                        if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY].getFill())))
+                            return true;
 
-            if (hereGoX - goingFromX == -1)
-                if (hereGoY - goingFromY == 2)
-                    if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY - 1].getFill()))) {
-                        return true;
-                    } else if (!(Color.GRAY.equals(board[hereGoX][hereGoY - 1].getFill())))
-                        return true;
+                // (J) curvature of the board forces to make two checks
+                // cause could be placed on even or odd spot
 
-            if (hereGoX - goingFromX == -1)
-                if (hereGoY - goingFromY == -2)
-                    if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY + 1].getFill()))) {
-                        return true;
-                    } else if (!(Color.GRAY.equals(board[hereGoX][hereGoY + 1].getFill())))
-                        return true;
+                if (hereGoX - goingFromX == -1)
+                    if (hereGoY - goingFromY == 2)
+                        if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY - 1].getFill()))) {
+                            return true;
+                        } else if (!(Color.GRAY.equals(board[hereGoX][hereGoY - 1].getFill())))
+                            return true;
 
-            if (hereGoX - goingFromX == 1)
-                if (hereGoY - goingFromY == 2) {
-                    if (!(Color.GRAY.equals(board[hereGoX][hereGoY - 1].getFill()))) {
-                        return true;
-                    } else if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY - 1].getFill()))) {
-                        return true;
+                if (hereGoX - goingFromX == -1)
+                    if (hereGoY - goingFromY == -2)
+                        if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY + 1].getFill()))) {
+                            return true;
+                        } else if (!(Color.GRAY.equals(board[hereGoX][hereGoY + 1].getFill())))
+                            return true;
+
+                if (hereGoX - goingFromX == 1)
+                    if (hereGoY - goingFromY == 2) {
+                        if (!(Color.GRAY.equals(board[hereGoX][hereGoY - 1].getFill()))) {
+                            return true;
+                        } else if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY - 1].getFill()))) {
+                            return true;
+                        }
                     }
-                }
 
-            if (hereGoX - goingFromX == 1)
-                if (hereGoY - goingFromY == -2)
-                    if (!(Color.GRAY.equals(board[hereGoX][hereGoY + 1].getFill()))) {
-                        return true;
-                    } else if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY + 1].getFill())))
-                        return true;
+                if (hereGoX - goingFromX == 1)
+                    if (hereGoY - goingFromY == -2)
+                        if (!(Color.GRAY.equals(board[hereGoX][hereGoY + 1].getFill()))) {
+                            return true;
+                        } else if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY + 1].getFill())))
+                            return true;
+            }
         }
         return false;
     }
@@ -420,13 +437,17 @@ public class Board {
     static boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
         if((Client.inMulitipalyerMode&&!Client.myTurn)||(Client.inMulitipalyerMode&&!Client.myColor.equals(board[goingFromX][goingFromY].getFill())))
             return false;
+
+    if(confirmPlayerPlaying(goingFromX, goingFromY))
         if (goingFromX == hereGoX + 1 || goingFromX == hereGoX - 1 || goingFromX == hereGoX) //must be close
             if (goingFromY == hereGoY + 1 || goingFromY == hereGoY - 1 || goingFromY == hereGoY)
                 if (Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
                     if (!Color.GRAY.equals(board[goingFromX][goingFromY].getFill())) // source must be non gray
                         if (!(goingFromX < hereGoX && goingFromY != hereGoY && goingFromY % 2 == 0))
                             if (!(goingFromX > hereGoX && goingFromY != hereGoY && goingFromY % 2 == 1))
-                                    return true;
+                                return true;
+
+
         return false;
     }
 
@@ -518,11 +539,90 @@ public class Board {
             ) System.out.println("Player 6 Won.");
     }
 
+    // (J) Simple modulo check based on # of players
+    public static void turnManager(){
 
-    // AI
+        turnNumber++;
+        System.out.println("[Turn] Turn #" + (turnNumber+1));
 
+        if(totalPlayers == 2) {
+            if (turnNumber % 2 == 0) {
+                System.out.println("[Turn] Green Player");
+                currentPlayer = Color.GREEN;
+            }
+            if (turnNumber % 2 == 1) {
+                System.out.println("[Turn] Red Player");
+                currentPlayer = Color.RED;
+            }
+        }
 
+        if(totalPlayers == 3) {
+            if (turnNumber % 3 == 0) {
+                System.out.println("[Turn] Green Player");
+                currentPlayer = Color.GREEN;
+            }
+            if (turnNumber % 3 == 1) {
+                System.out.println("[Turn] Red Player");
+                currentPlayer = Color.RED;
+            }
+            if (turnNumber % 3 == 2) {
+                System.out.println("[Turn] Yellow Player");
+                currentPlayer = Color.YELLOW;
+            }
+        }
 
+        if(totalPlayers == 4) {
+            if (turnNumber % 4 == 0) {
+                System.out.println("[Turn] Green Player");
+                currentPlayer = Color.GREEN;
+            }
+            if (turnNumber % 4 == 1) {
+                System.out.println("[Turn] Red Player");
+                currentPlayer = Color.RED;
+            }
+            if (turnNumber % 4 == 2) {
+                System.out.println("[Turn] Yellow Player");
+                currentPlayer = Color.YELLOW;
+            }
+            if (turnNumber % 4 == 3) {
+                System.out.println("[Turn] Blue Player");
+                currentPlayer = Color.BLUE;
+            }
+        }
 
+        if(totalPlayers == 6) {
+            if (turnNumber % 6 == 0) {
+                System.out.println("[Turn] Green Player");
+                currentPlayer = Color.GREEN;
+            }
+            if (turnNumber % 6 == 1) {
+                System.out.println("[Turn] Red Player");
+                currentPlayer = Color.RED;
+            }
+            if (turnNumber % 6 == 2) {
+                System.out.println("[Turn] Yellow Player");
+                currentPlayer = Color.YELLOW;
+            }
+            if (turnNumber % 6 == 3) {
+                System.out.println("[Turn] Blue Player");
+                currentPlayer = Color.BLUE;
+            }
+            if (turnNumber % 6 == 4) {
+                System.out.println("[Turn] Pink Player");
+                currentPlayer = Color.PINK;
+            }
+            if (turnNumber % 6 == 5) {
+                System.out.println("[Turn] Darkmagenta Player");
+                currentPlayer = Color.DARKMAGENTA;
+            }
+        }
+    }
+
+    static boolean confirmPlayerPlaying(int x, int y){
+        if(board[x][y].getFill().equals(currentPlayer))
+            return true;
+
+        return false;
+    }
 }
 
