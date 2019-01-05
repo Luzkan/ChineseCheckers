@@ -12,6 +12,9 @@ import trylma.OptionsComputing;
 
 import java.io.IOException;
 
+import static trylma.Board.jumpMade;
+import static trylma.Board.moveMade;
+
 public class PlayGameController{
 
     @FXML
@@ -28,14 +31,16 @@ public class PlayGameController{
         // I can't test what will happen if a player whose turn it isn't
         // will click the button. Be aware of that. Probably add ifs if game is in multiplayer.
 
-        Board.resetChecks();
-        Board.winCondition();
-        nextTurn();
+        if(moveMade || jumpMade) {
+            Board.resetChecks();
+            Board.winCondition();
+            nextTurn();
+        }
     }
 
 
 
-    public void nextTurn(){
+    private void nextTurn(){
 
     OptionsComputing options = new OptionsComputing();
     int totalAmountOfPlayers = options.getTotalPlayers();

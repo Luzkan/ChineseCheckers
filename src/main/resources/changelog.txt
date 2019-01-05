@@ -169,3 +169,6 @@ START - start of the game
 0.6a (J)
     - And now there is that reset (after end turn btn).
     * important comment read in @PlayGameController in @void endTurn
+
+0.6b (J)
+    - To end turn player must perform any movement.
