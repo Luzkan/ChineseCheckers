@@ -19,7 +19,7 @@
                   <Insets bottom="3.0" />
                </VBox.margin>
             </Text>
-            <Text fx:id="whoseTurnText" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1">
+            <Text fx:id="whoseTurnText" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Green">
                <font>
                   <Font size="25.0" />
                </font>

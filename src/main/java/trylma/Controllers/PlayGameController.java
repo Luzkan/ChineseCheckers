@@ -35,12 +35,14 @@ public class PlayGameController{
             Board.resetChecks();
             Board.winCondition();
             nextTurn();
+
+            whoseTurnText.getText();
         }
     }
 
 
 
-    private void nextTurn(){
+    public void nextTurn(){
 
     OptionsComputing options = new OptionsComputing();
     int totalAmountOfPlayers = options.getTotalPlayers();
@@ -48,69 +50,69 @@ public class PlayGameController{
     // (J) Player 0 is to make those easy to read ifs. Otherwise it would skip over Player thats in-game.
 
     if(totalAmountOfPlayers == 2) {
-        if (whoseTurnText.getText().equals("Player 2"))
+        if (whoseTurnText.getText().equals("Player Red"))
             whoseTurnText.setText("Player 0");
 
-        if (whoseTurnText.getText().equals("Player 1"))
-            whoseTurnText.setText("Player 2");
+        if (whoseTurnText.getText().equals("Player Green"))
+            whoseTurnText.setText("Player Red");
 
         if (whoseTurnText.getText().equals("Player 0"))
-            whoseTurnText.setText("Player 1");
+            whoseTurnText.setText("Player Green");
     }
 
     if(totalAmountOfPlayers == 3) {
-        if (whoseTurnText.getText().equals("Player 3"))
+        if (whoseTurnText.getText().equals("Player Yellow"))
             whoseTurnText.setText("Player 0");
 
-        if (whoseTurnText.getText().equals("Player 2"))
-            whoseTurnText.setText("Player 3");
+        if (whoseTurnText.getText().equals("Player Red"))
+            whoseTurnText.setText("Player Yellow");
 
-        if (whoseTurnText.getText().equals("Player 1"))
-            whoseTurnText.setText("Player 2");
+        if (whoseTurnText.getText().equals("Player Green"))
+            whoseTurnText.setText("Player Red");
 
         if (whoseTurnText.getText().equals("Player 0"))
-            whoseTurnText.setText("Player 1");
+            whoseTurnText.setText("Player Green");
     }
 
     if(totalAmountOfPlayers == 4) {
-        if (whoseTurnText.getText().equals("Player 4"))
+        if (whoseTurnText.getText().equals("Player Blue"))
             whoseTurnText.setText("Player 0");
 
-        if (whoseTurnText.getText().equals("Player 3"))
-            whoseTurnText.setText("Player 4");
+        if (whoseTurnText.getText().equals("Player Yellow"))
+            whoseTurnText.setText("Player Blue");
 
-        if (whoseTurnText.getText().equals("Player 2"))
-            whoseTurnText.setText("Player 3");
+        if (whoseTurnText.getText().equals("Player Red"))
+            whoseTurnText.setText("Player Yellow");
 
-        if (whoseTurnText.getText().equals("Player 1"))
-            whoseTurnText.setText("Player 2");
+        if (whoseTurnText.getText().equals("Player Green"))
+            whoseTurnText.setText("Player Red");
 
         if (whoseTurnText.getText().equals("Player 0"))
-            whoseTurnText.setText("Player 1");
+            whoseTurnText.setText("Player Green");
     }
 
 
     if(totalAmountOfPlayers == 6) {
-        if (whoseTurnText.getText().equals("Player 6"))
+        if (whoseTurnText.getText().equals("Player Magenta"))
             whoseTurnText.setText("Player 0");
 
-        if (whoseTurnText.getText().equals("Player 5"))
-            whoseTurnText.setText("Player 6");
+        if (whoseTurnText.getText().equals("Player Pink"))
+            whoseTurnText.setText("Player Magenta");
 
-        if (whoseTurnText.getText().equals("Player 4"))
-            whoseTurnText.setText("Player 5");
+        if (whoseTurnText.getText().equals("Player Blue"))
+            whoseTurnText.setText("Player Pink");
 
-        if (whoseTurnText.getText().equals("Player 3"))
-            whoseTurnText.setText("Player 4");
+        if (whoseTurnText.getText().equals("Player Yellow"))
+            whoseTurnText.setText("Player Blue");
 
-        if (whoseTurnText.getText().equals("Player 2"))
-            whoseTurnText.setText("Player 3");
+        if (whoseTurnText.getText().equals("Player Red"))
+            whoseTurnText.setText("Player Yellow");
 
-        if (whoseTurnText.getText().equals("Player 1"))
-            whoseTurnText.setText("Player 2");
+        if (whoseTurnText.getText().equals("Player Green"))
+            whoseTurnText.setText("Player Red");
 
         if (whoseTurnText.getText().equals("Player 0"))
-            whoseTurnText.setText("Player 1");
+            whoseTurnText.setText("Player Green");
     }
 
     Client.InformServerEndTurn();

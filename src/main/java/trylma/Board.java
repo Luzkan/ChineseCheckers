@@ -19,7 +19,7 @@ public class Board {
     private int selectedMarbleY;
     private Paint selectedMarbleColor;
     public static Paint whoseTurn;
-    static Marbles board[][] = new Marbles[13][17];
+    static Marbles[][] board = new Marbles[13][17];
     /* This array holds more marbles than there are in the game,
         but this way 2 marbles that are close on the board are also close in array.
         Marbles that are not in game but in the array have there colors set to AQUA,
@@ -85,6 +85,7 @@ public class Board {
                             }
                             //if no marbles are selected we are selecting a marble to move, it must be non GRAY
                             else if (!Color.GRAY.equals(board[finalX][finalY].getFill())) {
+
                                 marbleSelected = true;
                                 selectedMarbleX = finalX;
                                 selectedMarbleY = finalY;
@@ -516,5 +517,12 @@ public class Board {
             Color.DARKMAGENTA.equals(board[12][4].getFill())
             ) System.out.println("Player 6 Won.");
     }
+
+
+    // AI
+
+
+
+
 }
 
