@@ -5,6 +5,11 @@
     <map/>
     <node name="trylma.Main">
       <map>
+        <entry key="totalPlayers" value="6"/>
+        <entry key="numberOfPlayers" value="6"/>
+        <entry key="numberOfCPU" value="0"/>
+        <entry key="typeOfBoard" value="6-Shaped Star"/>
+        <entry key="ruleSet" value="Blocked Switch"/>
         <entry key="ipPort" value="127.0.0.1:3306"/>
       </map>
     </node>

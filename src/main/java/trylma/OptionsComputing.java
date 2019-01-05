@@ -29,7 +29,7 @@ public class OptionsComputing {
     }
 
     // (J) Getters & Setters
-    int getTotalPlayers() {
+    public int getTotalPlayers() {
         int defaultValue = 6;
         chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         TotalPlayers = chinesePrefs.getInt("totalPlayers", defaultValue);

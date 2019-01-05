@@ -6,6 +6,15 @@ import javafx.scene.paint.Paint;
 
 public class Board {
     private boolean marbleSelected = false;
+
+    // The checks for movement must be public
+    // Im reseting them after pressing end turn for next player
+
+    public boolean moveMade = false;
+    public boolean jumpMade = false;
+    public int jumpedMarbleX = 0;
+    public int jumpedMarbleY = 0;
+
     private int selectedMarbleX;
     private int selectedMarbleY;
     private Paint selectedMarbleColor;
@@ -34,18 +43,15 @@ public class Board {
                     // Mouse Controller
                     board[x][y].setOnMouseClicked(event -> {
 
-
                         if (true) {
                             // (J) Check if move was made this turn
                             boolean madeChoice = false;
                             boolean startedDeciding = false;
-                            boolean jumpMade = false;
-                            boolean moveMade = false;
                             boolean meMarbleJumped = false;
 
                             // ===    DEBUG OPTIONS    ===
                             // (J) Check ID on Click - just for debugging
-                            System.out.println("Marble: [" + finalX + ", " + finalY + "]");
+                            System.out.println("Marble: [" + finalX + ", " + finalY + "] color: " + selectedMarbleColor);
 
                             // (J) Quad click to change color to Red
                             if (event.getClickCount() > 3) {
@@ -57,19 +63,21 @@ public class Board {
                             //if one mable is already selected then we are selecting target now
                             if (marbleSelected) {
 
-                                if (!jumpMade || !moveMade) {
-                                    move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
-
-                                }
+                                if(!jumpMade)
+                                    if (!moveMade)
+                                        move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
 
                                 // (J) Adding jump logic. If a move is illegal, then instead of fail
                                 // we can check if it was supposed to jump move instead
                                 // if it was jump then we still allow to perform jumps
                                 // and end turn, but user cant make regular moves anymore
+                                // (J) 0.6 My god, after performing a jump, any marble you select can still jump
+                                // Don't worry, fixed ;)
 
-                                if (!moveMade) {
-                                    jump(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
-                                }
+                                if (!moveMade)
+                                    if((jumpedMarbleX == 0 && jumpedMarbleY == 0) || (jumpedMarbleX == selectedMarbleX && jumpedMarbleY == selectedMarbleY))
+                                        jump(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+
 
                                 // (J) This is missing some kind of if statement or anything that checks
                                 // If jump was performed - if yes, then boolean "jumpMade" should be true
@@ -299,12 +307,14 @@ public class Board {
 
 
     //self explanatory
-    static void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
+    // (J) 0.6 I have no idea why move was made static, so im changing that
+    void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
         try {
             if (movePossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
                 board[hereGoX][hereGoY].setFill(board[goingFromX][goingFromY].getFill());
                 board[goingFromX][goingFromY].setDefaultColor();
                 System.out.println("MOVE");
+                moveMade = true;
                 if(Client.out!= null) {
                     Client.out.println("MOVE "+ hereGoX + " " + hereGoY + " " + goingFromX+ " " + goingFromY + " " + player_color);
                 }
@@ -331,6 +341,9 @@ public class Board {
                 board[hereGoX][hereGoY].setFill(player_color);
                 board[goingFromX][goingFromY].setDefaultColor();
                 System.out.println("JUMP");
+                jumpMade = true;
+                jumpedMarbleX = hereGoX;
+                jumpedMarbleY = hereGoY;
                if(Client.out!= null) {
                    Client.out.println("MOVE "+ hereGoX + " " + hereGoY + " " + goingFromX+ " " + goingFromY + " " + player_color);
                }
@@ -352,55 +365,59 @@ public class Board {
            7 -> 1   [+1, -2]        9 -> 3  [+2, 0]         11 -> 5    [+1, +2]
 
            Problem arrises when we change the Board to a custom one cause we need to write logic
-           from the beginning again. Hopefully the alghoritm for board will fix this problem and
+           from the beginning again. Hopefully the algorithm for board will fix this problem and
            we can adjust accordingly.
         */
+
         if((Client.inMulitipalyerMode&&!Client.myTurn)||(Client.inMulitipalyerMode&&!Client.myColor.equals(board[goingFromX][goingFromY].getFill())))
              return false;
 
-        if (goingFromX - hereGoX == 2)
-            if (goingFromY - hereGoY == 0)
-                if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY].getFill())))
-                    return true;
+        // (J) Marble can jump only on a place that's not occupied by other marble.
+        if(Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) {
 
-        if (goingFromX - hereGoX == -2)
-            if (goingFromY - hereGoY == 0)
-                if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY].getFill())))
-                    return true;
+            if (goingFromX - hereGoX == 2)
+                if (goingFromY - hereGoY == 0)
+                    if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY].getFill())))
+                        return true;
 
-        // (J) curvature of the board forces to make two checks
-        // cause could be placed on even or odd spot
+            if (goingFromX - hereGoX == -2)
+                if (goingFromY - hereGoY == 0)
+                    if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY].getFill())))
+                        return true;
 
-        if (hereGoX - goingFromX == -1)
-            if (hereGoY - goingFromY == 2)
-                if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY - 1].getFill()))) {
-                    return true;
-                } else if (!(Color.GRAY.equals(board[hereGoX][hereGoY - 1].getFill())))
-                    return true;
+            // (J) curvature of the board forces to make two checks
+            // cause could be placed on even or odd spot
 
-        if (hereGoX - goingFromX == -1)
-            if (hereGoY - goingFromY == -2)
-                if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY + 1].getFill()))) {
-                    return true;
-                } else if (!(Color.GRAY.equals(board[hereGoX][hereGoY + 1].getFill())))
-                    return true;
+            if (hereGoX - goingFromX == -1)
+                if (hereGoY - goingFromY == 2)
+                    if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY - 1].getFill()))) {
+                        return true;
+                    } else if (!(Color.GRAY.equals(board[hereGoX][hereGoY - 1].getFill())))
+                        return true;
 
-        if (hereGoX - goingFromX == 1)
-            if (hereGoY - goingFromY == 2) {
-                if (!(Color.GRAY.equals(board[hereGoX][hereGoY - 1].getFill()))) {
-                    return true;
-                } else if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY - 1].getFill()))) {
-                    return true;
+            if (hereGoX - goingFromX == -1)
+                if (hereGoY - goingFromY == -2)
+                    if (!(Color.GRAY.equals(board[hereGoX + 1][hereGoY + 1].getFill()))) {
+                        return true;
+                    } else if (!(Color.GRAY.equals(board[hereGoX][hereGoY + 1].getFill())))
+                        return true;
+
+            if (hereGoX - goingFromX == 1)
+                if (hereGoY - goingFromY == 2) {
+                    if (!(Color.GRAY.equals(board[hereGoX][hereGoY - 1].getFill()))) {
+                        return true;
+                    } else if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY - 1].getFill()))) {
+                        return true;
+                    }
                 }
-            }
 
-        if (hereGoX - goingFromX == 1)
-            if (hereGoY - goingFromY == -2)
-                if (!(Color.GRAY.equals(board[hereGoX][hereGoY + 1].getFill()))) {
-                    return true;
-                } else if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY + 1].getFill())))
-                    return true;
-
+            if (hereGoX - goingFromX == 1)
+                if (hereGoY - goingFromY == -2)
+                    if (!(Color.GRAY.equals(board[hereGoX][hereGoY + 1].getFill()))) {
+                        return true;
+                    } else if (!(Color.GRAY.equals(board[hereGoX - 1][hereGoY + 1].getFill())))
+                        return true;
+        }
         return false;
     }
 
@@ -417,8 +434,13 @@ public class Board {
         return false;
     }
 
+    public static void resetChecks(){
+
+    }
+
     // (J) Checkd with "End Turn" button.
-    void winCondition(){
+    // (J) 0.6 Switching to public static for controller handler
+    public static void winCondition(){
         if(
                 Color.GREEN.equals(board[4][13].getFill()) &&
                         Color.GREEN.equals(board[5][13].getFill()) &&
