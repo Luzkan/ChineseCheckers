@@ -180,3 +180,6 @@ START - start of the game
     - Huge Update. Game works.
     - (!) Singleplayer is now 100% functional for hot seat mode
     - Added turnManager and verifier
+
+1.0a (J)
+    - Winning gives now more satisfaction

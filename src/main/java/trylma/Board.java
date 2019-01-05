@@ -1,10 +1,13 @@
 package trylma;
 
 import com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException;
+import javafx.scene.control.Alert;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import org.omg.CORBA.Current;
 import trylma.Controllers.PlayGameController;
+
+import java.io.IOException;
 
 public class Board {
     private boolean marbleSelected = false;
@@ -472,7 +475,10 @@ public class Board {
             Color.GREEN.equals(board[5][15].getFill()) &&
             Color.GREEN.equals(board[6][15].getFill()) &&
             Color.GREEN.equals(board[6][16].getFill())
-            ) System.out.println("Player 1 Won.");
+            ) {
+            System.out.println("Player Green Won.");
+            PrintWin("Player Green");
+            }
         if(
             Color.RED.equals(board[6][0].getFill()) &&
             Color.RED.equals(board[5][1].getFill()) &&
@@ -484,7 +490,10 @@ public class Board {
             Color.RED.equals(board[5][3].getFill()) &&
             Color.RED.equals(board[6][3].getFill()) &&
             Color.RED.equals(board[7][3].getFill())
-            ) System.out.println("Player 2 Won.");
+            ) {
+            System.out.println("Player Red Won.");
+            PrintWin("Player Red");
+            }
 
         if(
             Color.YELLOW.equals(board[10][9].getFill()) &&
@@ -497,7 +506,10 @@ public class Board {
             Color.YELLOW.equals(board[10][12].getFill()) &&
             Color.YELLOW.equals(board[11][12].getFill()) &&
             Color.YELLOW.equals(board[12][12].getFill())
-            ) System.out.println("Player 3 Won.");
+            ) {
+            System.out.println("Player Yellow Won.");
+            PrintWin("Player Yellow");
+            }
 
         if(
             Color.BLUE.equals(board[0][4].getFill()) &&
@@ -510,7 +522,10 @@ public class Board {
             Color.BLUE.equals(board[1][6].getFill()) &&
             Color.BLUE.equals(board[2][6].getFill()) &&
             Color.BLUE.equals(board[1][7].getFill())
-            ) System.out.println("Player 4 Won.");
+            ) {
+            System.out.println("Player Blue Won.");
+            PrintWin("Player Blue");
+            }
 
         if(
             Color.PINK.equals(board[0][12].getFill()) &&
@@ -523,7 +538,10 @@ public class Board {
             Color.PINK.equals(board[1][10].getFill()) &&
             Color.PINK.equals(board[2][10].getFill()) &&
             Color.PINK.equals(board[1][9].getFill())
-            ) System.out.println("Player 5 Won.");
+            ) {
+            System.out.println("Player Pink Won.");
+            PrintWin("Player Pink");
+            }
 
         if(
             Color.DARKMAGENTA.equals(board[10][7].getFill()) &&
@@ -536,7 +554,10 @@ public class Board {
             Color.DARKMAGENTA.equals(board[10][4].getFill()) &&
             Color.DARKMAGENTA.equals(board[11][4].getFill()) &&
             Color.DARKMAGENTA.equals(board[12][4].getFill())
-            ) System.out.println("Player 6 Won.");
+            ) {
+            System.out.println("Player Darkmagenta Won.");
+            PrintWin("Player Darkmagenta");
+            }
     }
 
     // (J) Simple modulo check based on # of players
@@ -623,6 +644,22 @@ public class Board {
             return true;
 
         return false;
+    }
+
+    // (J) Winning gives now more satisfaction
+    static void PrintWin(String Player){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Congratulations!");
+        alert.setHeaderText(Player + " has won the game!\n");
+        alert.setContentText("This means that all other players lost ;_;\nGame has brought more misery than happiness.");
+        alert.show();
+
+        // Get back to main menu after win
+        try {
+            Main.showMainMenu();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

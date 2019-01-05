@@ -5,8 +5,8 @@
     <map/>
     <node name="trylma.Main">
       <map>
-        <entry key="totalPlayers" value="3"/>
-        <entry key="numberOfPlayers" value="3"/>
+        <entry key="totalPlayers" value="6"/>
+        <entry key="numberOfPlayers" value="6"/>
         <entry key="numberOfCPU" value="0"/>
         <entry key="typeOfBoard" value="6-Shaped Star"/>
         <entry key="ruleSet" value="Blocked Switch"/>
