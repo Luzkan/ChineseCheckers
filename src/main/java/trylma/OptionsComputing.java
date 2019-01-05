@@ -42,7 +42,7 @@ public class OptionsComputing {
         setPreference("totalPlayers", TotalPlayersString);
     }
 
-    public int getNumberOfPlayers() {
+    int getNumberOfPlayers() {
         int defaultValue = 6;
         chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         NumberOfPlayers = chinesePrefs.getInt("numberOfPlayers", defaultValue);
@@ -55,7 +55,7 @@ public class OptionsComputing {
         setPreference("numberOfPlayers", NumberOfPlayersString);
     }
 
-    public int getNumberOfCPU() {
+    int getNumberOfCPU() {
         int defaultValue = 0;
         chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         NumberOfCPU = chinesePrefs.getInt("numberOfCPU", defaultValue);
@@ -68,7 +68,7 @@ public class OptionsComputing {
         setPreference("numberOfCPU", NumberOfCPUString);
     }
 
-    public String getTypeOfBoard() {
+    String getTypeOfBoard() {
         String defaultValue = "6-Shaped Start";
         chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         TypeOfBoard = chinesePrefs.get("numberOfCPU", defaultValue);
@@ -80,7 +80,7 @@ public class OptionsComputing {
         setPreference("typeOfBoard", TypeOfBoard);
     }
 
-    public String getRuleSet() {
+    String getRuleSet() {
         String defaultValue = "Blocked Switch";
         chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         RuleSet = chinesePrefs.get("ruleSet", defaultValue);
@@ -92,7 +92,7 @@ public class OptionsComputing {
         setPreference("ruleSet", RuleSet);
     }
 
-    public String getIPPort() {
+    String getIPPort() {
         String defaultValue = "127.0.0.1:3306";
         chinesePrefs = Preferences.userRoot().node(Main.class.getName());
         IPPort = chinesePrefs.get("ipPort", defaultValue);

@@ -185,3 +185,6 @@ START - start of the game
     - Winning gives now more satisfaction
     - Code cleanup
     - Fixed lots of warnings
+
+1.0b (J)
+    - 3 warnings less
