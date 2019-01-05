@@ -4,8 +4,6 @@ import com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException;
 import javafx.scene.control.Alert;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import org.omg.CORBA.Current;
-import trylma.Controllers.PlayGameController;
 
 import java.io.IOException;
 
@@ -46,6 +44,7 @@ public class Board {
             currentPlayer = Color.GREEN;
             System.out.println("[Turn] Turn #1");
             System.out.println("[Turn] Green Player");
+            resetChecks();
 
             // Create a 6-Star Board
             for (int x = 0; x < 13; x++) {
@@ -60,55 +59,53 @@ public class Board {
                     // Mouse Controller
                     board[x][y].setOnMouseClicked(event -> {
 
-                        if (true) {
-                            // ===    DEBUG OPTIONS    ===
-                            // (J) Check ID on Click - just for debugging
-                            System.out.println("Marble: [" + finalX + ", " + finalY + "] color: " + selectedMarbleColor);
+                        // ===    DEBUG OPTIONS    ===
+                        // (J) Check ID on Click - just for debugging
+                        System.out.println("Marble: [" + finalX + ", " + finalY + "] color: " + selectedMarbleColor);
 
-                            // (J) Quad click to change color to Red
-                            if (event.getClickCount() > 3) {
-                                System.out.println("[Dev Option] Changing Color to RED!");
-                                board[finalX][finalY].setColor(Color.RED);
-                            }
-                            // ===  END OF DEBUG STUFF  ===
+                        // (J) Quad click to change color to Red
+                        if (event.getClickCount() > 3) {
+                            System.out.println("[Dev Option] Changing Color to RED!");
+                            board[finalX][finalY].setColor(Color.RED);
+                        }
+                        // ===  END OF DEBUG STUFF  ===
 
-                            //if one mable is already selected then we are selecting target now
-                            if (marbleSelected) {
+                        //if one mable is already selected then we are selecting target now
+                        if (marbleSelected) {
 
-                                if(!jumpMade)
-                                    if (!moveMade) {
-                                        move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
-                                    }
+                            if(!jumpMade)
+                                if (!moveMade) {
+                                    move(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+                                }
 
-                                // (J) Adding jump logic. If a move is illegal, then instead of fail
-                                // we can check if it was supposed to jump move instead
-                                // if it was jump then we still allow to perform jumps
-                                // and end turn, but user cant make regular moves anymore
-                                // (J) 0.6 My god, after performing a jump, any marble you select can still jump
-                                // Don't worry, fixed ;)
+                            // (J) Adding jump logic. If a move is illegal, then instead of fail
+                            // we can check if it was supposed to jump move instead
+                            // if it was jump then we still allow to perform jumps
+                            // and end turn, but user cant make regular moves anymore
+                            // (J) 0.6 My god, after performing a jump, any marble you select can still jump
+                            // Don't worry, fixed ;)
 
-                                if (!moveMade)
-                                    if((jumpedMarbleX == 0 && jumpedMarbleY == 0) || (jumpedMarbleX == selectedMarbleX && jumpedMarbleY == selectedMarbleY))
-                                        jump(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
+                            if (!moveMade)
+                                if((jumpedMarbleX == 0 && jumpedMarbleY == 0) || (jumpedMarbleX == selectedMarbleX && jumpedMarbleY == selectedMarbleY))
+                                    jump(finalX, finalY, selectedMarbleX, selectedMarbleY, selectedMarbleColor);
 
 
-                                // (J) This is missing some kind of if statement or anything that checks
-                                // If jump was performed - if yes, then boolean "jumpMade" should be true
-                                // and move function isn't possible anymore.
-                                // same logic to check if move was done
+                            // (J) This is missing some kind of if statement or anything that checks
+                            // If jump was performed - if yes, then boolean "jumpMade" should be true
+                            // and move function isn't possible anymore.
+                            // same logic to check if move was done
 
-                                board[selectedMarbleX][selectedMarbleY].setRadius(15 * 1.33);
-                                marbleSelected = false;
+                            board[selectedMarbleX][selectedMarbleY].setRadius(15 * 1.33);
+                            marbleSelected = false;
 
-                            }
-                            //if no marbles are selected we are selecting a marble to move, it must be non GRAY
-                            else if (!Color.GRAY.equals(board[finalX][finalY].getFill())) {
-                                marbleSelected = true;
-                                selectedMarbleX = finalX;
-                                selectedMarbleY = finalY;
-                                selectedMarbleColor = board[finalX][finalY].getFill();
-                                board[finalX][finalY].setRadius(30);
-                            }
+                        }
+                        //if no marbles are selected we are selecting a marble to move, it must be non GRAY
+                        else if (!Color.GRAY.equals(board[finalX][finalY].getFill())) {
+                            marbleSelected = true;
+                            selectedMarbleX = finalX;
+                            selectedMarbleY = finalY;
+                            selectedMarbleColor = board[finalX][finalY].getFill();
+                            board[finalX][finalY].setRadius(30);
                         }
                     });
                 }
@@ -143,8 +140,7 @@ public class Board {
         }
     }
 
-
-    void setUpMiddle() {
+    private void setUpMiddle() {
         //sets the playable area to gray
         board[4][4].setDefaultColor();
         board[5][4].setDefaultColor();
@@ -217,7 +213,7 @@ public class Board {
 
     }
 
-    void setUpPlayer1(Color color) {
+    private void setUpPlayer1(Color color) {
         //sets player 1 as green
         board[6][0].setColor(color);
         board[5][1].setColor(color);
@@ -231,7 +227,7 @@ public class Board {
         board[7][3].setColor(color);
     }
 
-    void setUpPlayer2(Color color) {
+    private void setUpPlayer2(Color color) {
         //sets player 2 as red
         board[4][13].setColor(color);
         board[5][13].setColor(color);
@@ -246,7 +242,7 @@ public class Board {
 
     }
 
-    void setUpPlayer3(Color color) {
+    private void setUpPlayer3(Color color) {
         //sets player 3 as yellow
         board[0][4].setColor(color);
         board[1][4].setColor(color);
@@ -260,7 +256,7 @@ public class Board {
         board[1][7].setColor(color);
     }
 
-    void setUpPlayer4(Color color) {
+    private void setUpPlayer4(Color color) {
         //sets player 4 as blue
         board[10][9].setColor(color);
         board[10][10].setColor(color);
@@ -275,7 +271,7 @@ public class Board {
 
     }
 
-    void setUpPlayer5(Color color) {
+    private void setUpPlayer5(Color color) {
         //sets player 5 as color
         board[10][7].setColor(color);
         board[10][6].setColor(color);
@@ -290,7 +286,7 @@ public class Board {
 
     }
 
-    void setUpPlayer6(Color color) {
+    private void setUpPlayer6(Color color) {
         //sets payer 6 as DARKMAGENTA
         board[0][12].setColor(color);
         board[1][12].setColor(color);
@@ -305,7 +301,7 @@ public class Board {
     }
 
 
-    void deleteExtraMarbles() {
+    private void deleteExtraMarbles() {
         //setting all AQUA marbles to null, we dont care 'bout them
         // (J) Fixing problem for 0.54 update.
         for (int i = 0; i < 13; i++) {
@@ -321,7 +317,8 @@ public class Board {
 
     //self explanatory
     // (J) 0.6 I have no idea why move was made static, so im changing that
-    void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
+    // (J) 1.0a Made Private
+    private void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
         try {
             if (movePossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
                 board[hereGoX][hereGoY].setFill(board[goingFromX][goingFromY].getFill());
@@ -348,7 +345,7 @@ public class Board {
 
 
 
-     void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
+     private void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
         try {
            if (jumpPossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
                 board[hereGoX][hereGoY].setFill(player_color);
@@ -368,7 +365,7 @@ public class Board {
         }
     }
 
-     boolean jumpPossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
+     private boolean jumpPossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
 
         /* (J) There are 8 direction from which a marble can jump over a marble
            Imagine that we have a clock and we jump from number to the other side
@@ -437,7 +434,7 @@ public class Board {
         return false;
     }
 
-    static boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
+    private static boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
         if((Client.inMulitipalyerMode&&!Client.myTurn)||(Client.inMulitipalyerMode&&!Client.myColor.equals(board[goingFromX][goingFromY].getFill())))
             return false;
 
@@ -639,15 +636,13 @@ public class Board {
         }
     }
 
-    static boolean confirmPlayerPlaying(int x, int y){
-        if(board[x][y].getFill().equals(currentPlayer))
-            return true;
+    private static boolean confirmPlayerPlaying(int x, int y){
+        return board[x][y].getFill().equals(currentPlayer);
 
-        return false;
     }
 
     // (J) Winning gives now more satisfaction
-    static void PrintWin(String Player){
+    private static void PrintWin(String Player){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Congratulations!");
         alert.setHeaderText(Player + " has won the game!\n");

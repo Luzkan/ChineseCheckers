@@ -183,3 +183,5 @@ START - start of the game
 
 1.0a (J)
     - Winning gives now more satisfaction
+    - Code cleanup
+    - Fixed lots of warnings

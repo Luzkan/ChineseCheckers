@@ -4,11 +4,11 @@ import javafx.scene.paint.Color;
 
 public class Marbles extends javafx.scene.shape.Circle {
 
-    public void setColor(Color color) {
+    void setColor(Color color) {
     this.setFill(color);
     }
 
-    public void setDefaultColor(){
+    void setDefaultColor(){
         this.setFill(Color.GRAY);
     }
 

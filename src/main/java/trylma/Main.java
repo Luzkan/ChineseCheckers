@@ -24,7 +24,7 @@ public class Main extends Application {
 
 
     // (J) Main Window in which everything will happen.
-    // Like all screens (mainmenu, the game and options are in this this dude right here)
+    // Like all screens (main menu, the game and options are in this this dude right here)
     private void showWholeWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("/fxml/MainWindow.fxml"));
@@ -138,21 +138,21 @@ public class Main extends Application {
         }).start();
     }
 
-    static void CreateBoard(int TotalAmountOfPlayers, Group group){
+    private static void CreateBoard(int TotalAmountOfPlayers, Group group){
         Board board = new Board(TotalAmountOfPlayers);
         for (int x = 0; x < 13; x++) {
             int posX=x*40+50;
             for (int y = 0; y < 17; y++) {
-                if(board.board[x][y] != null) {
+                if(Board.board[x][y] != null) {
                     // (J) Adding extrasize value to resize the board
                     // Might be helpfull later
                     double extraSize = 1.33;
                     int posY = y * 40 + 50;
-                    board.board[x][y].setCenterY(posY * extraSize);
-                    board.board[x][y].setCenterX(posX * extraSize);
-                    if (y % 2 == 1) board.board[x][y].setCenterX((posX + 20) * extraSize);
-                    board.board[x][y].setRadius(15 * extraSize);
-                    group.getChildren().addAll(board.board[x][y]);
+                    Board.board[x][y].setCenterY(posY * extraSize);
+                    Board.board[x][y].setCenterX(posX * extraSize);
+                    if (y % 2 == 1) Board.board[x][y].setCenterX((posX + 20) * extraSize);
+                    Board.board[x][y].setRadius(15 * extraSize);
+                    group.getChildren().addAll(Board.board[x][y]);
                 }
             }
         }

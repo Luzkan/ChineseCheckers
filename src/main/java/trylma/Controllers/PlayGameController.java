@@ -17,16 +17,8 @@ import static trylma.Board.moveMade;
 
 public class PlayGameController{
 
-
-
     @FXML
     public Text whoseTurnText;
-
-    public String getMyTurn() {
-        return myTurn;
-    }
-
-    String myTurn;
 
     @FXML
     private Button quitBtn;
@@ -43,19 +35,11 @@ public class PlayGameController{
             Board.resetChecks();
             Board.winCondition();
             nextTurn();
-
             Board.turnManager();
         }
     }
 
-
-
-
-
-
-
-
-    public void nextTurn(){
+    private void nextTurn(){
 
     OptionsComputing options = new OptionsComputing();
     int totalAmountOfPlayers = options.getTotalPlayers();
