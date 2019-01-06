@@ -31,12 +31,13 @@ public class PlayGameController{
         // I can't test what will happen if a player whose turn it isn't
         // will click the button. Be aware of that. Probably add ifs if game is in multiplayer.
 
-        if(moveMade || jumpMade) {
+        // (J) 1.14 Rule Update
+        //if(moveMade || jumpMade) {
             Board.resetChecks();
             Board.winCondition();
             nextTurn();
             Board.turnManager();
-        }
+        //}
 }
 
     private void nextTurn(){

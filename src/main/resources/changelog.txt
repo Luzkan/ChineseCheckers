@@ -213,3 +213,6 @@ START - start of the game
     - Quick addition to fix multiplayer problems
     * Still needed investigation in Board (unknown class problem)
     - UML's
+
+1.14 (J)
+    - Rule update to fit what was in .PDF about the game
