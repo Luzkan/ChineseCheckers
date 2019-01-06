@@ -37,12 +37,21 @@ public class PlayGameController{
             nextTurn();
             Board.turnManager();
         }
-    }
+}
 
     private void nextTurn(){
 
-    OptionsComputing options = new OptionsComputing();
-    int totalAmountOfPlayers = options.getTotalPlayers();
+    int totalAmountOfPlayers;
+
+    if (!(Client.inMulitipalyerMode)){
+        OptionsComputing options = new OptionsComputing();
+        totalAmountOfPlayers = options.getTotalPlayers();
+    }else{
+        totalAmountOfPlayers = Client.Number_of_players;
+    }
+
+
+
 
     // (J) Player 0 is to make those easy to read ifs. Otherwise it would skip over Player thats in-game.
 

@@ -200,6 +200,7 @@ START - start of the game
 
 1.12 (J)
     - Added few more tests
+    - All warnings removed
     - Polished interface and changed few stuff (host, added alert, unused option removed).
     * Tests to be made:
         - Request response

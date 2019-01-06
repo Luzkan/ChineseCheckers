@@ -23,7 +23,7 @@ public class Client {
         public static int whoseTurnInt;
 
 
-    Client(String serverAddress) throws Exception {
+    public Client(String serverAddress) throws Exception {
             // Setup networking
             socket = new Socket(serverAddress, port);
             in = new BufferedReader(new InputStreamReader(

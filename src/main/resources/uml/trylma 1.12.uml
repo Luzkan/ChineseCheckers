@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>trylma</OriginalElement>
+  <nodes>
+    <node x="149.33928571428575" y="277.0">trylma.Board</node>
+    <node x="140.33928571428575" y="0.0">trylma.Marbles</node>
+    <node x="36.5" y="1248.5">trylma.BoardTest</node>
+    <node x="215.50000000000003" y="1516.0">trylma.Main</node>
+    <node x="332.7386904761905" y="2402.0">trylma.Controllers</node>
+    <node x="57.49702380952385" y="2369.0">trylma.OptionsComputingTest</node>
+    <node x="841.4863095238096" y="0.0">trylma.ClientTest</node>
+    <node x="600.4863095238096" y="0.0">trylma.MainTest</node>
+    <node x="128.95317460317463" y="1860.0">trylma.OptionsComputing</node>
+    <node x="319.9863095238096" y="1104.0">trylma.Client</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="trylma.Controllers" target="trylma.OptionsComputing">
+      <point x="-11.416666666666629" y="-14.5" />
+      <point x="389.8220238095239" y="2329.0" />
+      <point x="346.75317460317467" y="2329.0" />
+      <point x="96.80000000000007" y="224.5" />
+    </edge>
+    <edge source="trylma.BoardTest" target="trylma.Board">
+      <point x="39.5" y="-36.5" />
+      <point x="155.0" y="1074.0" />
+      <point x="216.83928571428575" y="1074.0" />
+      <point x="-67.5" y="378.5" />
+    </edge>
+    <edge source="trylma.OptionsComputingTest" target="trylma.OptionsComputing">
+      <point x="-61.5" y="-47.5" />
+      <point x="118.99702380952385" y="2349.0" />
+      <point x="153.15317460317462" y="2349.0" />
+      <point x="-96.80000000000001" y="224.5" />
+    </edge>
+    <edge source="trylma.Board" target="trylma.Marbles">
+      <point x="0.0" y="-378.5" />
+      <point x="0.0" y="113.5" />
+    </edge>
+    <edge source="trylma.Board" target="trylma.Client">
+      <point x="94.5" y="378.5" />
+      <point x="378.8392857142858" y="1074.0" />
+      <point x="484.2363095238096" y="1074.0" />
+      <point x="54.75" y="-181.0" />
+    </edge>
+    <edge source="trylma.Controllers" target="trylma.Main">
+      <point x="11.416666666666686" y="-14.5" />
+      <point x="412.65535714285716" y="1835.0" />
+      <point x="408.875" y="1835.0" />
+      <point x="82.875" y="147.0" />
+    </edge>
+    <edge source="trylma.Main" target="trylma.Board">
+      <point x="-44.19999999999999" y="-147.0" />
+      <point x="282.0531746031746" y="1084.0" />
+      <point x="297.8392857142858" y="1084.0" />
+      <point x="13.5" y="378.5" />
+    </edge>
+    <edge source="trylma.Controllers" target="trylma.Board">
+      <point x="57.083333333333314" y="-14.5" />
+      <point x="458.3220238095238" y="2349.0" />
+      <point x="549.4863095238096" y="2349.0" />
+      <point x="549.4863095238096" y="1064.0" />
+      <point x="405.8392857142858" y="1064.0" />
+      <point x="121.5" y="378.5" />
+    </edge>
+    <edge source="trylma.OptionsComputing" target="trylma.Main">
+      <point x="0.0" y="-224.5" />
+      <point x="249.95317460317463" y="1835.0" />
+      <point x="243.12500000000003" y="1835.0" />
+      <point x="-82.875" y="147.0" />
+    </edge>
+    <edge source="trylma.Board" target="trylma.Main">
+      <point x="-13.5" y="378.5" />
+      <point x="271.0531746031746" y="1491.0" />
+      <point x="237.60000000000005" y="1491.0" />
+      <point x="-88.39999999999998" y="-147.0" />
+    </edge>
+    <edge source="trylma.Main" target="trylma.OptionsComputing">
+      <point x="-27.625" y="147.0" />
+      <point x="48.39999999999998" y="-224.5" />
+    </edge>
+    <edge source="trylma.Board" target="trylma.OptionsComputing">
+      <point x="-40.5" y="378.5" />
+      <point x="243.83928571428575" y="1084.0" />
+      <point x="205.00000000000003" y="1084.0" />
+      <point x="205.00000000000003" y="1835.0" />
+      <point x="201.5531746031746" y="1835.0" />
+      <point x="-48.400000000000034" y="-224.5" />
+    </edge>
+    <edge source="trylma.Client" target="trylma.Board">
+      <point x="-54.75" y="-181.0" />
+      <point x="374.7363095238096" y="1084.0" />
+      <point x="351.8392857142858" y="1084.0" />
+      <point x="67.5" y="378.5" />
+    </edge>
+    <edge source="trylma.Main" target="trylma.Client">
+      <point x="88.39999999999998" y="-147.0" />
+      <point x="414.4" y="1491.0" />
+      <point x="429.4863095238096" y="1491.0" />
+      <point x="0.0" y="181.0" />
+    </edge>
+    <edge source="trylma.Controllers" target="trylma.Client">
+      <point x="34.25" y="-14.5" />
+      <point x="435.4886904761905" y="2339.0" />
+      <point x="509.0392857142857" y="2339.0" />
+      <point x="509.0392857142857" y="1491.0" />
+      <point x="502.4863095238096" y="1491.0" />
+      <point x="73.0" y="181.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="358.7373737373738" y="503.5" />
+  <SelectedNodes>
+    <node>trylma.Marbles</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
