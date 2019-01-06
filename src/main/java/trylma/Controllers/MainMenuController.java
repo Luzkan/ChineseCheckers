@@ -1,6 +1,8 @@
 package trylma.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import trylma.Main;
 
 import java.io.IOException;
@@ -17,7 +19,11 @@ public class MainMenuController {
 
     @FXML
     void goHostGame() {
-
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Starting up a server");
+        alert.setHeaderText("Use 'ChineseCheckersServer' to start-up a server in order to play online.");
+        alert.setContentText("In future release it's possible to merge both into one executable.");
+        alert.show();
     }
 
     // (J) Join Game
