@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03018755-99aa-4410-8658-1050e488d999" name="Default Changelist" comment="1.12 Tests, Warnings Removed, Interface polished">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/uml/trylma 1.12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/uml/trylma 1.12.uml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trylma/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trylma/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trylma/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trylma/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trylma/Controllers/PlayGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trylma/Controllers/PlayGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/changelog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkersPrefs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/checkersPrefs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Connection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Connection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/uml/trylma 1.12.uml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/uml/trylma 1.12.uml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/changelog.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,17 +17,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ChineseCheckers$Main.ic" NAME="Main Coverage Results" MODIFIED="1544289063784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>trylma.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/ChineseCheckers$All_in_ChineseCheckers.ic" NAME="All in ChineseCheckers Coverage Results" MODIFIED="1546804574839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ChineseCheckers$BoardTest.ic" NAME="BoardTest Coverage Results" MODIFIED="1546806061193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>trylma.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/ChineseCheckers$OptionsComputingTest_defaultValueTotalPlayers.ic" NAME="OptionsComputingTest.defaultValueTotalPlayers Coverage Results" MODIFIED="1546803734855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/ChineseCheckers$trylma_in_ChineseCheckers.ic" NAME="trylma in ChineseCheckers Coverage Results" MODIFIED="1546805846741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>trylma.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/ChineseCheckers$All_in_ChineseCheckers.ic" NAME="All in ChineseCheckers Coverage Results" MODIFIED="1546804574839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ChineseCheckers$trylma_in_ChineseCheckers.ic" NAME="trylma in ChineseCheckers Coverage Results" MODIFIED="1546805846741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/ChineseCheckers$Main.ic" NAME="Main Coverage Results" MODIFIED="1544289063784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>trylma.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/ChineseCheckers$OptionsComputingTest_defaultValueTotalPlayers.ic" NAME="OptionsComputingTest.defaultValueTotalPlayers Coverage Results" MODIFIED="1546803734855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>trylma.*</FILTER>
     </SUITE>
   </component>
@@ -55,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
+            <state relative-caret-position="595">
               <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -67,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="527">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="80" column="39" lean-forward="true" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
+            <state relative-caret-position="-782">
+              <caret line="80" column="39" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,10 +86,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/Connection.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="539">
+              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Controllers/PlayGameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
+            <state relative-caret-position="765">
               <caret line="45" selection-start-line="45" selection-end-line="51" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -112,13 +120,59 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/changelog.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
+            <state relative-caret-position="-249">
+              <caret line="174" selection-start-line="174" selection-end-line="174" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/uml/trylma 1.12.uml">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>trylma</OriginalElement>
+              <nodes>
+                <node x="0.0" y="0.0">trylma.Board</node>
+                <node x="0.0" y="802.0">trylma.Marbles</node>
+                <node x="866.0" y="0.0">trylma.Main</node>
+                <node x="0.0" y="1074.0">trylma.BoardTest</node>
+                <node x="367.5" y="499.0">trylma.Controllers</node>
+                <node x="835.0" y="802.0">trylma.OptionsComputingTest</node>
+                <node x="574.0" y="802.0">trylma.ClientTest</node>
+                <node x="333.0" y="802.0">trylma.MainTest</node>
+                <node x="315.0" y="0.0">trylma.OptionsComputing</node>
+                <node x="602.0" y="0.0">trylma.Client</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="trylma.Controllers" target="trylma.OptionsComputing">
+                  <point x="0.0" y="-14.5" />
+                  <point x="0.0" y="224.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.0" x="32.5" y="220.0" />
+              <SelectedNodes>
+                <node>trylma.Client</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+                <Category>Properties</Category>
+              </Categories>
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/uml/trylma 1.12.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -209,6 +263,7 @@
         <option value="$PROJECT_DIR$/src/main/java/trylma/Controllers/PlayGameController.java" />
         <option value="$PROJECT_DIR$/src/main/java/trylma/Board.java" />
         <option value="$PROJECT_DIR$/src/main/resources/changelog.txt" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/Connection.fxml" />
       </list>
     </option>
   </component>
@@ -314,6 +369,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChineseCheckers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChineseCheckers" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="fxml" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ChineseCheckers" type="b2602c69:ProjectViewProjectNode" />
@@ -500,6 +563,7 @@
       <workItem from="1546804202952" duration="1801000" />
       <workItem from="1546807002888" duration="1148000" />
       <workItem from="1546811838337" duration="1753000" />
+      <workItem from="1546814556898" duration="287000" />
     </task>
     <task id="LOCAL-00001" summary="Added working click tool for marbles, atm. as a debugger to checkout the ID&#10;ID = (x, y)&#10;Added option to scale board">
       <created>1544101674514</created>
@@ -726,13 +790,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107018000" />
+    <option name="totallyTimeSpent" value="107305000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24570313" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24840085" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -741,8 +805,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4890625" visible="true" weight="0.3256705" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49960938" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48827294" visible="true" weight="0.32502708" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -750,7 +814,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Statistic" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5109375" side_tool="true" visible="true" weight="0.3256705" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5117271" side_tool="true" visible="true" weight="0.32502708" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49453124" weight="0.3256705" />
       <window_info anchor="bottom" id="Analysis" order="13" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
@@ -759,7 +823,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven" order="5" sideWeight="0.49839228" visible="true" weight="0.14765625" />
+      <window_info anchor="right" id="Maven" order="5" sideWeight="0.49839228" visible="true" weight="0.023987208" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
@@ -836,20 +900,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/Options.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3298">
           <caret line="194" column="26" selection-start-line="194" selection-start-column="26" selection-end-line="194" selection-end-column="26" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/MainWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/trylma/PreferenceTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/trylma/PlayerManager.java" />
@@ -859,12 +923,12 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/jre/lib/ext/jfxrt.jar!/javafx/scene/paint/Color.class" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/PlayGame.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="21" column="97" selection-start-line="21" selection-start-column="97" selection-end-line="21" selection-end-column="97" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Controllers/ConnectionController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -954,20 +1018,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/modules.uml">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>MODULES</ID>
-          <OriginalElement />
-          <nodes />
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.5" />
-          <SelectedNodes />
-          <Categories />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/modules.uml" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/uml/0.11.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -990,12 +1041,12 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="358.7373737373738" y="503.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="359.0" y="504.0" />
           <SelectedNodes />
           <Categories>
             <Category>Fields</Category>
-            <Category>Methods</Category>
             <Category>Constructors</Category>
+            <Category>Methods</Category>
             <Category>Properties</Category>
           </Categories>
           <SCOPE>All</SCOPE>
@@ -1003,29 +1054,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/Connection.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/MainMenu.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="96" selection-start-line="12" selection-start-column="96" selection-end-line="12" selection-end-column="96" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Controllers/MainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1039,30 +1072,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="80" column="39" lean-forward="true" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
+        <state relative-caret-position="595">
           <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Controllers/PlayGameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="45" selection-start-line="45" selection-end-line="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1071,8 +1084,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="527">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Controllers/PlayGameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" selection-start-line="45" selection-end-line="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Controllers/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1081,8 +1114,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/changelog.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
+        <state relative-caret-position="-249">
+          <caret line="174" selection-start-line="174" selection-end-line="174" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/uml/trylma 1.12.uml">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>trylma</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">trylma.Board</node>
+            <node x="0.0" y="802.0">trylma.Marbles</node>
+            <node x="866.0" y="0.0">trylma.Main</node>
+            <node x="0.0" y="1074.0">trylma.BoardTest</node>
+            <node x="367.5" y="499.0">trylma.Controllers</node>
+            <node x="835.0" y="802.0">trylma.OptionsComputingTest</node>
+            <node x="574.0" y="802.0">trylma.ClientTest</node>
+            <node x="333.0" y="802.0">trylma.MainTest</node>
+            <node x="315.0" y="0.0">trylma.OptionsComputing</node>
+            <node x="602.0" y="0.0">trylma.Client</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="trylma.Controllers" target="trylma.OptionsComputing">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="224.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="32.5" y="220.0" />
+          <SelectedNodes>
+            <node>trylma.Client</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/uml/trylma 1.12.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/trylma/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="80" column="39" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/Connection.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1126,7 +1219,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>1.8.0_161</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -197,6 +197,7 @@ START - start of the game
 
 1.0e (J)
     - Adding stuff to pom to make tests run from Maven
+    (G) tests added
 
 1.12 (J)
     - Added few more tests
@@ -216,3 +217,8 @@ START - start of the game
 
 1.14 (J)
     - Rule update to fit what was in .PDF about the game
+
+1.15 (G)
+server operational
+bot working
+intarface changes

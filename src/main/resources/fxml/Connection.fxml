@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1380.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trylma.Controllers.ConnectionController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1380.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trylma.Controllers.ConnectionController">
    <center>
       <Pane prefHeight="980.0" prefWidth="1860.0" BorderPane.alignment="CENTER">
          <children>
@@ -27,7 +27,7 @@
                   <Font size="29.0" />
                </font>
             </Label>
-            <TextField fx:id="givenIP" layoutX="635.0" layoutY="553.0" prefHeight="48.0" prefWidth="176.0" promptText="127.0.0.1" text="127.0.0.1">
+            <TextField fx:id="givenIP" layoutX="635.0" layoutY="553.0" prefHeight="48.0" prefWidth="176.0" promptText="127.0.0.1" text="Localhost">
                <font>
                   <Font size="22.0" />
                </font></TextField>
@@ -36,7 +36,7 @@
                   <Font size="29.0" />
                </font>
             </Label>
-            <TextField fx:id="givenPort" layoutX="635.0" layoutY="610.0" prefHeight="48.0" prefWidth="177.0" promptText="3306" text="3306">
+            <TextField fx:id="givenPort" layoutX="635.0" layoutY="610.0" prefHeight="48.0" prefWidth="177.0" promptText="3306" text="9001">
                <font>
                   <Font size="22.0" />
                </font></TextField>
