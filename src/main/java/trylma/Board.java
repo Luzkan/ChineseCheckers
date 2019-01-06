@@ -20,16 +20,9 @@ public class Board {
 
     // (J) Num of players is needed outside of "public Board" for turnManager
 
-    private static int totalPlayers;
-
-    if (!(Client.inMulitipalyerMode)){
-        private static OptionsComputing options = new OptionsComputing();
-        totalPlayers = options.getTotalPlayers();
-    }else{
-        totalPlayers = Client.Number_of_players;
-    }
-
-
+    private static OptionsComputing options = new OptionsComputing();
+    private static int totalPlayers = options.getTotalPlayers();
+    private static int cpuComputers = options.getNumberOfCPU();
     private static int turnNumber = 0;
     private static Paint currentPlayer = Color.GREEN;
 
