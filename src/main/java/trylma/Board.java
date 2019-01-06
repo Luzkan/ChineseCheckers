@@ -21,7 +21,7 @@ public class Board {
     // (J) Num of players is needed outside of "public Board" for turnManager
 
     private static OptionsComputing options = new OptionsComputing();
-    private static int totalPlayers = options.getTotalPlayers();
+    private static int totalPlayers;
     private static int cpuComputers = options.getNumberOfCPU();
     private static int turnNumber = 0;
     private static Paint currentPlayer = Color.GREEN;
@@ -37,6 +37,7 @@ public class Board {
         that's why AQUA COLORED marbles are ignored when drawing */
 
     public Board(int totalNumberOfPlayers) {
+        totalPlayers=totalNumberOfPlayers;
         try {
             if (totalNumberOfPlayers < 2 || totalNumberOfPlayers == 5 || totalNumberOfPlayers > 6)
                 throw new WrongNumberArgsException("Invalid Number of players");
