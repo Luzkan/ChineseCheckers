@@ -188,3 +188,6 @@ START - start of the game
 
 1.0b (J)
     - 3 warnings less
+
+1.0c (J)
+    - JUnit Updated

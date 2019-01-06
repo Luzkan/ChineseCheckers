@@ -22,6 +22,7 @@ public class Board {
 
     private static OptionsComputing options = new OptionsComputing();
     private static int totalPlayers = options.getTotalPlayers();
+    private static int cpuComputers = options.getNumberOfCPU();
     private static int turnNumber = 0;
     private static Paint currentPlayer = Color.GREEN;
 
@@ -345,7 +346,7 @@ public class Board {
 
 
 
-     private void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
+     private static void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
         try {
            if (jumpPossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
                 board[hereGoX][hereGoY].setFill(player_color);
@@ -365,7 +366,7 @@ public class Board {
         }
     }
 
-     private boolean jumpPossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
+     private static boolean jumpPossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
 
         /* (J) There are 8 direction from which a marble can jump over a marble
            Imagine that we have a clock and we jump from number to the other side
@@ -656,5 +657,47 @@ public class Board {
             e.printStackTrace();
         }
     }
+
+    /*
+
+    static void customBot() {
+
+        if (!(
+        Color.GREEN.equals(board[4][13].getFill()) &&
+        Color.GREEN.equals(board[5][13].getFill()) &&
+        Color.GREEN.equals(board[6][13].getFill()) &&
+        Color.GREEN.equals(board[7][13].getFill()) &&
+        Color.GREEN.equals(board[7][14].getFill()) &&
+        Color.GREEN.equals(board[5][14].getFill()) &&
+        Color.GREEN.equals(board[6][14].getFill()) &&
+        Color.GREEN.equals(board[5][15].getFill()) &&
+        Color.GREEN.equals(board[6][15].getFill()) &&
+        Color.GREEN.equals(board[6][16].getFill())) && currentPlayer == Color.GREEN
+        ) {
+
+            System.out.println("Bot tries to do smth");
+            int i, j = 0;
+
+            for (i = 0; i < 13; i++) {
+                for (j = 0; j < 17; j++) {
+                    if (Color.GREEN.equals(board[i][j].getFill())){
+                        if(jumpPossible(i-1, j+2, i, j)) {
+                            jump(i-1, j+2, i, j, Color.GREEN);
+                            System.out.println("Bot jumps left");
+                            turnManager();
+                        }else if(jumpPossible(i+1, j+2, i, j)) {
+                            jump(i+1, j+2, i, j, Color.GREEN);
+                            System.out.println("Bot jumps right");
+                            turnManager();
+                        }
+                    }
+
+                }
+            }
+        }
+
+    }
+    */
+
 }
 
