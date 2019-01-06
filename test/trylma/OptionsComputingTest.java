@@ -27,4 +27,5 @@ class OptionsComputingTest {
         int result = test.getNumberOfCPU();
         assertEquals(0, result);
     }
+    
 }
