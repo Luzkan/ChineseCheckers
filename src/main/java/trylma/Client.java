@@ -1,9 +1,12 @@
 package trylma;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+
+import javafx.scene.control.Alert;
 import javafx.scene.paint.Color;
 import trylma.Controllers.PlayGameController;
 
@@ -72,6 +75,7 @@ public class Client {
                             myTurn = false;
                         }
                         whoseTurnInt=Integer.parseInt(responseParts[1]);
+                        Toolkit.getDefaultToolkit().beep();
                     }
 
                 }

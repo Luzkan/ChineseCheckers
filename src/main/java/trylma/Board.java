@@ -666,46 +666,6 @@ public class Board {
         }
     }
 
-    /*
-
-    static void customBot() {
-
-        if (!(
-        Color.GREEN.equals(board[4][13].getFill()) &&
-        Color.GREEN.equals(board[5][13].getFill()) &&
-        Color.GREEN.equals(board[6][13].getFill()) &&
-        Color.GREEN.equals(board[7][13].getFill()) &&
-        Color.GREEN.equals(board[7][14].getFill()) &&
-        Color.GREEN.equals(board[5][14].getFill()) &&
-        Color.GREEN.equals(board[6][14].getFill()) &&
-        Color.GREEN.equals(board[5][15].getFill()) &&
-        Color.GREEN.equals(board[6][15].getFill()) &&
-        Color.GREEN.equals(board[6][16].getFill())) && currentPlayer == Color.GREEN
-        ) {
-
-            System.out.println("Bot tries to do smth");
-            int i, j = 0;
-
-            for (i = 0; i < 13; i++) {
-                for (j = 0; j < 17; j++) {
-                    if (Color.GREEN.equals(board[i][j].getFill())){
-                        if(jumpPossible(i-1, j+2, i, j)) {
-                            jump(i-1, j+2, i, j, Color.GREEN);
-                            System.out.println("Bot jumps left");
-                            turnManager();
-                        }else if(jumpPossible(i+1, j+2, i, j)) {
-                            jump(i+1, j+2, i, j, Color.GREEN);
-                            System.out.println("Bot jumps right");
-                            turnManager();
-                        }
-                    }
-
-                }
-            }
-        }
-
-    }
-    */
 
 }
 

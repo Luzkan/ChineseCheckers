@@ -213,7 +213,7 @@ START - start of the game
 1.13 (J)
     - Quick addition to fix multiplayer problems
     * Still needed investigation in Board (unknown class problem)
-    - UML's
+    - UML's updated
 
 1.14 (J)
     - Rule update to fit what was in .PDF about the game

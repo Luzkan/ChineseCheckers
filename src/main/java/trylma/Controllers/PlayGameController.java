@@ -18,7 +18,9 @@ import static trylma.Board.moveMade;
 public class PlayGameController{
 
     @FXML
-    public Text whoseTurnText;
+    private Text whoseTurnText;
+    @FXML
+    private Text TURNtext;
 
     @FXML
     private Button quitBtn;
@@ -40,7 +42,7 @@ public class PlayGameController{
         //}
 }
 
-    private void nextTurn(){
+    public void nextTurn(){
 
     int totalAmountOfPlayers;
 
@@ -121,8 +123,11 @@ public class PlayGameController{
         if (whoseTurnText.getText().equals("Player 0"))
             whoseTurnText.setText("Player Green");
     }
-
-    Client.InformServerEndTurn();
+    if(Client.inMulitipalyerMode) {
+        Client.InformServerEndTurn();
+        whoseTurnText.setText("");
+        TURNtext.setText("");
+    }
 
     }
 

@@ -5,7 +5,7 @@
     <map/>
     <node name="trylma.Main">
       <map>
-        <entry key="ipPort" value="127.0.0.1:3306"/>
+        <entry key="ipPort" value="Localhost:9001"/>
         <entry key="totalPlayers" value="2"/>
         <entry key="numberOfPlayers" value="2"/>
         <entry key="numberOfCPU" value="0"/>

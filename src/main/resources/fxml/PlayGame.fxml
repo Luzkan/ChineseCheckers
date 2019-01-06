@@ -11,7 +11,7 @@
    <right>
       <VBox alignment="CENTER" prefHeight="960.0" prefWidth="261.0" BorderPane.alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Turn:">
+            <Text fx:id="TURNtext" strokeType="OUTSIDE" strokeWidth="0.0" text="Turn:">
                <font>
                   <Font size="25.0" />
                </font>
