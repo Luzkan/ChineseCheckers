@@ -319,7 +319,7 @@ public class Board {
     //self explanatory
     // (J) 0.6 I have no idea why move was made static, so im changing that
     // (J) 1.0a Made Private
-    private void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
+     void move(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
         try {
             if (movePossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
                 board[hereGoX][hereGoY].setFill(board[goingFromX][goingFromY].getFill());
@@ -346,7 +346,7 @@ public class Board {
 
 
 
-     private static void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
+      static void jump(int hereGoX, int hereGoY, int goingFromX, int goingFromY, Paint player_color) {
         try {
            if (jumpPossible(hereGoX, hereGoY, goingFromX, goingFromY)) {
                 board[hereGoX][hereGoY].setFill(player_color);
@@ -366,7 +366,7 @@ public class Board {
         }
     }
 
-     private static boolean jumpPossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
+      static boolean jumpPossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
 
         /* (J) There are 8 direction from which a marble can jump over a marble
            Imagine that we have a clock and we jump from number to the other side
@@ -383,7 +383,7 @@ public class Board {
         if((Client.inMulitipalyerMode&&!Client.myTurn)||(Client.inMulitipalyerMode&&!Client.myColor.equals(board[goingFromX][goingFromY].getFill())))
              return false;
 
-        if(confirmPlayerPlaying(goingFromX, goingFromY)) {
+        if(confirmPlayerPlaying(goingFromX, goingFromY)||Client.myTurn) {
 
             // (J) Marble can jump only on a place that's not occupied by other marble.
             if (Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) {
@@ -435,11 +435,11 @@ public class Board {
         return false;
     }
 
-    private static boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
+     static boolean movePossible(int hereGoX, int hereGoY, int goingFromX, int goingFromY) {
         if((Client.inMulitipalyerMode&&!Client.myTurn)||(Client.inMulitipalyerMode&&!Client.myColor.equals(board[goingFromX][goingFromY].getFill())))
             return false;
 
-    if(confirmPlayerPlaying(goingFromX, goingFromY))
+    if(confirmPlayerPlaying(goingFromX, goingFromY)||Client.myTurn)
         if (goingFromX == hereGoX + 1 || goingFromX == hereGoX - 1 || goingFromX == hereGoX) //must be close
             if (goingFromY == hereGoY + 1 || goingFromY == hereGoY - 1 || goingFromY == hereGoY)
                 if (Color.GRAY.equals(board[hereGoX][hereGoY].getFill())) // target must be gray
@@ -461,7 +461,7 @@ public class Board {
 
     // (J) Checked with "End Turn" button.
     // (J) 0.6 Switching to public static for controller handler
-    public static void winCondition(){
+    public static boolean winCondition(){
         if(
             Color.GREEN.equals(board[4][13].getFill()) &&
             Color.GREEN.equals(board[5][13].getFill()) &&
@@ -476,6 +476,7 @@ public class Board {
             ) {
             System.out.println("Player Green Won.");
             PrintWin("Player Green");
+            return true;
             }
         if(
             Color.RED.equals(board[6][0].getFill()) &&
@@ -491,6 +492,7 @@ public class Board {
             ) {
             System.out.println("Player Red Won.");
             PrintWin("Player Red");
+            return true;
             }
 
         if(
@@ -507,6 +509,7 @@ public class Board {
             ) {
             System.out.println("Player Yellow Won.");
             PrintWin("Player Yellow");
+            return true;
             }
 
         if(
@@ -523,6 +526,7 @@ public class Board {
             ) {
             System.out.println("Player Blue Won.");
             PrintWin("Player Blue");
+            return true;
             }
 
         if(
@@ -539,6 +543,7 @@ public class Board {
             ) {
             System.out.println("Player Pink Won.");
             PrintWin("Player Pink");
+            return true;
             }
 
         if(
@@ -555,7 +560,9 @@ public class Board {
             ) {
             System.out.println("Player Darkmagenta Won.");
             PrintWin("Player Darkmagenta");
+            return true;
             }
+        return false;
     }
 
     // (J) Simple modulo check based on # of players

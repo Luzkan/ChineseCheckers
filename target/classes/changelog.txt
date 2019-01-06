@@ -194,3 +194,6 @@ START - start of the game
 
 1.0d (J)
     - Test Example
+
+1.0e (J)
+    - Adding stuff to pom to make tests run from Maven
